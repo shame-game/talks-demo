@@ -1,0 +1,130 @@
+
+
+
+/*===========================
+     05.APP FEATURES css 
+===========================*/
+
+.app_features_area{}
+
+.app_features_content{}
+
+.single_app_features{
+
+    &:hover {
+
+        .app_features_icon {
+
+            i {
+                border-radius: 50%;
+            }
+        }
+    }
+    & .app_features_icon{
+        & i{
+            font-size: 40px;
+            width: 74px;
+            height: 74px;
+            line-height: 74px;
+            border-radius: 10px;
+            color: $white;
+            text-align: center;
+            @include transition(.3s);
+        }
+    }
+    & .app_features_content{
+        margin-top: 25px;
+        
+        & .app_features_title{
+            font-size: 24px;
+            font-weight: 700;
+        }
+        & p{
+            margin-top: 15px;
+        }
+    }
+    
+    &.app_features_1{
+        & .app_features_icon{
+            & i{
+                background-color: #F85146;
+            }
+        }
+    }
+    &.app_features_2{
+        & .app_features_icon{
+            & i{
+                background-color: #903FEE;
+            }
+        }
+    }
+    &.app_features_3{
+        & .app_features_icon{
+            & i{
+                background-color: #581CCB;
+            }
+        }
+    }
+    &.app_features_4{
+        & .app_features_icon{
+            & i{
+                background-color: #2e45d3;
+            }
+        }
+    }
+}
+
+.app_features_image{
+    padding: 0 15px;
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    
+    &::before,
+    &::after{
+        position: absolute;
+        content: '';
+        width: 419px;
+        height: 419px;
+        background-color: transparent;
+        border: 2px solid rgba(63, 27, 152, 0.1);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -50%));
+        z-index: -1;
+        
+        @media #{$xs}{
+            width: 289px;
+            height: 289px;
+        }
+        @media #{$sm}{
+            width: 419px;
+            height: 419px;
+        }
+    }
+    
+    &::after{
+        width: 369px;
+        height: 369px;
+        
+        @media #{$xs}{
+            width: 219px;
+            height: 219px;
+        }
+        @media #{$sm}{
+            width: 369px;
+            height: 369px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+

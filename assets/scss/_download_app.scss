@@ -1,0 +1,162 @@
+
+
+
+/*===========================
+    10.DOWNLOAD APP css 
+===========================*/
+
+.download_app_area{
+    position: relative;
+}
+
+.download_app_image{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    z-index: 9;
+    
+    & .image{
+        & img{
+            @media #{$lg}{
+                width: 480px;
+            }
+        }
+    }
+}
+
+
+.download_app{
+    background: -webkit-linear-gradient(left, rgba(41,21,132,1) 0%, rgba(145,51,226,1) 100%);
+    background: -o-linear-gradient(left, rgba(41,21,132,1) 0%, rgba(145,51,226,1) 100%);
+    background: linear-gradient(to right, rgba(41,21,132,1) 0%, rgba(145,51,226,1) 100%);
+    padding: 115px 60px 120px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    z-index: 8;
+    margin-top: 111px;
+    
+    @media #{$xs}{
+        padding: 115px 30px 120px;
+    }
+}
+
+.download_shape{
+    position: absolute;
+    top: 50%;
+    left: -80px;
+    @include transform(translateY(-50%));
+    z-index: -1;
+}
+
+.download_shape_2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+    z-index: -1;
+    opacity: 0.21;
+}
+
+.download_app_content{
+    max-width: 470px;
+    
+    @media #{$lg}{
+        max-width: 410px;
+    }
+    
+    & .download_title{
+        color: $white;
+        font-size: 44px;
+        font-weight: 700;
+        
+        @media #{$lg}{
+            font-size: 40px;
+        }nt-weight: 700;
+        
+        @media #{$xs}{
+            font-size: 30px;
+        }
+        
+    }
+    & p{
+        color: $white;
+        margin-top: 15px;
+    }
+    & ul{
+        padding-top: 30px;
+        
+        & li{
+            display: inline-block;
+            margin-top: 10px;
+            
+            & + li{
+                margin-left: 30px;
+                
+                @media #{$xs}{
+                    margin-left: 0;
+                }
+            }
+            
+            & a{
+                background-color: #fff;
+                padding: 8px 20px;
+                border-radius: 5px;
+                
+                @media #{$xs}{
+                    padding: 4px 10px 3px;
+                }
+                
+                & .icon{
+                    & i{
+                        font-size: 25px;
+                        color: $theme-color;
+                        
+                        @media #{$xs}{
+                            font-size: 18px;
+                        }
+                    }
+                }
+                & .content{
+                    padding-left: 15px;
+                    
+                    @media #{$xs}{
+                        padding-left: 10px;
+                    }
+                    
+                    & .title{
+                        font-size: 18px;
+                        font-weight: 600;
+                        
+                        @media #{$xs}{
+                            font-size: 16px;
+                        }
+                    }
+                    & p{
+                        margin-top: 0;
+                        color: $body-color;
+                        font-size: 12px;
+                        
+                        @media #{$xs}{
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+<svg width="1366" height="850" viewBox="0 0 1366 850" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1366 0H0V662.5C8 770.667 101.3 946.2 410.5 783C719.7 619.8 1176.33 366.333 1366 260V0Z" fill="url(#decorator-bg)"/>
+  <defs>
+    <linearGradient id="decorator-bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="5%" stop-color="#2f4858" />
+      <stop offset="95%" stop-color="#344768" />
+    </linearGradient>
+  </defs>
+</svg>

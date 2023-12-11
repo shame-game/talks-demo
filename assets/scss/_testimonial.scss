@@ -1,0 +1,106 @@
+
+
+
+/*===========================
+     08.TESTIMONIAL css 
+===========================*/
+
+.testimonial_area{
+    background-color: $gray;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial_shape{
+    position: absolute;
+    top: 50%;
+    right: -15%;
+    @include transform(translateY(-50%));
+    
+    @media #{$xs}{
+        display: none;
+    }
+}
+
+
+
+.testimonial_author_active{}
+
+.single_testimonial_author{
+    & img{
+        width: 100%;
+        border-radius: 25px;
+    }
+}
+
+
+.testimonial_content{
+    margin-top: 45px;
+    
+    & .testimonial_title{
+        font-size: 45px;
+        font-weight: 700;
+        
+        @media #{$xs}{
+            font-size: 30px;
+        }
+    }
+}
+
+.single_testimonial_content{
+    margin-top: 45px;
+    
+    & i{
+        font-size: 66px;
+        color: $theme-color;
+    }
+    & p{
+        margin-top: 15px;
+    }
+    & .author_name{
+        font-size: 20px;
+        font-weight: 500;
+        color: $heading-color;
+        margin-top: 45px;
+    }
+    & span{
+        font-size: 14px;
+        color: $heading-color;
+    }
+}
+
+.testimonial_content_active{
+    padding-bottom: 55px;
+    
+    & .slick-arrow{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 9;
+        cursor: pointer;
+        
+        & i{
+            font-size: 24px;
+            color: $body-color;
+            @include transition(0.3s);
+        }
+        
+        &.next{
+            left: 50px;
+        }
+        
+        &:hover{
+            & i{
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+

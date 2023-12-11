@@ -1,0 +1,151 @@
+
+
+
+/*===========================
+       07.SCREENSHOT css 
+===========================*/
+
+.screenshot_area{
+    position: relative;
+    height: 680px;
+    margin-top: 80px;
+    margin-bottom: 160px;
+    
+    @media #{$md}{
+        height: auto;
+    }
+    @media #{$xs}{
+        height: auto;
+    }
+    
+    &::before{
+        position: absolute;
+        content: '';
+        top: -200px;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background-image: url(../images/screenshot_shape.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: top right;
+        
+        @media #{$lg}{
+            top: -100px;
+        }
+        
+        @media #{$md}{
+            display: none;
+        }
+        @media #{$xs}{
+            display: none;
+        }
+    }
+}
+
+.screenshot_content{
+    & .main-btn{
+        margin-top: 40px;
+    }
+}
+
+.screenshot_slide{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    // height: 100%;
+    width: 50%;
+    @include transform(translateY(-50%));
+    
+    @media #{$md}{
+        position: relative;
+        width: 100%;
+        margin-top: 25px;
+        @include transform(translateY(0%));
+    }
+    @media #{$xs}{
+        position: relative;
+        width: 100%;
+        margin-top: 25px;
+        @include transform(translateY(0%));
+    }
+}
+
+
+.single_slider{
+    padding: 25px;
+    & img{
+        @include box-shadow (0px 0px 15px 0px rgba($theme-color, 0.16));
+        
+    }
+    
+    @media #{$lg}{
+        padding: 15px;
+    }
+}
+
+.screenshot_active{
+    & .slick-active{
+        & img{
+            border-radius: 25px;
+        }
+    }
+    & .slick-arrow{
+        position: absolute;
+        bottom: -40px;
+        left: 125px;
+        z-index: 9;
+        cursor: pointer;
+        
+        @media #{$lg}{
+            left: 100px;
+        }
+        @media #{$md}{
+            left: auto;
+            right: 50%;
+            margin: 0 10px;
+        }
+        @media #{$xs}{
+            left: auto;
+            right: 50%;
+            margin: 0 10px;
+        }
+        
+        & i{
+            font-size: 24px;
+            color: $body-color;
+            @include transition(0.3s);
+        }
+        
+        &.next{
+            left: 170px;
+            
+            @media #{$lg}{
+                left: 145px;
+            }
+            
+            @media #{$md}{
+                right: auto;
+                left: 50%;
+            }
+            
+            @media #{$xs}{
+                right: auto;
+                left: 50%;
+            }
+        }
+        
+        &:hover{
+            & i{
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+

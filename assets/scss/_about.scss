@@ -1,0 +1,68 @@
+
+
+
+/*===========================
+       04.ABOUT css 
+===========================*/
+
+
+.about_area{}
+
+.about_image{
+    position: relative;
+    padding-bottom: 30px;
+    
+    & .image{}
+    & .dots{
+        position: absolute;
+        bottom: 0;
+        right: 20%;
+        z-index: -1;
+        @include animation(dots_2 6s ease-out infinite);
+    }
+}
+
+@keyframes dots_2 {
+    0% {
+        @include transform(translateY(0));
+    }
+
+    50% {
+        
+        @include transform(translateY(-50%));
+    }
+
+    100% {
+        @include transform(translateY(0));
+    }
+}
+@-webkit-keyframes dots_2 {
+    0% {
+        @include transform(translateY(0));
+    }
+
+    50% {
+        
+        @include transform(translateY(-50%));
+    }
+
+    100% {
+        @include transform(translateY(0));
+    }
+}
+
+.about_content{
+    & .main-btn{
+        margin-top: 40px;
+        padding: 0 35px;
+    }
+}
+
+
+
+
+
+
+
+
+
