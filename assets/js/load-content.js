@@ -125,6 +125,11 @@ fetchSheet
     });
 
     document.querySelector("#timeline").innerHTML = timelineHtml;
+
+    // form
+
+    
+
     // prize
     let noteHtml = "";
     let prize1Html = "";
