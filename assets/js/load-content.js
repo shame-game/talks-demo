@@ -45,7 +45,8 @@ fetchSheet
 
     // nav items
     let navHtml = "";
-    let nav2Html = '<a class="nav-2-link">Tham gia ngay</a>';
+    let htitleHtml1 = "";
+    let htitleHtml2 = "";
 
     content.nav.forEach(row => {
       navHtml += `
@@ -55,8 +56,63 @@ fetchSheet
       `;
       console.log(row.title)
     });
+    content.headertitle1.forEach(row => {
+      htitleHtml1 += `
+      <div id="home" class="header_hero d-lg-flex align-items-center">
+        <div class="header-svg"><img class="htitle-img" src="${row.resourceUrl}"></div>
+        <div class="container">
+          <div class="row justify-content-end">
+            <div class="col-lg-6">
+              <div class="header_hero_content mt-45">
+                <h2 class="header_title wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.2s">${row.title}
+                </h2>
+                <div class="wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.6s">
+                  <p class="htitle-p">${row.description}</p>
+                </div>
+                <div><a class="htitle-link">${row.postTitle}</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
+    });
+    content.headertitle2.forEach(row => {
+      htitleHtml2 += `
+      <div id="home" class="header_hero d-lg-flex align-items-center">
+        <div class="header-svg"><img class="htitle-img" src="${row.resourceUrl}"></div>
+        <div class="container">
+          <div class="row justify-content-start">
+            <div class="col-lg-8">
+              <div class="header_hero_content mt-45">
+                <h2 class="header_title wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.2s">${row.title}
+                </h2>
+                <div class="wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.6s">
+                  <p class="htitle-p">${row.description}</p>
+                </div>
+                <div><a class="htitle-link">${row.postTitle}</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      `;
+    });
+    document.querySelector(".slickkkk").innerHTML = htitleHtml1 + htitleHtml2;
+
+    $(".slickkkk").slick({
+      dots: false,
+      infinite: true,
+      speed: 600,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      pauseOnHover: false,
+      prevArrow: '<span class="prev"><i class="lni lni-arrow-left"></i></span>',
+      nextArrow: '<span class="next"><i class="lni lni-arrow-right"></i></span>',
+    });
+    
     document.querySelector("#nav").innerHTML = navHtml;
-    document.querySelector("#nav-2").innerHTML = nav2Html;
 
     $(function () {
       $('a.page-scroll[href*="#"]:not([href="#"])').on("click", function () {
@@ -73,10 +129,7 @@ fetchSheet
     });
 
     // header
-    let header = content.header[0];
-    document.querySelector("#home > div.container > div > div > div > h2").innerHTML = header.title;
-    document.querySelector("#home > div.container > div > div > div > div").innerHTML = header.description.replaceAll(/^(.+)$/gm, "<p>$1</p>");
-    let headerImageUrl = header.resourceUrl || "assets/images/header_app.png";
+
     // video
     document.querySelector("#video iframe").src = content.video[content.video.length - 1].resourceUrl;
     let videoHtml = "";
@@ -128,7 +181,7 @@ fetchSheet
 
     // form
 
-    
+
 
     // prize
     let noteHtml = "";
@@ -203,3 +256,4 @@ fetchSheet
 
 
   });
+
