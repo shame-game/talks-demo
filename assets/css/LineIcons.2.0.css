@@ -291,6 +291,20 @@ Author: lineicons.com
   z-index: 999;
 }
 
+.tempo-arrow-left::before {
+  content: "";
+  position: absolute;
+  bottom: 45%;
+  left:40px;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+  background-image: url(../images/icon-pre.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .lni-arrow-right-circle::before {
   content: "\ea1d";
 }
@@ -303,6 +317,20 @@ Author: lineicons.com
   left: 100px;
   padding: 13px;
   background: white;
+}
+
+.tempo-arrow-right::before {
+  content: "";
+  position: absolute;
+  bottom: 45%;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+  background-image: url(../images/icon-next.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .lni-arrow-top-left::before {

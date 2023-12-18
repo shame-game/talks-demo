@@ -91,6 +91,22 @@
               <a class="navbar-brand" href="index.html">
                 <img src="" alt="Logo" />
               </a>
+              <style>
+                .navbar-nav .nav-item:nth-child(1) a {
+                  background-color: rgba(255, 255, 255, 0.6);
+                  color: #0048ab;
+                  font-weight: 700;
+                  font-family: 'Roboto';
+                }
+
+                .sticky .navbar-nav .nav-item:nth-child(1) a {
+                  color: white;
+                  padding: 5px 20px;
+                  border-radius: 8px;
+                  border: 1px solid #0048ab;
+                  background-color: rgba(0, 74, 171, 0.8);
+                }
+              </style>
               <!-- navbar collapse -->
             </nav>
             <!-- navbar -->
@@ -165,10 +181,9 @@
             <h1 class="title-h1">Bốc thăm trúng thưởng</h1>
             <p>Dành cho tất cả khách hàng tham gia đóng góp dự án.</p>
             <div id="noteHtml"></div>
-            <div style="display: flex;justify-content: space-between;align-items: center;width: 100%;">
-              <div class="prize-giai" id="prize2content"></div>
-              <div class="prize-giai" id="prize1content"></div>
-              <div class="prize-giai" id="prize3content"></div>
+            <div class="row" style="display: flex;justify-content: space-between;align-items: center;width: 100%;"
+              id="prizecontent">
+
             </div>
           </div>
         </div>
@@ -187,36 +202,6 @@
       <div class="row">
         <div class="col-lg-6 col-md-9">
           <h2 class="title-h2">1. Thông tin cá nhân</h2>
-          <div class="form-tt">
-            <p>Họ tên:<span style="color: red;">*</span></p><input type="text">
-          </div>
-          <div class="form-tt">
-            <p>Địa chỉ:<span style="color: red;">*</span></p><input type="text">
-          </div>
-          <div class="form-tt">
-            <p>E - mail:<span style="color: red;">*</span></p><input type="gmail">
-          </div>
-          <div class="form-tt">
-            <p>Điện thoại:<span style="color: red;">*</span></p><input type="text">
-          </div>
-          <div class="form-tt">
-            <p>Địa chỉ:<span style="color: red;">*</span></p><input type="text">
-          </div>
-          <div class="form-tt">
-            <p>Quận / Huyện:<span style="color: red;">*</span></p> <select class="form-select" id="sel1"
-              name="sellist1">
-              <option>--- Chọn ---</option>
-              <option>Bửu Long</option>
-            </select>
-          </div>
-          <div class="form-tt">
-            <p>Tỉnh / Thành phố:<span style="color: red;">*</span></p> <select class="form-select" id="sel1"
-              name="sellist1">
-              <option>--- Chọn ---</option>
-              <option>Biên Hòa</option>
-              <option>Long Thành</option>
-            </select>
-          </div>
         </div>
         <div class="col-lg-6">
           <h2 class="title-h2">2. Phương thức thanh toán</h2>
@@ -453,7 +438,7 @@
         </div>
       </div>
       <div class="c">
-        <p>© 2023 - Mọi quyền được bảo lưu</p>
+        <p>© 2023 - Copyright by Biệt Thự Sách</p>
       </div>
       <!-- row -->
     </div>
@@ -501,8 +486,7 @@
   <script src="assets/js/load-content.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/v-stats.js"></script>
+  <script></script>
 </body>
 
 </html>
-
-  

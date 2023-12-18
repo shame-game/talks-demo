@@ -208,7 +208,23 @@ p {
 .section_title p {
   margin-top: 25px;
 }
+.link-signup{
+  padding: 5px 15px;
+  border-radius: 8px;
+  border: 1px solid #288882;
+  color: #228582;
+  transition: all 0.3s ease-in;
+}
+.link-signup:hover{
+  cursor: pointer;
+  color: white;
+  background-color: #228582;
+}
 
+.link-detail{
+  text-decoration: underline;
+  font-style: italic;
+}
 /*===== All Slick Slide Outline Style =====*/
 .slick-slide {
   outline: 0;
@@ -478,7 +494,7 @@ p {
 
 .sticky {
   position: fixed;
-  z-index: 999;
+  z-index: 9999;
   background-color: #fff;
   -webkit-box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
   box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
@@ -588,12 +604,7 @@ p {
     margin: 0;
   }
 }
-.navbar-nav .nav-item:nth-child(1) a{
-  background-color: rgba(255, 255, 255, 0.6);
-  color: #0048ab;
-  font-weight: 700;
-  font-family: 'Roboto';
-}
+
 .navbar-nav .nav-item a {
   font-size: 16px;
   color: #fff;
@@ -786,13 +797,7 @@ p {
   border-radius: 8px;
   border: 1px solid #0048ab;
 }
-.sticky .navbar-nav .nav-item:nth-child(1) a {
-  color: white;
-  padding: 5px 20px;
-  border-radius: 8px;
-  border: 1px solid #0048ab;
-  background-color: rgba(0, 74, 171, 0.8);
-}
+
 .sticky .navbar-nav .nav-item a::before {
   background-color: rgba(54, 152, 238, 0.1);
 }
@@ -1038,7 +1043,7 @@ p {
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease-in-out;
 }
-.nav-2-link:hover{
+.htitle-link:hover{
   color: white;
   cursor: pointer;
   transform: translateX(3px);
@@ -1348,10 +1353,6 @@ p {
   justify-content: space-between;
 }
 
-.benefit-detail>a{
-  text-decoration:underline ;
-  font-style: italic;
-}
 .benefit-sign>h4{
   color: #004aab;
   font-size: 24px;
@@ -1396,6 +1397,23 @@ p {
   font-weight: 700;
 }
 
+.link-blue{
+  background-color: #0048ab;
+  color: white;
+  font-size: 18px;
+  padding: 5px 20px;
+  border-radius: 8px;
+  margin: 0 auto;
+  transition: all 0.4s ease-in-out;
+  border: 1px solid #0048ab;
+}
+.link-blue:hover{
+  background-color: white;
+  color: #0048ab;
+  border: 1px solid #0048ab;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px 0px rgba(74, 97, 251, 0.173);;
+}
 
 
 /*===========================
@@ -1542,7 +1560,7 @@ p {
   width: 30%;
   height: max-content;
 }
-.prize-giai_max{
+.prize-giai-chil{
   width:100%;
   margin: 30px auto;
   border-radius: 14px;
@@ -1551,93 +1569,55 @@ p {
   box-shadow: 0px 0px 15px 0px rgba(54, 152, 238, 0.16);
 }
 
-.prize-giai_min>.content{
-  height: 250px;
-}
-.prize-giai_max>.content{
-  height: 270px;
-}
-.prize-giai_min{
-  width:90%;
-  margin: 30px auto;
-  border-radius: 14px;
-  overflow: hidden;
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(54, 152, 238, 0.16);
-  box-shadow: 0px 0px 15px 0px rgba(54, 152, 238, 0.16);
-}
-.prize-giai>.prize-giai_min>img{
+.prize-img{
   object-fit: cover;
   object-position: center;
   width: 100%;
   aspect-ratio: 5/3;
 }
-.prize-giai>.prize-giai_max>img{
-  object-fit: cover;
-  object-position: center;
-  width: 100%;
-  aspect-ratio: 5/3;
-}
-.prize-giai_max>.content>p{
+
+.prize-giai .content>p{
   color: #0048ab;
-  font-size: calc(1.1rem + 0.3vw);
+  font-size: calc(1rem + 0.3vw);
   text-align: justify;
   width: 80%;
   padding: 10px 0;
   margin: 10px auto;
   font-family: 'Roboto';
 }
-.prize-giai_min>.content>p{
-  color: #0048ab;
-  font-size: calc(0.9rem + 0.3vw);
-  text-align: justify;
-  width: 80%;
-  padding: 10px 0;
-  margin: 10px auto;
-  font-family: 'Roboto';
-}
+
 .prize-giai .bottom{
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 20px;
 }
-.prize-giai .bottom>h1{
-  color: white;
-  font-size: calc(2rem + 0.5vw);
-  background-color: #0048ab;
-  border-radius: 50%;
-  padding: 1px 16px;
-  font-family: 'Roboto';
-}
-.prize-giai .bottom>div{
-  width: 80%;
-}
-.prize-giai_min>.bottom>div>h4,.prize-giai_max>.bottom>div>h4{
-  font-size: calc(1.2rem + 0.3vw);
-  color: #0048ab;
-  text-align: center;
-  font-family: 'Roboto';
-}
-.prize-giai .bottom>div>p{
-  font-size: 11px;
-  line-height: 1.3;
-  color: #0048ab;
-  width: 85%;
-  text-align: justify;
-  margin: 0 auto;
-}
-
-.prize-giai_max>.bottom>img{
+.prize-giai .bottom>img{
   width: 70px;
   height: 70px;
   border-radius: 50%;
 }
-.prize-giai_min>.bottom>img{
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+
+.prize-giai .bottom>div{
+  width: 80%;
+  margin-left: auto;
+}
+.prize-giai .bottom>div>h4{
+  font-size: calc(1.4rem + 0.3vw);
+  color: #0048ab;
+  text-align: left;
+  font-family: 'Roboto';
+  margin-left: 20px;
+}
+.prize-giai .bottom>div>p{
+  font-size: 14px;
+  line-height: 1.3;
+  color: #0048ab;
+  width: 85%;
+  text-align: left;
+  margin-left: 20px;
 }
 
 /* */ 

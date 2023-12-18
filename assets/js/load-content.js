@@ -54,7 +54,6 @@ fetchSheet
           <a class="page-scroll" href="${row.navLink}" target="${row.navTarget}">${row.navName}</a>
         </li>
       `;
-      console.log(row.title)
     });
     content.headertitle1.forEach(row => {
       htitleHtml1 += `
@@ -166,7 +165,7 @@ fetchSheet
             </div>
           </div>
         <div class="benefit-detail">
-          <a href="#">Chi tiết</a>
+          <a class="link-detail" href="#">Chi tiết</a>
           <div class="benefit-sign">
            <h4>${row.capital}</h4>
            <p>${row.profit}</p>
@@ -185,9 +184,7 @@ fetchSheet
 
     // prize
     let noteHtml = "";
-    let prize1Html = "";
-    let prize2Html = "";
-    let prize3Html = "";
+    let prizeHtml = "";
     content.prizenote.forEach((row) => {
       noteHtml += `<div class="prize-note"><p><span><strong>Thời gian diễn ra:</strong></span>`;
       row.description.split("\n").forEach((note) => {
@@ -195,54 +192,23 @@ fetchSheet
       });
       noteHtml += `</p></div>`
     });
-    content.prizetop2.forEach((row) => {
-      prize2Html += `<div class="prize-giai_min">
-      <img src="${row.resourceUrl}">
+    content.prizecontent.forEach((row) => {
+      prizeHtml += `<div class="prize-giai col-lg-6">
+      <div class="prize-giai-chil">
+      <img class="prize-img" src="${row.resourceUrl}">
       <div class="content">
         <p>${row.title}</p>
       </div>
       <div class="bottom">
         <img src="${row.postImageUrl}" alt="">
         <div>
-          <h4>Giải Nhì</h4>
+          <h4>${row.postTitle}</h4>
           <p>${row.gif}</p>
         </div>
-      </div>
+      </div></div>
     </div>`;
     });
-    content.prizetop1.forEach((row) => {
-      prize1Html += `<div class="prize-giai_max">
-      <img src="${row.resourceUrl}">
-      <div class="content">
-        <p>${row.title}</p>
-      </div>
-      <div class="bottom">
-        <img src="${row.postImageUrl}" alt="">
-        <div>
-          <h4>Giải Nhất</h4>
-          <p>${row.gif}</p>
-        </div>
-      </div>
-    </div>`;
-    });
-    content.prizetop3.forEach((row) => {
-      prize3Html += `<div class="prize-giai_min">
-      <img src="${row.resourceUrl}">
-      <div class="content">
-        <p>${row.title}</p>
-      </div>
-      <div class="bottom">
-        <img src="${row.postImageUrl}" alt="">
-        <div>
-          <h4>Giải Ba</h4>
-          <p>${row.gif}</p>
-        </div>
-      </div>
-    </div>`;
-    });
-    document.querySelector("#prize1content").innerHTML = prize1Html;
-    document.querySelector("#prize3content").innerHTML = prize3Html;
-    document.querySelector("#prize2content").innerHTML = prize2Html;
+    document.querySelector("#prizecontent").innerHTML = prizeHtml;
     document.querySelector("#noteHtml").innerHTML = noteHtml;
     // footer
     let footerHtml = "";
