@@ -1,3 +1,42 @@
 .header_navbar {
     background: #004aab;
 }
+
+.story-intro_img>img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0 25px 0 25px;
+}
+.story-intro_content>div{
+    display: flex;
+}
+
+.story-intro_content-after{
+    width: 4px;
+    height: 80px;
+    background-color: #004aab;
+    margin-right: 10px;
+}
+
+.story-intro_content-title h1{
+    font-size: 46px;
+    font-weight: 600;
+    font-family: 'Roboto';
+    color: #004aab;
+}
+.story-intro_content-title h4{
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Roboto';
+    color: #228582;
+}
+
+.story-intro_content>p{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Roboto';
+    text-align: justify;
+    width: 100%;
+}
