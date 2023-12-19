@@ -319,6 +319,34 @@ Author: lineicons.com
   background: white;
 }
 
+.story-arrow-left::before {
+  content: "";
+  position: absolute;
+  bottom: 45%;
+  left: -50px;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+  background-image: url(../images/icon-pre.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.story-arrow-right::before {
+  content: "";
+  position: absolute;
+  bottom: 45%;
+  right: -50px;
+  width: 50px;
+  height: 50px;
+  z-index: 999;
+  background-image: url(../images/icon-next.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .tempo-arrow-right::before {
   content: "";
   position: absolute;

@@ -39,14 +39,6 @@
     font-family: 'Roboto';
     text-align: justify;
     width: 100%;
-    margin-top: 15px;
-}
-
-.progress-img>img{
-    aspect-ratio: 6/3;
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
 }
 
 
@@ -58,13 +50,6 @@
     overflow: hidden;
     background-color: #cfe8e7;
     display: none;
-}
-.story-body_main>p{
-    padding: 40px;
-    font-size: 16px;
-    color: #004aab;
-    font-family: 'Roboto';
-    font-weight: 500;
 }
 
 .on{
@@ -84,18 +69,6 @@
     background-color: #228582;
     padding: 15px 0;
     clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
-    
-    border-bottom: 0.5px solid #228582;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.story-body_list>img{
-    width: 50px;
-    height: 50px;
-}
-.story-body_list>h1{
     color: white;
     font-size: 20px;
 }
@@ -116,122 +89,125 @@
 
 /* new paper */ 
 
-.newspapers-box>div{
+.posts>div{
     border-radius: 8px;
-    border: 0.5px solid #228582;
+    border: 0.5px solid #004aab;
     overflow: hidden;
 }
 
-.newspapers-box>div>img{
+.posts>div>img{
     aspect-ratio: 4/2;
     object-fit: cover;
     object-position: center;
     width: 100%;
 }
 
-.newspapers-content{
+.posts-content{
     min-height: 150px;
     max-height: 150px;
     background-color: #e2eef0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: start;
     padding: 15px;
 }
-
-.newspapers-content>h1{
+.posts-content>p{
+    font-size: 16px;
+    font-weight: 600;
+    color: #228582;
+}
+.posts-content>a{
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     color: #004aab;
     overflow: hidden;
+    margin-top: 10px;
 }
-.newspapers-content>div{
+.posts-content>div{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.newspapers-content>div>img{
-    width: 30%;
+.posts-content>div>img{
+    width: 20%;
     height: auto;
     object-fit: cover;
-    aspect-ratio: 3/1;
-
+    aspect-ratio: 2/1;
 }
 
-.newspapers-content>div>p{
+.posts-content>div>p{
     font-size: 14px;
     font-weight: 600;
     color: rgb(53, 53, 53);
 }
-/* slick */ 
-.slick-dots{
+
+
+.post-main-wrap>img{
+    width: 100%;
+    aspect-ratio: 2/1;
+}
+.post-main-wrap>h1{
+    font-size: 32px;
+    font-weight: 600;
+    color: #004aab;
+    margin-top: 10px;
+    font-family: 'Roboto';
+}
+
+.post-main-wrap>h4{
+    font-size: 16px;
+    font-weight: 600;
+    color: #228582;
+    margin-top: 10px;
+    font-family: 'Roboto';
+    padding: 10px 0;
+}
+
+.post-main-wrap>p{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Roboto';
+    text-align: justify;
+}
+
+.post-child{
     display: flex;
-    justify-content: space-around;
-    z-index: 999;
-    position: relative;
-    margin: -42px;
+}
+.post-child>img{
+    width: 50%;
+    aspect-ratio: 2/1;
+    object-fit: cover;
+    object-position: center;
+}
+.post-child>div{
+    width: 45%;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.slick-dots>li>button{
-    font-size: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 0.5px solid #228582;
-    background-color: #004aab;
-    box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.166);
-}
-.slick-dots>li{
-    position: relative;
-}
-.slick-dots>li::after{
-    content: '2018';
-    position: absolute;
-    top: 35px;
-    color: blue;
-    font-size: 14px;
-    left: -6px;
-    font-weight: 600;
+.post-child>div>h1{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 500;
+    color: #004aab;
     font-family: 'Roboto';
-    transition: all 0.3s ease-in-out;
 }
 
-.slick-dots>.slick-active>button{
-    font-size: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 0.5px solid #228582;
-    background-image: url(https://hcmuni.fpt.edu.vn/Data/Sites/1/media/z2021/ceodinhminhquyen/dhfptwworkshopkhoinghiep5.jpg);
-    box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.166);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-/*
-.slick-dots>.slick-active::after{
-    content: '2018';
-    position: absolute;
-    top: 70px;
-    color: blue;
-    font-size: 14px;
-    left: 5px;
-    font-weight: 600;
+.post-child>div>p{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 300;
     font-family: 'Roboto';
-}
-*/
-.slick-dots>.slick-active::after{
-    content: '2018';
-    text-align: left;
-    position: absolute;
-    top: 70px;
-    color: blue;
-    font-size: 14px;
-    left: 8px;
-    font-weight: 600;
-    font-family: 'Roboto';
-    transition: all 0.3s ease-in-out;
+    text-align: justify;
 }

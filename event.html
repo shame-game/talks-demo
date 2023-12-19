@@ -44,7 +44,7 @@
 
 
     <!--- Style CSS --->
-    <link rel="stylesheet" href="./assets/css/tempo.css">
+    <link rel="stylesheet" href="assets/css/work.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="stylesheet" href="assets/css/data.css">
 
@@ -102,14 +102,14 @@
                                 <img src="" alt="Logo" />
                             </a>
                             <style>
-                                .navbar-nav .nav-item:nth-child(2) a {
+                                .navbar-nav .nav-item:nth-child(5) a {
                                     background-color: rgba(255, 255, 255, 0.6);
                                     color: #0048ab;
                                     font-weight: 700;
                                     font-family: 'Roboto';
                                 }
 
-                                .sticky .navbar-nav .nav-item:nth-child(2) a {
+                                .sticky .navbar-nav .nav-item:nth-child(5) a {
                                     color: white;
                                     padding: 5px 20px;
                                     border-radius: 8px;
@@ -134,135 +134,21 @@
 
     <!--- VIDEO PART START --->
 
-    <section id="tempo" class="tempo_area pb-80" style="padding-top: 250px;">
-        <div class="container row mx-auto">
-            <div class="col-lg-6">
-                <div class="tempo-video">
-                    <iframe class="youtube-size" src="https://www.youtube.com/embed/fqY5k0Mf0G8"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="tempo-contribute">
-                    <div style="display: flex;justify-content: space-between;">
-                        <p class="tempo-contribute_text">1.000.000.000 <span>vnđ</span><br><span>Mục tiêu</span></p>
-                        <p class="tempo-contribute_text">365<br><span>Ngày còn lại</span></p>
-                        <p class="tempo-contribute_text">Target Goal<br><span>Phương pháp kết thúc chuyến dịch</span>
-                        </p>
-                    </div>
-                    <div style="margin: 30px 0;">
-                        <p class="tempo-contribute_text">Tiến độ: <span>40%</span></p>
-                        <div class="tempo-progress_wrap">
-                            <div class="tempo-progress" style="width: 40%;"></div>
-                        </div>
-                    </div>
-                    <div class="tempo-select">
-                        <a>100.000</a>
-                        <a>200.000</a>
-                        <a>500.000</a>
-                        <a>1.000.000</a>
-                        <a>2.000.000</a>
-                        <a>5.000.000</a>
-                        <a>10.000.000</a>
-                        <a>15.000.000</a>
-                    </div>
-                    <div class="tempo-input">
-                        <input type="text" placeholder="Điền số tiền">
-                        <a href="">Đóng góp ngay</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container row mx-auto pt-20">
-            <div class="tempo-slick col-lg-12">
-                <div class="tempo-slick-wrap" id="tempo-slick-wrap">
-                </div>
-            </div>
-        </div>
-        <!-- container -->
-    </section>
-
-    <!--- VIDEO PART ENDS --->
-
-    <!--- benefit start --->
-
-    <section id="top" class="benefit_area pt-75 pb-80">
-        <div class="container mx-auto">
+    <section id="blog" class=" pt-160 pb-80">
+        <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <h1 class="title-h1">Danh sách đầu tư</h1>
+                <div class="col-lg-6">
+                    <div class="section_title text-center pb-25">
+                        <h1 class="title-h1">Tin tức</h1>
+                        <!-- <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sediam nonumy eirmod tempor invidunt ut labore et dolore.</p> -->
+                    </div>
                 </div>
             </div>
-            <div id="top-table" class="mt-30">    
-                <div class="filter-buttons" id="filterButton" style="margin-bottom: -34px;z-index: 999;
-                position: relative;"></div>
-                <table id="example" style="width: 100%; padding-top: 20px;">
-                    <thead>
-                        <tr>
-                            <th>Thứ hạng</th>
-                            <th>Tên</th>
-                            <th>Số tiền đóng góp</th>
-                            <th style="display: none;">Gói</th>
-                        </tr>
-                    </thead>
-                    <tbody id="top_tbody"></tbody>
-                </table>
-            </div>
+            <div id="blog-items" class="row justify-content-center slick-slider"></div>
         </div>
     </section>
 
-    <!--- benefit end --->
-
-    <!-- giaithuong start -->
-    <section id="cmt" class="benefit_area pt-75 pb-80">
-        <div class="container mx-auto">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <h1 class="title-h1">Feedback các gói đầu tư</h1>
-                </div>
-            </div>
-            <div id="feedback-table" class="mt-30">    
-                <div class="filter-buttons" id="feedbackChon"></div>
-                <table id="feedback-cmt" style="width: 100%; padding-top: 20px;">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th style="display: none;"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="feedbackbody"></tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!--- ABOUT PART START --->
-
-    <section id="feedback" class="form_area pt-30 pb-80">
-        <div style="width: 100%; padding: 10px ;">
-            <h1 class="title-h1">ĐỂ LẠI FEEDBACK</h1>
-            <p>Email và số điện thoại sẽ không được công khai. Những trường bắt buộc được đánh dấu*</p>
-        </div>
-        <div class="container mx-auto">
-            <textarea class="feedback-textarea" placeholder="Nội dung feedback*"></textarea>
-            <div style="display: flex;" class="feedback-form">
-                <input type="text" placeholder="Tên của bạn*">
-                <input type="email" placeholder="Email của bạn*">
-                <input type="text" placeholder="Số điện thoại của bạn*">
-            </div>
-            <div style="width: 100%;display: flex;justify-content: center;margin: 20px 0;">
-                <a class="link-blue" style="font-size: 20px;">Gửi bình luận</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="screenshot"></section>
-
-    <section id="footer" class="footer_area pt-75">
+    <section id="footer" class="footer_area pt-30">
 
 
         <div class="container">
@@ -366,7 +252,7 @@
 
     <!--- Main js --->
     <script src="assets/js/fetch-sheet.js"></script>
-    <script src="assets/js/tempoload.js"></script>
+    <script src="assets/js/eventload.js"></script>
 
     <script src="assets/js/main.js"></script>
     <script src="assets/js/v-stats.js"></script>

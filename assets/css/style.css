@@ -224,6 +224,9 @@ p {
 .link-detail{
   text-decoration: underline;
   font-style: italic;
+  text-align: right;
+    width: 100%;
+    margin-top: 10px;
 }
 /*===== All Slick Slide Outline Style =====*/
 .slick-slide {
@@ -2299,7 +2302,7 @@ p {
 }
 
 .single_blog .blog_content .blog_title a:hover {
-  color: var(--color-1);
+  color: #004aab;
 }
 
 .single_blog .blog_content .main-btn {
@@ -2308,13 +2311,13 @@ p {
   line-height: 36px;
   border: 2px solid;
   padding: 0 15px;
-  color: var(--color-1);
-  border-color: var(--color-1);
+  color: #004aab;
+  border-color: #004aab;
   background: #fff;
 }
 
 .single_blog .blog_content .main-btn:hover {
-  background-color: var(--color-1);
+  background-color: #004aab;
   color: #fff;
 }
 

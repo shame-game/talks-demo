@@ -71,8 +71,39 @@ fetchSheet
     });
 
     // header
+    let temposlick = "";
+    content.timeline.forEach((row) => {
+      temposlick += `<div>
+      <div class="tempo-slick-row">
+      <div class="col-lg-6">
+          <h1>${row.capital}</h1>
+          <p>${row.profit}</p>
+          <a class="link-signup" href="">Đăng ký ngay</a>
+      </div>
+      <div class="col-lg-6">
+          <div style="display: flex;align-items: center;">
+              <img class="tempo-slick-img"
+                  src="${row.postLink}">
+              <h2>${row.title}</h2>
+          </div>
+          <ul style="list-style: unset; margin: 20px 20px 0 20px;">
+          `;
+          row.description.split("\n").forEach((detail) => {
+            temposlick += `<li style="text-align: left;
+            color: #004aab;
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;"> ${detail}</li> `
+          });
+          temposlick +=`
+          </ul>
+          <a class="link-detail" style="text-align: right;">Chi tiết</a>
+      </div>
+  </div></div>
+      `
+    })
+    document.querySelector('#tempo-slick-wrap').innerHTML = temposlick;
 
-    $(".tempo-slick").slick({
+    $("#tempo-slick-wrap").slick({
       dots: false,
       infinite: true,
       speed: 600,
@@ -84,10 +115,8 @@ fetchSheet
       nextArrow: '<span class="next"><i class="lni tempo-arrow-right"></i></span>',
     });
 
-    // top-table
-    /*
-    let topthead = "";
-    */
+    // top-table 
+    //
     let filterbuttons = "";
     content.Goi.forEach(rowfilterbuttons => {
       filterbuttons += `
@@ -96,14 +125,7 @@ fetchSheet
       </button>`
     });
     document.querySelector("#filterButton").innerHTML = filterbuttons;
-/*
-    topthead += `
-        <tr>
-          <th>Thứ hạng</th>
-          <th>Tên</th>
-          <th>Số tiền đóng góp</th>
-          <th style="display: none;">Gói</th>
-        </tr>`*/
+
     let toptbody = "";
     content.topTable.forEach(row => {
       toptbody += `
@@ -114,16 +136,56 @@ fetchSheet
           <td style="display: none;">${row.type}</td>
         </tr>`
     });
-    /*document.querySelector("#top_thead").innerHTML = topthead;*/
     document.querySelector("#top_tbody").innerHTML = toptbody;
 
-
-    /**/
     $(document).ready(function () {
-      var table = $('#example').DataTable();
+      var table = $('#example').DataTable({
+        "ordering": false
+      });
+      $('.filter-button').on('click', function () {
+        var selectedCountry = $(this).data('country');
+        table.column(3).search(selectedCountry).draw();
+      });
+    });
+
+    // feedback
+    //
+    let feedbackChon = "";
+    content.feedbackChon.forEach(row => {
+      feedbackChon += `
+      <button class="filter-button2" data-country="${row.postImageUrl}">
+        ${row.typesAvailable}
+      </button>`
+    });
+    document.querySelector("#feedbackChon").innerHTML = feedbackChon;
+
+    let feedback = "";
+    content.feedback.forEach(row => {
+      feedback += `
+        <tr>
+          <td style="width: 80px">
+            <div class="feedback-avt">
+              <img src="${row.postLink}">
+            </div>
+          </td>
+          <td>
+            <div class="feedback-cmt">
+            <h1>${row.name}</h1>
+            <h4>${row.postTitle}</h4>
+            <p>${row.typesAvailable}</p>
+            </div>
+          </td>
+          <td style="display: none;">${row.type}</td>
+        </tr>`
+    });
+    /*document.querySelector("#top_thead").innerHTML = topthead;*/
+    document.querySelector("#feedbackbody").innerHTML = feedback;
+
+    $(document).ready(function () {
+      var table = $('#feedback-cmt').DataTable();
 
       // Apply the filter when a filter button is clicked
-      $('.filter-button').on('click', function () {
+      $('.filter-button2').on('click', function () {
         var selectedCountry = $(this).data('country');
         table.column(3).search(selectedCountry).draw();
       });
