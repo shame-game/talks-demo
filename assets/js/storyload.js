@@ -69,8 +69,8 @@ fetchSheet
         }
       });
     });
-    let storyintro ="" ;
-    content.intro.forEach(row=>{
+    let storyintro = "";
+    content.intro.forEach(row => {
       storyintro += `
       <div class="row justify-content-center">
       <div class="col-lg-6 story-intro_img">
@@ -94,44 +94,55 @@ fetchSheet
 
     //
 
-    let storygoi="" ;
+    let storygoi = "";
 
     storygoi += `
       <div class="col-lg-12">
                     <div class="story-body_title">
                         <ul>`
-                            content.timeline.forEach((row,index)=>{
-                              if(index == 0 ){
-                                storygoi += `
+    content.timeline.forEach((row, index) => {
+      if (index == 0) {
+        storygoi += `
                                 <li class="story-body_list tab-item on">
                                   <img src="${row.postLink}">
                                   <h1>${row.title}</h1>
                                 </li> `
-                              }
-                              else{
-                                storygoi += `
+      }
+      else {
+        storygoi += `
                                 <li class="story-body_list tab-item">
                                   <img src="${row.postLink}">
                                   <h1>${row.title}</h1>
                                 </li> `
-                              }
-                            }); 
-                            storygoi +=  `</ul>
+      }
+    });
+    storygoi += `</ul>
                     </div>`
-                    content.timeline.forEach((row,index)=>{
-                      if(index == 0 ){
-                        storygoi += `<div class="story-body_main tab-content on"><p>${row.navName}</p></div>`
-                      }
-                      else{
-                        storygoi += `<div class="story-body_main tab-content"><p>${row.navName}</p></div>`
-                      }
-                    });
-                    storygoi +=   `</div>
+    content.timeline.forEach((row, index) => {
+      if (index == 0) {
+        storygoi += `<div class="story-body_main tab-content on"><p>${row.navName}</p></div>`
+      }
+      else {
+        storygoi += `<div class="story-body_main tab-content"><p>${row.navName}</p></div>`
+      }
+    });
+    storygoi += `</div>
       `;
     document.querySelector('#story-goi').innerHTML = storygoi
-
+    const tabct = document.querySelectorAll('.tab-content');
+    const tabit = document.querySelectorAll('.tab-item');
+    const tabActive = document.querySelector(".tab-item.on");
+    tabit.forEach((tab, index) => {
+      const tabcontent = tabct[index];
+      tab.onclick = function () {
+        document.querySelector('.tab-item.on').classList.remove('on');
+        document.querySelector('.tab-content.on').classList.remove('on');
+        tab.classList.add('on')
+        tabcontent.classList.add('on')
+      }
+    });
     // progress
-    
+
     $("#progressSlick").slick({
       dots: true,
       infinite: true,
@@ -191,16 +202,4 @@ fetchSheet
 
   });
 
-  
-  const tabct = document.querySelectorAll('.tab-content');
-  const tabit = document.querySelectorAll('.tab-item');
-  const tabActive = document.querySelector(".tab-item.on");
-  tabit.forEach((tab, index) => {
-      const tabcontent = tabct[index];
-      tab.onclick = function () {
-          document.querySelector('.tab-item.on').classList.remove('on');
-          document.querySelector('.tab-content.on').classList.remove('on');
-          tab.classList.add('on')
-          tabcontent.classList.add('on')
-      }
-  });
+

@@ -203,8 +203,5 @@ fetchSheet
     });
 
     document.querySelector("#footer-img").innerHTML = footerHtml;
-
-
-
   });
 

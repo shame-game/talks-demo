@@ -107,6 +107,8 @@ fetchSheet
       slidesToScroll: 1,
       arrows: true,
       pauseOnHover: false,
+      // prevArrow: '',
+      // nextArrow: '',
       prevArrow: '<span class="prev"><i class="lni lni-arrow-left"></i></span>',
       nextArrow: '<span class="next"><i class="lni lni-arrow-right"></i></span>',
     });
