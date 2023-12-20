@@ -142,7 +142,7 @@ fetchSheet
       }
     });
     // progress
-
+    
     $("#progressSlick").slick({
       dots: true,
       infinite: true,

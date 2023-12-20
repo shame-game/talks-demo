@@ -1392,6 +1392,9 @@ p {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
 }
+
+
+
 .title-h1{
   color: #0048ab;
   font-size: calc(2.5rem + 0.7vw);
@@ -1417,6 +1420,7 @@ p {
   cursor: pointer;
   box-shadow: 0px 5px 10px 0px rgba(74, 97, 251, 0.173);;
 }
+
 
 
 /*===========================
@@ -2418,6 +2422,67 @@ p {
   object-position: center;
   margin: 1%;
 }
+
+@media (max-width: 1000px) {
+  .title-h4 {
+    font-size: calc(1.5rem + 0.7vw);
+  }
+  #footer>.container>div>a {
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+  .title-h2 {
+    font-size: calc(1rem + 0.3vw);
+    text-align: center;
+    margin: 10px 0;
+  }
+  .footer-mid>.content>p {
+    font-size: 14px;
+    margin-bottom: 30px;
+    text-align: justify;
+  }
+  .footer-bottom>div>ul>li {
+    text-align: center;
+    font-size: 14px;
+  }
+  .footer-bottom>div>ul>div {
+    justify-content: center;
+  }
+}
+@media (max-width: 550px) {
+  .title-h4 {
+    font-size: calc(1.5rem + 0.7vw);
+  }
+  #footer>.container>div>a {
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+  .title-h2 {
+    font-size: calc(1rem + 0.3vw);
+    text-align: center;
+    margin: 10px 0;
+  }
+  .footer-mid>.content>p {
+    font-size: 14px;
+    margin-bottom: 30px;
+    text-align: justify;
+  }
+  .footer-bottom>div>ul>li {
+    text-align: center;
+    font-size: 14px;
+  }
+  .footer-bottom>div>ul>div {
+    justify-content: center;
+  }
+}
+@media (max-width: 355px) {
+  #footer-img {
+    padding: 2%;
+}
+}
+
 
 /*===== BACK TO TOP =====*/
 .back-to-top {
