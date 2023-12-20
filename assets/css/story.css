@@ -240,3 +240,38 @@
     transition: all 0.3s ease-in-out;
 }
 
+/* */
+.video-section .video-list-wrapper .video-item-wrapper .video-item-mask-before:before{
+    background-image: url(../images/Asset\ 2.png);
+    left: -1px;
+    top: -1px;
+}
+.video-section .video-list-wrapper .video-item-wrapper .video-item-mask-before::after{
+    background-image: url(../images/Asset\ 4.png);
+    bottom: -1px;
+}
+.video-section .video-list-wrapper .video-item-wrapper .video-item-mask-before .ocupy-seat:before{
+    background-color: white;
+}
+
+.video-section .video-list-wrapper .video-item-wrapper .video-item-mask-after:before{
+    background-image: url(../images/Asset\ 4.png);
+    transform: rotate(180deg);
+    right: -1px;
+    top: -1px;
+}
+
+.video-section .video-list-wrapper .video-item-wrapper .video-item-mask-before .ocupy-seat:after{
+    background-color: white;
+}
+
+.video-section .video-list-wrapper .video-item-wrapper .video-item-mask-after:after{
+    background-image: url(../images/Asset\ 2.png);
+    transform: rotate(180deg);
+    right: -1px;
+    bottom:-1px;
+}
+
+.ggggg>svg{
+display: none;
+}

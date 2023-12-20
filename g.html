@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Story Slider</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      overflow: hidden;
+      background-color: #f4f4f4;
+    }
+
+    .story-container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .story {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      cursor: pointer;
+    }
+
+    .visible {
+      opacity: 1;
+    }
+
+    h2, p {
+      margin: 0;
+      padding: 10px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .story1 { background-color: #3498db; }
+    .story2 { background-color: #e74c3c; }
+    .story3 { background-color: #2ecc71; }
+    .story4 { background-color: #f39c12; }
+  </style>
+</head>
+<body>
+
+<div class="story-container">
+  <div class="story story1 visible">
+    <h2>Title 1</h2>
+    <p>Story 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+  <div class="story story2">
+    <h2>Title 2</h2>
+    <p>Story 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </div>
+  <div class="story story3">
+    <h2>Title 3</h2>
+    <p>Story 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+  </div>
+  <div class="story story4">
+    <h2>Title 4</h2>
+    <p>Story 4: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const stories = document.querySelectorAll(".story");
+
+    function showStory(index) {
+      stories.forEach((story, i) => {
+        if (i === index) {
+          story.classList.add("visible");
+        } else {
+          story.classList.remove("visible");
+        }
+      });
+    }
+
+    stories.forEach((story, index) => {
+      story.addEventListener("click", function() {
+        showStory(index);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

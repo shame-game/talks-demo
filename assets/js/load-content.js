@@ -225,3 +225,12 @@ fetchSheet
 
   });
 
+  var Img = document.querySelector('#form')
+  function Mathdd() {
+    var Mathdd = (Img.getBoundingClientRect().top) * 0.4
+    return Mathdd;
+  }
+
+  const IG = window.addEventListener('scroll', () => {
+    document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
+  })

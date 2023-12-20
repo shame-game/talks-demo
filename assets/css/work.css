@@ -211,3 +211,23 @@
     font-family: 'Roboto';
     text-align: justify;
 }
+
+/* slick */ 
+.slick-dots{
+    display: flex !important;
+    list-style: none;
+}
+
+.slick-dots>li>button{
+    margin: 0 3px;
+    font-size: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50px;
+    background-color: #9e9e9e;
+    border: unset;
+}
+
+.slick-dots>.slick-active>button{
+    background-color: #004aab;
+}

@@ -71,12 +71,12 @@ fetchSheet
     });
 
     // header
-    let event = "";
+    let eventd = "";
 
-    content.event.forEach((row) => {
-        event += `
-      <div class="col-lg-4 col-md-8">
-        <div class="single_blog blog_1 mt-30 wow fadeInUp" data-wow-duration="1.3s" data-wow-delay="0.2s">
+    content.eventd.forEach((row) => {
+        eventd += `
+      <div class="col-lg-4 col-md-8 event-content">
+        <div class="single_blog blog_1 mt-30 wow fadeUp" data-wow-duration="1s" data-wow-delay="0.2s">
           <div class="blog_image">
             <img src="${row.postImageUrl}" alt="blog" />
           </div>
@@ -97,7 +97,24 @@ fetchSheet
     `;
     });
 
-    document.querySelector("#blog-items").innerHTML = event;
+    document.querySelector("#blog-items").innerHTML = eventd;
+
+    const loadmore = document.querySelector('#loadMore');
+    let currentItems = 6;
+    loadmore.addEventListener('click', (e) => {
+        const elementList = [...document.querySelectorAll('.event-content')];
+        for (let i = currentItems; i < currentItems + 6; i++) {
+            if (elementList[i]) {
+                elementList[i].style.display = 'block';
+            }
+        }
+        currentItems += 6;
+
+        // Load more button will be hidden after list fully loaded
+        if (currentItems >= elementList.length) {
+            event.target.style.display = 'none';
+        }
+    })
 
     // footer
     let footerHtml = "";
