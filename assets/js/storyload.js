@@ -186,6 +186,15 @@ fetchSheet
       pauseOnHover: false,
       prevArrow: '<span class="prev"><i class="lni story-arrow-left"></i></span>',
       nextArrow: '<span class="next"><i class="lni story-arrow-right"></i></span>',
+      responsive: [
+        {
+          breakpoint: 1000,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
     });
 
 
