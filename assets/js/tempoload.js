@@ -127,17 +127,17 @@ fetchSheet
     document.querySelector("#filterButton").innerHTML = filterbuttons;
 
     let toptbody = "";
+    console.log(content.topTable)
     content.topTable.forEach(row => {
       toptbody += `
         <tr>
-          <td>${row.top}</td>
-          <td>${row.name}</td>
-          <td>${row.money}</td>
+          <td><div class="td1"><p>${row.top}</p></div></td>
+          <td><div class="td2"><p>${row.name}</p></div></td>
+          <td><div class="td3"><p>${row.money}</p></div></td>
           <td style="display: none;">${row.type}</td>
         </tr>`
     });
     document.querySelector("#top_tbody").innerHTML = toptbody;
-
     $(document).ready(function () {
       var table = $('#example').DataTable({
         "ordering": false
