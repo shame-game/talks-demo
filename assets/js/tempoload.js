@@ -150,50 +150,47 @@ fetchSheet
 
     // feedback
     //
-    let feedbackChon = "";
-    content.feedbackChon.forEach(row => {
-      feedbackChon += `
-      <button class="filter-button2" data-country="${row.postImageUrl}">
-        ${row.typesAvailable}
-      </button>`
-    });
-    document.querySelector("#feedbackChon").innerHTML = feedbackChon;
 
-    let feedback = "";
-    content.feedback.forEach(row => {
-      feedback += `
-        <tr>
-          <td style="width: 80px">
-            <div class="feedback-avt">
-              <img src="${row.postLink}">
-            </div>
-          </td>
-          <td>
-            <div class="feedback-cmt">
-            <h1>${row.name}</h1>
-            <h4>${row.postTitle}</h4>
-            <p>${row.typesAvailable}</p>
-            </div>
-          </td>
-          <td style="display: none;">${row.type}</td>
-        </tr>`
-    });
-    /*document.querySelector("#top_thead").innerHTML = topthead;*/
-    document.querySelector("#feedbackbody").innerHTML = feedback;
 
-    $(document).ready(function () {
-      var table = $('#feedback-cmt').DataTable();
-
-      // Apply the filter when a filter button is clicked
-      $('.filter-button2').on('click', function () {
-        var selectedCountry = $(this).data('country');
-        table.column(3).search(selectedCountry).draw();
-      });
-    });
 
 
     // form
-
+    let items = document.querySelectorAll('.slider .item');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    
+    let active = 3;
+    function loadShow(){
+        let stt = 0;
+        items[active].style.transform = `none`;
+        items[active].style.zIndex = 1;
+        items[active].style.filter = 'none';
+        items[active].style.opacity = 1;
+        for(var i = active + 1; i < items.length; i++){
+            stt++;
+            items[i].style.transform = `translateX(${120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
+            items[i].style.zIndex = -stt;
+            items[i].style.filter = 'blur(5px)';
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
+        stt = 0;
+        for(var i = active - 1; i >= 0; i--){
+            stt++;
+            items[i].style.transform = `translateX(${-120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
+            items[i].style.zIndex = -stt;
+            items[i].style.filter = 'blur(5px)';
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
+    }
+    loadShow();
+    next.onclick = function(){
+        active = active + 1 < items.length ? active + 1 : active;
+        loadShow();
+    }
+    prev.onclick = function(){
+        active = active - 1 >= 0 ? active - 1 : active;
+        loadShow();
+    }
 
     // footer
     let footerHtml = "";
