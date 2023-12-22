@@ -144,7 +144,7 @@ fetchSheet
     let timelineHtml = "";
     console.log(content.timeline);
 
-    content.timeline.forEach((row) => {
+   /* content.timeline.forEach((row) => {
       timelineHtml += `
       <div class="py-3 col-lg-6 col-md-6 col-sm-12">
         <div class="pricing_color_1 wow fadeInUp benefit-box"
@@ -176,10 +176,90 @@ fetchSheet
        </div>
       </div>
     </div>`;
-    });
+    });*/
+    content.timeline.forEach((row)=>{
+      timelineHtml += `
+      <div class="card-wrap col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+      <div class="card">
+      <div class="top">
+        <div class="title"><p>Gói tri kỉ</p></div>
+        <div class="price-sec">
+          <span class="price">1</span>
+          <span class="decimal">.000.000 vnđ</span>
+        </div>
+      </div>
+      <div class="info"><p>Tổng giá trị nhận lại </p><span>2.000.000 vnd</span></div>
+      <div class="details">
+        <div class="one">
+          <span>• Voucher sử dụng các sản phẩm tại Biệt thự sách</span>
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="one">
+          <span>• Video 3 bài chia sẻ về kiến thức kinh doanh từ CEO Đinh Minh Quyền</span>
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="one">
+          <span>• Voucher 3 buổi trải nghiệm lớp học công nghệ cho trẻ em</span>
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="one">
+          <span>• Voucher học tiếng anh tại Talks English</span>
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="one">
+          <span>• 5000 cổ phiếu trị giá 10.000vnd</span>
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="one">
+          <span>• Được ưu tiên đầu tư cho Hệ thống Biệt thự sách trên khắp cả nước.</span>
+          <i class="fas fa-times"></i>
+        </div>
+        <div class="button">
+        <button>Tham gia ngay</button>
+        <a>Chi tiết</a>
+        </div>
+      </div>
+    </div>
+      </div>
+      `
+    })
 
     document.querySelector("#timeline").innerHTML = timelineHtml;
-
+    $("#timeline").slick({
+      dots: false,
+      infinite: true,
+      speed: 400,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      arrows: true,
+      pauseOnHover: false,
+      prevArrow: '<span class="prev"><i class="bi bi-chevron-left"></i></i></span>',
+      nextArrow: '<span class="prev"><i class="bi bi-chevron-right"></i></i></span>',
+      responsive: [
+        {
+          breakpoint: 1281,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            arrows: false,
+            prevArrow: '',
+            nextArrow: '',
+            dots: true,
+          },
+        },
+        {
+          breakpoint: 1000,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            prevArrow: '',
+            nextArrow: '',
+            dots: true,
+          },
+        },
+      ],
+    });
     // form
 
 
@@ -195,19 +275,20 @@ fetchSheet
       noteHtml += `</p></div>`
     });
     content.prizecontent.forEach((row) => {
-      prizeHtml += `<div class="prize-giai col-lg-6">
+      prizeHtml += `<div class="prize-giai col-xl-6">
       <div class="prize-giai-chil">
       <img class="prize-img" src="${row.resourceUrl}">
       <div class="content">
         <p>${row.title}</p>
       </div>
       <div class="bottom">
-        <img src="${row.postImageUrl}" alt="">
-        <div>
+        <div class="bottom-1"><h1>1</h1></div>
+        <div class="bottom-2">
           <h4>${row.postTitle}</h4>
           <p>${row.gif}</p>
         </div>
-      </div></div>
+      </div>
+      </div>
     </div>`;
     });
     document.querySelector("#prizecontent").innerHTML = prizeHtml;
@@ -225,9 +306,9 @@ fetchSheet
 
   });
 
-  var Img = document.querySelector('#form')
+  var Img = document.querySelector('.footer-top')
   function Mathdd() {
-    var Mathdd = (Img.getBoundingClientRect().top) * 0.4
+    var Mathdd = (Img.getBoundingClientRect().top) * 0.3
     return Mathdd;
   }
 

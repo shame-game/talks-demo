@@ -94,53 +94,7 @@ fetchSheet
 
     //
 
-    let storygoi = "";
-
-    storygoi += `
-      <div class="col-lg-12">
-                    <div class="story-body_title">
-                        <ul>`
-    content.timeline.forEach((row, index) => {
-      if (index == 0) {
-        storygoi += `
-                                <li class="story-body_list tab-item on">
-                                  <img src="${row.postLink}">
-                                  <h1>${row.title}</h1>
-                                </li> `
-      }
-      else {
-        storygoi += `
-                                <li class="story-body_list tab-item">
-                                  <img src="${row.postLink}">
-                                  <h1>${row.title}</h1>
-                                </li> `
-      }
-    });
-    storygoi += `</ul>
-                    </div>`
-    content.timeline.forEach((row, index) => {
-      if (index == 0) {
-        storygoi += `<div class="story-body_main tab-content on"><p>${row.navName}</p></div>`
-      }
-      else {
-        storygoi += `<div class="story-body_main tab-content"><p>${row.navName}</p></div>`
-      }
-    });
-    storygoi += `</div>
-      `;
-    document.querySelector('#story-goi').innerHTML = storygoi
-    const tabct = document.querySelectorAll('.tab-content');
-    const tabit = document.querySelectorAll('.tab-item');
-    const tabActive = document.querySelector(".tab-item.on");
-    tabit.forEach((tab, index) => {
-      const tabcontent = tabct[index];
-      tab.onclick = function () {
-        document.querySelector('.tab-item.on').classList.remove('on');
-        document.querySelector('.tab-content.on').classList.remove('on');
-        tab.classList.add('on')
-        tabcontent.classList.add('on')
-      }
-    });
+   
     // progress
     
     $("#progressSlick").slick({
@@ -198,6 +152,44 @@ fetchSheet
       ],
     });
 
+    // 
+    let items = document.querySelectorAll('.slider .item');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    
+    let active = 3;
+    function loadShow(){
+        let stt = 0;
+        items[active].style.transform = `none`;
+        items[active].style.zIndex = 1;
+        items[active].style.filter = 'none';
+        items[active].style.opacity = 1;
+        for(var i = active + 1; i < items.length; i++){
+            stt++;
+            items[i].style.transform = `translateX(${120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
+            items[i].style.zIndex = -stt;
+            items[i].style.filter = 'blur(5px)';
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
+        stt = 0;
+        for(var i = active - 1; i >= 0; i--){
+            stt++;
+            items[i].style.transform = `translateX(${-120*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
+            items[i].style.zIndex = -stt;
+            items[i].style.filter = 'blur(5px)';
+            items[i].style.opacity = stt > 2 ? 0 : 0.6;
+        }
+    }
+    loadShow();
+    next.onclick = function(){
+        active = active + 1 < items.length ? active + 1 : active;
+        loadShow();
+    }
+    prev.onclick = function(){
+        active = active - 1 >= 0 ? active - 1 : active;
+        loadShow();
+    }
+
 
     // footer
     let footerHtml = "";
@@ -211,5 +203,15 @@ fetchSheet
 
 
   });
+
+  var Img = document.querySelector('.footer-top')
+  function Mathdd() {
+    var Mathdd = (Img.getBoundingClientRect().top) * 0.4
+    return Mathdd;
+  }
+
+  const IG = window.addEventListener('scroll', () => {
+    document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
+  })
 
 
