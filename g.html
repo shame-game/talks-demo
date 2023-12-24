@@ -1,229 +1,105 @@
 <!DOCTYPE html>
-<!-- Created By CodingLab - www.codinglabweb.com -->
-<html lang="en" dir="ltr">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title> Resonsive Pricing Table | CodingLab </title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thống kê người đóng góp tiền</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cfe8e7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #004aab;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #004aab;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #228582;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: #647df9;
-  }
-
-  .content {
-    max-width: 1090px;
-    width: 100%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .content .card {
-    background: #fff;
-    width: calc(33% - 20px);
-    text-align: center;
-    padding: 15px 30px 30px 30px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  }
-
-  .content .card .top {
-    height: 130px;
-    color: #fff;
-    padding: 12px 0 0 0;
-    clip-path: polygon(0 0, 100% 0, 100% 53%, 49% 100%, 0 53%);
-  }
-
-  .content .card .top .title {
-    font-size: 27px;
-    font-weight: 600;
-  }
-
-  .content .card .top .price-sec {
-    margin-top: -10px;
-    font-weight: 600;
-  }
-
-  .content .card .top .price {
-    font-size: 45px;
-  }
-
-  .content .card .info {
-    font-size: 16px;
-    margin-top: 20px;
-  }
-
-  .content .card .details .one {
-    margin-top: 25px;
-    font-size: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-  }
-
-  .content .card .details .one::before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    background: #ddd;
-    height: 1px;
-    left: 0;
-    top: -12px;
-    border-radius: 25px;
-  }
-
-  .content .card .details .one i {
-    color: #2db94d;
-  }
-
-  .content .card .details i.fa-times {
-    color: #cd3241;
-  }
-
-  .content .card button {
-    outline: none;
-    border: none;
-    height: 42px;
-    color: #fff;
-    margin-top: 30px;
-    border-radius: 3px;
-    font-size: 18px;
-    width: 100%;
-    display: block;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    letter-spacing: 1px;
-  }
-
-  .content .one .top,
-  .content .one button {
-    background: #14eb6e;
-  }
-
-  .content .two .top,
-  .content .two button {
-    background: #e87130;
-  }
-
-  .content .three .top,
-  .content .three button {
-    background: #11BCC3;
-  }
-
-  .content button:hover {
-    filter: brightness(90%);
-  }
-
-  .content .one ::selection {
-    background: #8af5b6;
-  }
-
-  .content .two ::selection {
-    background: #f2b08c;
-  }
-
-  .content .three ::selection {
-    background: #d0f9fb;
-  }
-
-  @media (max-width:1000px) {
-    .content .card {
-      background: #fff;
-      width: calc(50% - 20px);
-      margin-bottom: 30px;
-    }
-  }
-
-  @media (max-width:715px) {
-    .content .card {
-      width: 100%;
-    }
-  }
-</style>
-
 <body>
-  <div class="content">
-    <div class="card one">
-      <div class="top">
-        <div class="title">Basic</div>
-        <div class="price-sec">
-          <span class="dollar">$</span>
-          <span class="price">14</span>
-          <span class="decimal">.99</span>
-        </div>
-      </div>
-      <div class="info">Limited features you will get on this package or plan</div>
-      <div class="details">
-        <div class="one">
-          <span>One Addons Domain</span>
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="one">
-          <span>100GB Local Storage</span>
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="one">
-          <span>Lifetime Tech Support</span>
-          <i class="fas fa-times"></i>
-        </div>
-        <div class="one">
-          <span>Unlimited Data Transfer</span>
-          <i class="fas fa-times"></i>
-        </div>
-        <button>Purchase</button>
-      </div>
-    </div>
-    <div class="card one">
-      <div class="top">
-        <div class="title">Basic</div>
-        <div class="price-sec">
-          <span class="dollar">$</span>
-          <span class="price">14</span>
-          <span class="decimal">.99</span>
-        </div>
-      </div>
-      <div class="info">Limited features you will get on this package or plan</div>
-      <div class="details">
-        <div class="one">
-          <span>One Addons Domain</span>
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="one">
-          <span>100GB Local Storage</span>
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="one">
-          <span>Lifetime Tech Support</span>
-          <i class="fas fa-times"></i>
-        </div>
-        <div class="one">
-          <span>Unlimited Data Transfer</span>
-          <i class="fas fa-times"></i>
-        </div>
-        <button>Purchase</button>
-      </div>
-    </div>
-    
-  </div>
-</body>
+    <table id="contributionTable">
+        <thead>
+            <tr>
+                <th>Số hạng</th>
+                <th>Tên người tham gia</th>
+                <th>Số tiền đóng góp</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dữ liệu sẽ được thêm vào đây bằng JavaScript -->
+        </tbody>
+    </table>
 
-</html>
+    <input type="text" id="searchInput" placeholder="Tìm kiếm theo tên người tham gia" oninput="searchContributor()">
+
+    <script>
+        // Dữ liệu mẫu (có thể thay thế bằng dữ liệu thực từ server)
+        const data = [
+            { rank: 1, name: "Người 1", contribution: 100 },
+            { rank: 2, name: "Người 2", contribution: 90 },
+            // Thêm dữ liệu khác ở đây
+        ];
+
+        const table = document.getElementById("contributionTable");
+        const tbody = table.getElementsByTagName("tbody")[0];
+
+        function populateTable() {
+            tbody.innerHTML = "";
+            data.forEach((contributor) => {
+                const row = `<tr>
+                                <td>${contributor.rank}</td>
+                                <td>${contributor.name}</td>
+                                <td>${contributor.contribution}</td>
+                            </tr>`;
+                tbody.innerHTML += row;
+            });
+        }
+
+        function searchContributor() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const filteredData = data.filter((contributor) => contributor.name.toLowerCase().includes(searchInput));
+            populateTable(filteredData);
+        }
+
+        function populateTable(dataToDisplay) {
+            tbody.innerHTML = "";
+            dataToDisplay.forEach((contributor) => {
+                const row = `<tr>
+                                <td>${contributor.rank}</td>
+                                <td>${contributor.name}</td>
+                                <td>${contributor.contribution}</td>
+                            </tr>`;
+                tbody.innerHTML += row;
+            });
+        }
+
+        populateTable();
+    </script>
+</body>

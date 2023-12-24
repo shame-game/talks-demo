@@ -73,32 +73,41 @@ fetchSheet
     // header
     let temposlick = "";
     content.timeline.forEach((row) => {
-      temposlick += `<div>
-      <div class="tempo-slick-row">
-      <div class="col-lg-6">
-          <h1>${row.capital}</h1>
-          <p>${row.profit}</p>
-          <a class="link-signup" href="">Đăng ký ngay</a>
-      </div>
-      <div class="col-lg-6">
-          <div style="display: flex;align-items: center;">
-              <img class="tempo-slick-img"
-                  src="${row.postLink}">
-              <h2>${row.title}</h2>
-          </div>
-          <ul style="list-style: unset; margin: 20px 20px 0 20px;">
-          `;
-          row.description.split("\n").forEach((detail) => {
-            temposlick += `<li style="text-align: left;
-            color: #004aab;
-            font-size: 14px;
-            font-family: 'Roboto', sans-serif;"> ${detail}</li> `
-          });
-          temposlick +=`
-          </ul>
-          <a class="link-detail" style="text-align: right;">Chi tiết</a>
-      </div>
-  </div></div>
+      temposlick += `
+      <div class="col-lg-4">
+                        <div class="tempo-slick-card">
+                            <div class="tempo-slick-top">
+                                <img src="./assets/images/goi2-white.png" alt="">
+                                <h1>${row.title}</h1>
+                            </div>
+                            <div class="tempo-slick-absolute">
+                                <div class="title">
+                                    <h4>12.000.000</h4>
+                                    <p>40%</p>
+                                </div>
+                                <div class="tempo">
+                                    <div style="width: 40%;"></div>
+                                </div>
+                                <div class="time"><i class="bi bi-alarm-fill"></i>
+                                    <p>còn 365 ngày</p>
+                                </div>
+                            </div>
+                            <div class="tempo-slick-bottom">
+                                <ul>`
+                                row.description.split("\n").forEach((detail) => {
+                                  temposlick += `<li>${detail}</li>`
+                                });
+                                temposlick += `</ul>
+                                <div>
+                                    
+                                </div>
+                                <div class="button">
+                                    <button>Đóng góp ngay</button>
+                                    <a>chi tiết</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
       `
     })
     document.querySelector('#tempo-slick-wrap').innerHTML = temposlick;
@@ -107,24 +116,34 @@ fetchSheet
       dots: false,
       infinite: true,
       speed: 600,
-      slidesToShow: 1,
+      slidesToShow: 3,
       slidesToScroll: 1,
       arrows: true,
       pauseOnHover: false,
       prevArrow: '<span class="prev"><i class="lni tempo-arrow-left"></i></span>',
       nextArrow: '<span class="next"><i class="lni tempo-arrow-right"></i></span>',
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 770,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            dots: true,
+          },
+        },
+      ],
     });
 
     // top-table 
     //
-    let filterbuttons = "";
-    content.Goi.forEach(rowfilterbuttons => {
-      filterbuttons += `
-      <button class="filter-button" data-country="${rowfilterbuttons.postImageUrl}">
-        ${rowfilterbuttons.typesAvailable}
-      </button>`
-    });
-    document.querySelector("#filterButton").innerHTML = filterbuttons;
 
     let toptbody = "";
     console.log(content.topTable)
@@ -175,5 +194,7 @@ fetchSheet
   const IG = window.addEventListener('scroll', () => {
     document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
   })
+
+  document.querySelector('.paginate_button.previous.disabled').innerHTML= 'Hello'
 
 

@@ -285,12 +285,35 @@ Author: lineicons.com
   content: "\ea1c";
   position: absolute;
   bottom: 50px;
+  left: 90px;
+  padding: 13px;
+  color: var(--color-text);
+  background: white;
+  border-radius: 16px;
+  z-index: 999;
+  font-size: 25px;
+}
+
+#testimonial .lni-arrow-left::before {
+  content: "\ea1c";
+  position: absolute;
+  bottom: 50px;
   left: 330px;
   padding: 13px;
   color: white;
   background: var(--color-text);
   border-radius: 16px;
   z-index: 999;
+}
+#testimonial .lni-arrow-right::before {
+  content: "\ea1e";
+  position: absolute;
+  bottom: 50px;
+  left: 350px;
+  padding: 13px;
+  background: var(--color-text);
+  color: white;
+  border-radius: 16px;
 }
 
 .tempo-arrow-left::before {
@@ -310,16 +333,22 @@ Author: lineicons.com
 .lni-arrow-right-circle::before {
   content: "\ea1d";
 }
-
+#tempo .tempo-arrow-left::before {
+  left: -50px;
+}
+#tempo .tempo-arrow-right::before {
+  right: -50px;
+}
 .lni-arrow-right::before {
   content: "\ea1e";
   position: absolute;
   bottom: 50px;
-  left: 350px;
+  left: 150px;
   padding: 13px;
-  background: var(--color-text);
-  color: white;
+  background: white;
+  color: var(--color-text);
   border-radius: 16px;
+  font-size: 25px;
 }
 
 .story-arrow-left::before {

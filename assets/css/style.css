@@ -1495,6 +1495,24 @@ p {
   .benefit-card .card {
     width: 100%;
   }
+  #benefit .slick-dots{
+    display: flex !important;
+  }
+  #benefit .slick-dots>li>button{
+    font-size: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: unset;
+    margin: 0 10px;
+    background-color: var(--color-bg-mn);
+  }
+  #benefit .slick-dots>.slick-active>button{
+    background-color: var(--color-bg-mx);
+  }
+  .prize-note {
+    width: 90% !important;
+  }
 }
 
 /*===========================
@@ -2074,6 +2092,9 @@ p {
 .single_testimonial_author img {
   width: 100%;
   border-radius: 25px;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 6/7;
 }
 
 .testimonial_content {
@@ -2844,6 +2865,7 @@ p {
   background-color: #0048ab;
 }
 
+/* footer-top */ 
 
 .footer-top {
   display: block;
@@ -2898,3 +2920,13 @@ p {
   height: 100%;
 }
 
+@media (max-width: 928px) {
+  .footer-top_title {
+    font-size: 30px;
+  }
+}
+@media (max-width: 528px) {
+  .footer-top_title {
+    font-size: 24px;
+  }
+}

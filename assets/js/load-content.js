@@ -179,7 +179,7 @@ fetchSheet
     });*/
     content.timeline.forEach((row)=>{
       timelineHtml += `
-      <div class="card-wrap col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+      <div class="card-wrap col-lg-4 col-xl-6 col-12 wow fadeInUp" data-wow-delay="0.2s">
       <div class="card">
       <div class="top">
         <div class="title"><p>Gói tri kỉ</p></div>
@@ -241,7 +241,6 @@ fetchSheet
           settings: {
             slidesToShow: 3,
             slidesToScroll: 1,
-            arrows: false,
             prevArrow: '',
             nextArrow: '',
             dots: true,
@@ -251,10 +250,6 @@ fetchSheet
           breakpoint: 1000,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            prevArrow: '',
-            nextArrow: '',
             dots: true,
           },
         },
