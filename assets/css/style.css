@@ -2626,13 +2626,13 @@ p {
   font-weight: 300;
 }
 
-.footer-link>ul {
+.footer-list {
   margin: 20px 0;
 }
-.footer-link>ul>li {
+.footer-list>li {
   text-align: center;
 }
-.footer-link>ul>li>a {
+.footer-list>li>a {
   color: unset;
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
@@ -2640,19 +2640,19 @@ p {
   line-height: 1.8;
   transition: all 0.3s ease-in-out;
 }
-.footer-link>ul>li>a:hover {
+.footer-list>li>a:hover {
   color: var(--color-text);
   transform: translateY(-2px);
 
 }
 
-.footer-bottom>div>ul>div {
+.footer-list>div {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.footer-bottom>div>ul>div>a {
+.footer-list>div>a {
   margin: 10px;
   font-size: 28px;
   color: var(--color-text);

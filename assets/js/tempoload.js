@@ -194,13 +194,44 @@ fetchSheet
 
 
     // footer
-    let footerHtml = "";
-
-    content.footer.forEach((row) => {
-      footerHtml += `<img class="footer-image" src="${row.resourceUrl}">`;
+    let footerList1 = `<ul class="footer-list">`;
+    let footerList2 = `<ul class="footer-list">`;
+    let footerList3 = `<ul class="footer-list">`;
+    let footerList4 = `<ul class="footer-list">`;
+    content.liContent.forEach((row) => {
+      footerList1 += `<li><a class="links1" href="">${row.html}</a></li>`
+      footerList2 += `<li><a class="links2" href="">${row.title}</a></li>`
+      footerList3 += `<li><a class="links3" href="">${row.description}</a></li>`
+      if (row.resourceUrl == "") {
+        footerList4 += ``
+      }
+      else {
+        footerList4 += `<li><a class="links4" href="">${row.resourceUrl}</a></li>`
+      }
     });
-
-    document.querySelector("#footer-img").innerHTML = footerHtml;
+    footerList1 += ` </ul>`
+    footerList2 += ` </ul>`
+    footerList3 += ` </ul>`
+    document.querySelector("#footer-list-1").innerHTML = footerList1;
+    document.querySelector("#footer-list-2").innerHTML = footerList2;
+    document.querySelector("#footer-list-3").innerHTML = footerList3;
+    content.liLink.forEach((row, index) => {
+      var indexlink1 = document.querySelectorAll('.links1')
+      var hrefLink1 = `${row.html}`
+      indexlink1[index].setAttribute('href', hrefLink1)
+      var indexlink2 = document.querySelectorAll('.links2')
+      var hrefLink2 = `${row.title}`
+      indexlink2[index].setAttribute('href', hrefLink2)
+      var indexlink3 = document.querySelectorAll('.links3')
+      var hrefLink3 = `${row.description}`
+      indexlink3[index].setAttribute('href', hrefLink3)
+    });
+    footerList4 += `<div>`
+    content.contact.forEach((row) => {
+      footerList4 += `<a href="${row.postTitle}"><i class="bi bi-${row.resourceUrl}"></i></a>`
+    });
+    footerList4 += ` </div></ul>`
+    document.querySelector("#footer-list-4").innerHTML = footerList4;
   });
 var Img = document.querySelector('.footer-top')
 function Mathdd() {
@@ -245,5 +276,82 @@ fetchSheet
 
 
     document.querySelector("#tempo-title").innerHTML = tempoTitle;
+
+   
+  });
+fetchCell({
+  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  wSheetName: "footer",
+  range: "B4",
+})
+  .then((value) => {
+    var footermid = ""
+    footermid += `
+          <div class="row footer-mid">
+            <div class="col-lg-12 content">
+              <h2 class="title-h4" style="font-size: 36px;text-align: center;">${value.slice(1, value.length - 1)}</h2>
+            </div>
+          </div>`
+    document.querySelector("#footer-mid").innerHTML = footermid;
+  });
+
+fetchCell({
+  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  wSheetName: "footer",
+  range: "B5",
+})
+  .then((value) => {
+    var footerTitle1 = "";
+    footerTitle1 += `
+      <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
+    document.querySelector("#footer-title-1").innerHTML = footerTitle1;
+  });
+
+fetchCell({
+  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  wSheetName: "footer",
+  range: "C5",
+})
+  .then((value) => {
+    var footerTitle2 = "";
+    footerTitle2 += `
+      <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
+    document.querySelector("#footer-title-2").innerHTML = footerTitle2;
+  });
+
+fetchCell({
+  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  wSheetName: "footer",
+  range: "D5",
+})
+  .then((value) => {
+    var footerTitle3 = "";
+    footerTitle3 += `
+        <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
+    document.querySelector("#footer-title-3").innerHTML = footerTitle3;
+  });
+
+fetchCell({
+  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  wSheetName: "footer",
+  range: "E5",
+})
+  .then((value) => {
+    var footerTitle4 = "";
+    footerTitle4 += `
+        <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
+    document.querySelector("#footer-title-4").innerHTML = footerTitle4;
+  });
+
+fetchCell({
+  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  wSheetName: "footer",
+  range: "B17",
+})
+  .then((value) => {
+    var c = "";
+    c += `
+          <div class="c"><p>${value.slice(1, value.length - 1)}</p></div>`
+    document.querySelector(".c-wrap").innerHTML = c;
   });
 
