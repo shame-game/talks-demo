@@ -94,10 +94,10 @@ fetchSheet
                             </div>
                             <div class="tempo-slick-bottom">
                                 <ul>`
-                                row.description.split("\n").forEach((detail) => {
-                                  temposlick += `<li>${detail}</li>`
-                                });
-                                temposlick += `</ul>
+      row.description.split("\n").forEach((detail) => {
+        temposlick += `<li>${detail}</li>`
+      });
+      temposlick += `</ul>
                                 <div>
                                     
                                 </div>
@@ -173,8 +173,25 @@ fetchSheet
 
 
 
-    // form
-    
+    // tempo
+    let tempo = "";
+    content.progress.forEach((row) => {
+      tempo += ` <div class="tempo-contribute">
+      <h1>Tổng tiến độ gọi vốn</h1>
+      <h4>"Nắm bắt cơ hội đầu tư ngay hôm nay."</h4>
+      <div class="p">
+          <p>${row.name} đ</p><span>Tiến độ: 40%</span>
+      </div>
+      <div class="tempo-progress_wrap">
+          <div class="tempo-progress" style="width: 40%;"></div>
+      </div>
+      <div class="tempo-button">
+          <a>Đóng góp ngay</a>
+      </div>
+    </div>`
+    })
+    document.querySelector('#tempo-2-wrap').innerHTML = tempo
+
 
     // footer
     let footerHtml = "";
@@ -185,16 +202,48 @@ fetchSheet
 
     document.querySelector("#footer-img").innerHTML = footerHtml;
   });
-  var Img = document.querySelector('.footer-top')
-  function Mathdd() {
-    var Mathdd = (Img.getBoundingClientRect().top) * 0.4
-    return Mathdd;
-  }
+var Img = document.querySelector('.footer-top')
+function Mathdd() {
+  var Mathdd = (Img.getBoundingClientRect().top) * 0.4
+  return Mathdd;
+}
 
-  const IG = window.addEventListener('scroll', () => {
-    document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
+const IG = window.addEventListener('scroll', () => {
+  document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
+})
+
+fetchSheet
+  .fetch({
+    gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+    wSheetName: "progress",
+    range: "B5:D6",
   })
+  .then(rows => {
+    let tempoTitle = "";
 
-  document.querySelector('.paginate_button.previous.disabled').innerHTML= 'Hello'
+    rows.forEach(row => {
+      tempoTitle += `
+            <div class="col-lg-3 ">
+                <div class="tempo-target">
+                    <h1>Mục tiêu</h1>
+                    <p>${row.target} <span>vnđ</span></p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="tempo-time">
+                    <h1>Còn lại</h1>
+                    <p>${row.time} ngày</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="tempo-goal">
+                    <h1>Target Goal</h1>
+                    <p>${row.TargetGoal}</p>
+                </div>
+            </div>`
+    });
 
+
+    document.querySelector("#tempo-title").innerHTML = tempoTitle;
+  });
 

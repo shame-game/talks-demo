@@ -112,7 +112,7 @@ fetchSheet
       prevArrow: '<span class="prev"><i class="lni lni-arrow-left"></i></span>',
       nextArrow: '<span class="next"><i class="lni lni-arrow-right"></i></span>',
     });
-    
+
     document.querySelector("#nav").innerHTML = navHtml;
 
     $(function () {
@@ -141,121 +141,6 @@ fetchSheet
 
     document.querySelector("#video-story").innerHTML = videoHtml;
     // benefit
-    let timelineHtml = "";
-    console.log(content.timeline);
-
-   /* content.timeline.forEach((row) => {
-      timelineHtml += `
-      <div class="py-3 col-lg-6 col-md-6 col-sm-12">
-        <div class="pricing_color_1 wow fadeInUp benefit-box"
-          data-wow-duration="1.3s"
-          data-wow-delay="0.2s"
-          >
-          <div class="benefit-flex-start">
-            <div class="benefit-box_title">
-              <img src="${row.postLink}">
-              <h4>${row.title}</h4>
-            </div>
-            <div class="benefit-box_list">
-              <ul>
-    `;
-      row.description.split("\n").forEach((detail) => {
-        timelineHtml += `<li>${detail}</li>`
-      });
-      timelineHtml += `
-              </ul>
-            </div>
-          </div>
-        <div class="benefit-detail">
-          <a class="link-detail" href="#">Chi tiết</a>
-          <div class="benefit-sign">
-           <h4>${row.capital}</h4>
-           <p>${row.profit}</p>
-           <div style="display: flex;justify-content: end"><button>Đăng ký ngay</button></div>
-         </div>
-       </div>
-      </div>
-    </div>`;
-    });*/
-    content.timeline.forEach((row)=>{
-      timelineHtml += `
-      <div class="card-wrap col-lg-4 col-xl-6 col-12 wow fadeInUp" data-wow-delay="0.2s">
-      <div class="card">
-      <div class="top">
-        <div class="title"><p>Gói tri kỉ</p></div>
-        <div class="price-sec">
-          <span class="price">1</span>
-          <span class="decimal">.000.000 vnđ</span>
-        </div>
-      </div>
-      <div class="info"><p>Tổng giá trị nhận lại </p><span>2.000.000 vnd</span></div>
-      <div class="details">
-        <div class="one">
-          <span>• Voucher sử dụng các sản phẩm tại Biệt thự sách</span>
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="one">
-          <span>• Video 3 bài chia sẻ về kiến thức kinh doanh từ CEO Đinh Minh Quyền</span>
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="one">
-          <span>• Voucher 3 buổi trải nghiệm lớp học công nghệ cho trẻ em</span>
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="one">
-          <span>• Voucher học tiếng anh tại Talks English</span>
-          <i class="fas fa-check"></i>
-        </div>
-        <div class="one">
-          <span>• 5000 cổ phiếu trị giá 10.000vnd</span>
-          <i class="fas fa-times"></i>
-        </div>
-        <div class="one">
-          <span>• Được ưu tiên đầu tư cho Hệ thống Biệt thự sách trên khắp cả nước.</span>
-          <i class="fas fa-times"></i>
-        </div>
-        <div class="button">
-        <button>Tham gia ngay</button>
-        <a>Chi tiết</a>
-        </div>
-      </div>
-    </div>
-      </div>
-      `
-    })
-
-    document.querySelector("#timeline").innerHTML = timelineHtml;
-    $("#timeline").slick({
-      dots: false,
-      infinite: true,
-      speed: 400,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      arrows: true,
-      pauseOnHover: false,
-      prevArrow: '<span class="prev"><i class="bi bi-chevron-left"></i></i></span>',
-      nextArrow: '<span class="prev"><i class="bi bi-chevron-right"></i></i></span>',
-      responsive: [
-        {
-          breakpoint: 1281,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            prevArrow: '',
-            nextArrow: '',
-            dots: true,
-          },
-        },
-        {
-          breakpoint: 1000,
-          settings: {
-            slidesToShow: 1,
-            dots: true,
-          },
-        },
-      ],
-    });
-    // form
 
 
 
@@ -291,22 +176,182 @@ fetchSheet
     // footer
     let footerHtml = "";
 
-    content.footer.forEach((row) => {
-      footerHtml += `<img class="footer-image" src="${row.resourceUrl}">`;
-    });
-
-    document.querySelector("#footer-img").innerHTML = footerHtml;
 
 
 
   });
 
-  var Img = document.querySelector('.footer-top')
-  function Mathdd() {
-    var Mathdd = (Img.getBoundingClientRect().top) * 0.3
-    return Mathdd;
-  }
+var Img = document.querySelector('.footer-top')
+function Mathdd() {
+  var Mathdd = (Img.getBoundingClientRect().top) * 0.3
+  return Mathdd;
+}
 
-  const IG = window.addEventListener('scroll', () => {
-    document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
+const IG = window.addEventListener('scroll', () => {
+  document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
+})
+
+fetchSheet
+  .fetch({
+    gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+    wSheetName: "benefit",
+    range: "C18:K22",
   })
+  .then(rows => {
+    let timelineHtml = '';
+
+    rows.forEach(row => {
+      timelineHtml += `
+              <div class="card-wrap col-lg-4 col-xl-6 col-12 wow fadeInUp" data-wow-delay="0.2s">
+              <div class="card">
+              <div class="top">
+                <div class="title"><p>${row.Feature}</p></div>
+                <div class="price-sec">
+                  <span class="price">${row.moneyin.split("").reverse().slice(8).reverse().join("")}</span>
+                  <span class="decimal">${row.moneyin.split("").reverse().slice(0,8).reverse().join("")}</span>
+                </div>
+              </div>
+              <div class="info"><p>Tổng giá trị nhận lại </p><span>${row.moneyout} vnd</span></div>
+              
+              <div class="details">`
+      Object.keys(row).slice(3).forEach(key => {
+        timelineHtml += `<div class="one"><span>${key}</span> ${row[key] == "TRUE" ? `<i class="fas fa-check"></i>` : `<i class="fas fa-times"></i>`}</div>`;
+      });
+      timelineHtml += ` <div class="button">
+              <button>Tham gia ngay</button>
+              <a>Chi tiết</a>
+              </div>
+            </div>
+         </div>
+            </div>`
+    });
+
+
+
+    document.querySelector("#timeline").innerHTML = timelineHtml;
+$("#timeline").slick({
+  dots: false,
+  infinite: true,
+  speed: 400,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: true,
+  pauseOnHover: false,
+  prevArrow: '<span class="prev"><i class="bi bi-chevron-left"></i></i></span>',
+  nextArrow: '<span class="prev"><i class="bi bi-chevron-right"></i></i></span>',
+  responsive: [
+    {
+      breakpoint: 1280,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        prevArrow: '',
+        nextArrow: '',
+        arrows: false,
+        dots: true,
+      },
+    },
+    {
+      breakpoint: 1000,
+      settings: {
+        slidesToShow: 1,
+        dots: true,
+        arrows: false,
+      },
+    },
+  ],
+});});
+/*
+fetchSheet
+  .fetch({
+    gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+    wSheetName: "footer",
+    range: "A4:E13",
+  })
+  .then(rows => {
+    let footerHtml = '';
+
+    rows.forEach(row => {
+      footerHtml += `
+      <div class="row footer-mid">
+        <div class="col-lg-12 content">
+          <h2 class="title-h2" style="text-align: center;">Biệt Thự Sách - ĐỒNG HÀNH Nâng Tầm Tư Duy Việt</h2>
+        </div>
+      </div>
+      <div class="row footer-bottom">
+        <div class="col-lg-3 footer-link">
+          <h2 class="title-h2">VỀ CHÚNG TÔI</h2>
+          <ul>
+            <li><a href="">Trang chủ</a></li>
+            <li><a href="">Tiến độ dự án</a></li>
+            <li><a href="">Câu chuyện thương hiệu</a></li>
+            <li><a href="">Tin tức</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 footer-link">
+          <h2 class="title-h2">CÁC GÓI ĐẦU TƯ</h2>
+          <ul>
+            <li><a href="">Gói lan tỏa</a></li>
+            <li><a href="">Gói cảm ơn</a></li>
+            <li><a href="">Gói tri ân</a></li>
+            <li><a href="">Gói tri kỷ</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 footer-link">
+          <h2 class="title-h2">HƯỚNG DẪN VÀ HỖ TRỢ</h2>
+          <ul>
+            <li><a href="">Phần quà tri ân</a></li>
+            <li><a href="">Hướng dẫn thanh toán</a></li>
+            <li><a href="">Điều khoản sử dụng</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 footer-link">
+          <h2 class="title-h2">LIÊN HỆ CHÚNG TÔI</h2>
+          <ul>
+            <li><a>ceo@talksenglish.com</a></li>
+            <li><a>0934.147.901</a></li>
+            <div>
+              <a href="https://www.facebook.com/bietthusachbienhoa/"><i class="bi bi-facebook"></i></a>
+              <a href="https://www.youtube.com/channel/UCLExwvr9QhjB3xNEDaNw9oA"><i class="bi bi-youtube"></i></a>
+              <a href="https://www.linkedin.com/in/biet-thu-sach-bien-hoa/"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="c">
+        <p>© 2023 - Copyright by Biệt Thự Sách</p>
+      </div>`
+    });
+
+
+
+    document.querySelector("#.footer").innerHTML = footerHtml;
+});
+
+
+
+/* 
+<div class="one">
+                <span>• Voucher sử dụng các sản phẩm tại Biệt thự sách</span>
+                <i class="fas fa-check"></i>
+              </div>
+              <div class="one">
+                <span>• Video 3 bài chia sẻ về kiến thức kinh doanh từ CEO Đinh Minh Quyền</span>
+                <i class="fas fa-check"></i>
+              </div>
+              <div class="one">
+                <span>• Voucher 3 buổi trải nghiệm lớp học công nghệ cho trẻ em</span>
+                <i class="fas fa-check"></i>
+              </div>
+              <div class="one">
+                <span>• Voucher học tiếng anh tại Talks English</span>
+                <i class="fas fa-check"></i>
+              </div>
+              <div class="one">
+                <span>• 5000 cổ phiếu trị giá 10.000vnd</span>
+                <i class="fas fa-times"></i>
+              </div>
+              <div class="one">
+                <span>• Được ưu tiên đầu tư cho Hệ thống Biệt thự sách trên khắp cả nước.</span>
+                <i class="fas fa-times"></i>
+              </div>*/ 

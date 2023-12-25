@@ -101,8 +101,8 @@
 
 .tempo-button>a {
     padding: 8px 16px;
-    background-color: #228582;
-    color: white !important;
+    background-color: white;
+    color: var(--color-bg-mx) !important;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     border-radius: 8px;
@@ -417,7 +417,7 @@
     padding: 10px 0;
     text-align: right;
 }
-
+/*
 
 td {
     background-color: #e9f5f5;
@@ -436,11 +436,7 @@ td:nth-child(3) {
     border-radius: 8px 0 0 8px;
 }
 
-.td1>p {
-    font-size: 16px;
-    color: #ffffff;
-    text-align: center;
-}
+
 
 .td2 {
     width: 100%;
@@ -448,12 +444,7 @@ td:nth-child(3) {
     padding: 8px 5px;
 }
 
-.td2>p {
-    font-size: 16px;
-    color: #ffffff;
-    text-align: start;
-    padding-left: 10px;
-}
+
 
 .td3 {
     width: 100%;
@@ -461,14 +452,32 @@ td:nth-child(3) {
     padding: 8px 5px;
     border-radius: 0 8px 8px 0;
 }
-
+/*/
+.td2>p {
+    font-size: 16px;
+    color:var(--color-text) ;
+    text-align: start;
+    padding-left: 10px;
+}
 .td3>p {
     font-size: 16px;
-    color: #ffffff;
     text-align: right;
     padding-right: 10px;
+    color:var(--color-text) ;
+}
+.td1>p {
+    font-size: 16px;
+    color:var(--color-text) ;
+    text-align: left;
+    margin-left: 10px;
 }
 
+.odd{
+    background-color: var(--color-bg-mn) !important;
+}
+.even{
+    background-color: #e3eef0 !important;
+}
 table.dataTable.no-footer {
     border: unset !important;
 }
@@ -525,7 +534,6 @@ table.dataTable.no-footer {
     width: 30px !important;
     height: 30px !important;
     text-align: center !important;
-    margin: 0 !important;
     padding: 0 !important;
     border-radius: 25px !important;
     padding-top: 3px !important;
@@ -549,7 +557,28 @@ table.dataTable.no-footer {
     color: white !important;
 }
 
-
+.paginate_button.previous{
+    background-image: url(../images/prevv.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    margin-right: 20px !important;
+}
+#top-table .dataTables_wrapper .dataTables_paginate .paginate_button.previous:hover{
+    background-image: url(../images/prevv.png) !important;
+    margin-left: 0 !important;
+    margin-right: 20px !important;
+    cursor: pointer;
+}
+.paginate_button.next{
+    background-image: url(../images/nextt.png) !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    margin-left: 20px !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:hover{
+    background-image: url(../images/nextt.png) !important;
+    margin-left: 20px !important;
+}
 #example_filter>label>input {
     padding: 5px 10px;
     font-size: 14px;
@@ -755,6 +784,12 @@ table.dataTable.no-footer {
         bottom: 0;
         left: 325px;
     }
+    #example p{
+        font-size: 12px;
+    }
+    #example th{
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 460px) {
@@ -768,8 +803,12 @@ table.dataTable.no-footer {
         bottom: 0;
         left: 225px;
     }
+    #example p{
+        font-size: 10px;
+    }
 }
 
 #tempo .slick-slider .slick-list {
     height: 100%;
 }
+
