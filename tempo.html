@@ -47,7 +47,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100;1,500&display=swap"
         rel="stylesheet">
-        <script src="./assets/js/all.js"></script>
+    <script src="./assets/js/all.js"></script>
 </head>
 
 <body>
@@ -132,11 +132,13 @@
     <section id="tempo-1" class=" pb-80" style="padding-top: 250px;">
         <div class="container row mx-auto tempo-title" id="tempo-title"></div>
     </section>
-    <section id="tempo-2" class=" pb-80">
-        <div class="container row mx-auto tempo-body">
-            <div class="col-lg-6" id="tempo-2-wrap"></div>
-            <div class="col-lg-6 tempo-video"><a target="_blank" href="https://www.youtube.com/@Share4Happy">
-                <i style="color: white;font-size: 66px;cursor: pointer;" class="bi bi-play-circle-fill"></i></a>
+    <section id="tempo-2">
+        <div class="tempo-2-bg" style="background-image: url(assets/images/footer-top.png);">
+            <div class="container row mx-auto tempo-body">
+                <div class="col-lg-6" id="tempo-2-wrap"></div>
+                <div class="col-lg-6 tempo-video"><a target="_blank" href="">
+                        <i style="color: white;font-size: 66px;cursor: pointer;" class="bi bi-play-circle-fill"></i></a>
+                </div>
             </div>
         </div>
     </section>
@@ -148,9 +150,6 @@
         </div>
     </section>
     <!-- container -->
-
-
-    <!--- VIDEO PART ENDS --->
 
     <!--- benefit start --->
 
@@ -168,7 +167,6 @@
                             <th>Hạng</th>
                             <th>Thành viên</th>
                             <th>Số tiền đóng góp</th>
-                            <th style="display: none;">Gói</th>
                         </tr>
                     </thead>
                     <tbody id="top_tbody"></tbody>
@@ -182,11 +180,11 @@
             <div class="row align-items-end align-items-lg-center justify-content-between">
                 <div class="col-lg-4 col-md-6">
                     <div class="testimonial_author_active">
-                        <div class="single_testimonial_author">
-                            <img src="assets/images/author-1.jpg" alt="author" />
+                        <div class="single_testimonial_author tempo-feedback-img">
+                            <img src="assets/images/author-1.jpg"/>
                         </div>
-                        <div class="single_testimonial_author">
-                            <img src="assets/images/author-2.jpg" alt="author" />
+                        <div class="single_testimonial_author tempo-feedback-img">
+                            <img src="assets/images/author-2.jpg"/>
                         </div>
                     </div>
                 </div>
@@ -227,73 +225,94 @@
 
     <!--- ABOUT PART START --->
 
-    <section id="feedback" class="form_area pb-80">
-        <div class="container row mx-auto feedback-wrap">
-            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="testimonial_content" style="margin: 10px 0 20px 10px;">
-                    <h1 class="testimonial_title">Để lại nhận xét của bạn</h1>
-                    <p style="text-align: justify;margin: 10px 0;color: #030304;">Email và số điện thoại sẽ không được
-                        công khai<br> Những trường bắt buộc được đánh dấu*</p>
-                </div>
-                <div class="acc">
-                    <input id="ip1" class="acc-input" type="text" placeholder=" " class="px-2 pt-1 pb-1" />
-                    <label id="la1" class="acc-label 1" for="name">Tên*</label>
-                </div>
-                <div class="acc">
-                    <input id="ip2" class="acc-input" type="text" placeholder=" " class="px-2 pt-1 pb-1" />
-                    <label id="la2" class="acc-label 2" for="name">Số điện thoại*</label>
-                </div>
-                <div class="acc">
-                    <input id="ip2" class="acc-input" type="email" placeholder=" " class="px-2 pt-1 pb-1" />
-                    <label id="la2" class="acc-label 2" for="name">Email*</label>
-                </div>
-                <div class="acc">
-                    <textarea id="ip2" class="acc-input" type="password" placeholder=" "
-                        class="px-2 pt-1 pb-1"></textarea>
-                    <label id="la2" class="acc-label 2" for="name">Nhận xét*</label>
-                </div>
-                <div class="button"><button>Gửi nhận xét</button></div>
-            </div>
-            <div class="col-lg-6 feedback-img wow fadeInRight" data-wow-delay="0.2s">
-                <img src="./assets/images/feedback-message-5351721-4471252.png">
-                <div class="feedback-before"></div>
-            </div>
-        </div>
-    </section>
+    <section id="feedback" class="form_area pb-80"></section>
 
     <div class="footer-top">
         <div class="footer-top_wrap" style=" background-image: url(./assets/images/footer-top.png)">
-            <div>
-                <h1 class="footer-top_title">Bạn đã sẵn sàng đầu tư cùng Talks English chưa?</h1>
-                <div class="footer-top_link"><a href="">Tham gia ngay</a></div>
-            </div>
+            <div id="footer-top"></div>
         </div>
     </div>
 
     <section id="footer" class="footer_area pt-75">
         <div class="container footer">
-          <div id="footer-mid"></div>
-          <div class="row footer-bottom">
-            <div class="col-lg-3 footer-link">
-              <div id="footer-title-1"></div>
-              <div id="footer-list-1"></div>
+            <div id="footer-mid"></div>
+            <div class="row footer-bottom">
+                <div class="col-lg-3 footer-link">
+                    <div id="footer-title-1"></div>
+                    <div id="footer-list-1"></div>
+                </div>
+                <div class="col-lg-3 footer-link">
+                    <div id="footer-title-2">s</div>
+                    <div id="footer-list-2"></div>
+                </div>
+                <div class="col-lg-3 footer-link">
+                    <div id="footer-title-3"></div>
+                    <div id="footer-list-3"></div>
+                </div>
+                <div class="col-lg-3 footer-link">
+                    <div id="footer-title-4"></div>
+                    <div id="footer-list-4"></div>
+                </div>
             </div>
-            <div class="col-lg-3 footer-link">
-              <div id="footer-title-2">s</div>
-              <div id="footer-list-2"></div>
-            </div>
-            <div class="col-lg-3 footer-link">
-              <div id="footer-title-3"></div>
-              <div id="footer-list-3"></div>
-            </div>
-            <div class="col-lg-3 footer-link">
-              <div id="footer-title-4"></div>
-              <div id="footer-list-4"></div>
-            </div>
-          </div>
-          <div class="c-wrap"></div>
+            <div class="c-wrap"></div>
         </div>
-      </section>
+    </section>
+    <div class="background-onclick-detail" style="display: none;"></div>
+  <div class="element-hidden-detail container boxdetail" style="display: none;">
+    <div class="wrapper">
+        <div class="table premium">
+          <div class="ribbon"><span>150% giá trị</span></div>
+          <div class="price-section">
+            <div class="price-area">
+              <div class="inner-area">
+                <img src="./assets/images/goi1-white.png" style="width: 80%;object-fit: cover;height: 80%;">
+              </div>
+            </div>
+            <div class="prite-title"><h1>Gói tri kỉ</h1></div>
+          </div>
+          <div class="package-name"></div>
+          <table class="features">
+            <tr>
+              <th class="list-name">Lợi ích của nhà đầu tư</th>
+              <th class="icon check">Trị giá</th>
+              <th class="icon check">Hạn sử dụng</th>
+            </tr>
+            <tr>
+              <td class="list-name">Voucher sử dụng các sản phẩm tại Biệt thự sách</td>
+              <td class="icon check">5.000.000vnd</td>
+              <td class="icon check">12 tháng</td>
+            </tr>
+            <tr>
+              <td class="list-name">Voucher học tiếng anh tại Talks English</td>
+              <td class="icon check">5.000.000vnd</td>
+              <td class="icon check">12 tháng</td>
+            </tr>
+            <tr>
+              <td class="list-name">5000 cổ phiếu trị giá 10.000vnd / cổ phiếu</td>
+              <td class="icon check">5.000.000vnd</td>
+              <td class="icon check">12 tháng</td>
+            </tr>
+            <tr>
+              <td class="list-name">khi Công ty được niêm yến trên sàn chứng khoán</td>
+              <td class="icon check">5.000.000vnd</td>
+              <td class="icon check">12 tháng</td>
+            </tr>
+            <tr>
+              <td class="list-name">Được ưu tiên đầu tư cho Hệ thống Biệt thự sách</td>
+              <td class="icon check">5.000.000vnd</td>
+              <td class="icon check">12 tháng</td>
+            </tr>
+          </table>
+          <div class="btn">
+            <div>
+              <h2>Giá bán 10.000.000 đ</h2>
+              <h4>Giá trị mà bạn nhân được: 15.000.000vnd</h4>
+            </div>
+            <button>Tham gia ngay</button>
+          </div>
+        </div>
+      </div>  
+  </div>
     <!--- FOOTER PART ENDS --->
 
     <!--- BACK TOP TOP PART START --->

@@ -1,7 +1,9 @@
 .header_navbar {
     background: #004aab;
 }
-
+body{
+    position: relative;
+}
 /* ------*/
 /* tempo */
 /*-------*/
@@ -33,12 +35,13 @@
     margin: 10px 0;
 }
 
-#tempo-2 {
-    padding: 100px 0;
-    background-image: url(https://i.pinimg.com/736x/25/e3/cd/25e3cd7dfa16fd5df7f1b07f57091cc8.jpg);
+
+.tempo-2-bg{
+    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    height: 100%;
+    padding: 80px 0;
 }
 
 .tempo-contribute>h1 {
@@ -119,6 +122,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.tempo-video i{
+    transition: all 0.2s ease-in-out;
+}
+.tempo-video i:hover{
+    font-size: 70px !important;
 }
 
 #tempo .slick-dots>li>button {
@@ -275,10 +284,9 @@
     align-items: center;
 }
 
-.tempo-slick-bottom>.button>button {
+.tempo-slick-bottom>.button>a {
     outline: none;
     border: none;
-    height: 42px;
     color: white;
     background-color: var(--color-text);
     border-radius: 8px;
@@ -289,10 +297,10 @@
     transition: all 0.3s ease;
     cursor: pointer;
     letter-spacing: 1px;
-    padding: 3px 10px;
+    padding: 8px 15px;
 }
 
-.tempo-slick-bottom>.button>button:hover {
+.tempo-slick-bottom>.button>a:hover {
     cursor: pointer;
     background-color: white;
     color: var(--color-text) !important;
@@ -301,7 +309,7 @@
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
-.tempo-slick-bottom>.button>a {
+.tempo-slick-bottom>.button>p {
     cursor: pointer;
 }
 

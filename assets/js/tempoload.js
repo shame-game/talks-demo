@@ -1,4 +1,4 @@
-const GS_ID = "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0";
+const GS_ID = "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc";
 
 // load colors
 fetchSheet
@@ -31,26 +31,25 @@ fetchSheet
 
     // logo
     let logos = content.logo[0];
-    $(".header_navbar img").attr("src", logos.logo1);
+    $(".header_navbar img").attr("src", logos.row1);
     $(window).on("scroll", function (event) {
       var scroll = $(window).scrollTop();
       if (scroll < 20) {
         $(".header_navbar").removeClass("sticky");
-        $(".header_navbar img").attr("src", logos.logo1);
+        $(".header_navbar img").attr("src", logos.row1);
       } else {
         $(".header_navbar").addClass("sticky");
-        $(".header_navbar img").attr("src", logos.logo2);
+        $(".header_navbar img").attr("src", logos.row2);
       }
     });
 
     // nav items
     let navHtml = "";
 
-
     content.nav.forEach(row => {
       navHtml += `
         <li class="nav-item">
-          <a class="page-scroll" href="${row.navLink}" target="${row.navTarget}">${row.navName}</a>
+          <a class="page-scroll" href="${row.row2}" target="_self">${row.row1}</a>
         </li>
       `;
     });
@@ -70,31 +69,53 @@ fetchSheet
       });
     });
 
+    /* tổng tiến độ */
+    var srcTempo = content.TempoSum[content.TempoSum.length - 1].row3
+
+    document.querySelector('.tempo-video>a').setAttribute('href', srcTempo)
+    let tempo = "";
+    content.TempoSum.forEach((row) => {
+      tempo += ` <div class="tempo-contribute">
+      <h1>${row.row1}</h1>
+      <h4>${row.row2}</h4>
+      <div class="p">
+          <p>${row.row4} đ</p><span>Tiến độ: ${row.row5}%</span>
+      </div>
+      <div class="tempo-progress_wrap">
+          <div class="tempo-progress" style="width: ${row.row5}%;"></div>
+      </div>
+      <div class="tempo-button">
+          <a href="pay.html">Tham gia ngay</a>
+      </div>
+    </div>`
+    })
+    document.querySelector('#tempo-2-wrap').innerHTML = tempo
     // header
     let temposlick = "";
-    content.timeline.forEach((row) => {
+    content.packages.forEach((row) => {
+      console.log(row);
       temposlick += `
       <div class="col-lg-4">
                         <div class="tempo-slick-card">
                             <div class="tempo-slick-top">
-                                <img src="./assets/images/goi2-white.png" alt="">
-                                <h1>${row.title}</h1>
+                                <img src="${row.row1}" alt="">
+                                <h1>${row.row2}</h1>
                             </div>
                             <div class="tempo-slick-absolute">
                                 <div class="title">
-                                    <h4>12.000.000</h4>
-                                    <p>40%</p>
+                                    <h4>${row.row4} đ</h4>
+                                    <p>${row.row5}</p>
                                 </div>
                                 <div class="tempo">
-                                    <div style="width: 40%;"></div>
+                                    <div style="width: ${row.row5}%;"></div>
                                 </div>
                                 <div class="time"><i class="bi bi-alarm-fill"></i>
-                                    <p>còn 365 ngày</p>
+                                    <p>${row.row6}</p>
                                 </div>
                             </div>
                             <div class="tempo-slick-bottom">
                                 <ul>`
-      row.description.split("\n").forEach((detail) => {
+      row.row3.split("\n").forEach((detail) => {
         temposlick += `<li>${detail}</li>`
       });
       temposlick += `</ul>
@@ -102,8 +123,8 @@ fetchSheet
                                     
                                 </div>
                                 <div class="button">
-                                    <button>Đóng góp ngay</button>
-                                    <a>chi tiết</a>
+                                    <a href="pay.html">Đóng góp ngay</a>
+                                    <p class="button-onclick-detail">chi tiết</p>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +162,17 @@ fetchSheet
         },
       ],
     });
-
+    var chitiet = document.querySelectorAll('.button-onclick-detail')
+    chitiet.forEach((card) => {
+      card.addEventListener('click', () => {
+        document.querySelector('.background-onclick-detail').setAttribute('style', 'display:block')
+        document.querySelector('.element-hidden-detail').setAttribute('style', 'display:block')
+      })
+    });
+    document.querySelector('.background-onclick-detail').addEventListener('click', () => {
+      document.querySelector('.element-hidden-detail').setAttribute('style', 'display:none')
+      document.querySelector('.background-onclick-detail').setAttribute('style', 'display:none')
+    })
     // top-table 
     //
 
@@ -150,10 +181,9 @@ fetchSheet
     content.topTable.forEach(row => {
       toptbody += `
         <tr>
-          <td><div class="td1"><p>${row.top}</p></div></td>
-          <td><div class="td2"><p>${row.name}</p></div></td>
-          <td><div class="td3"><p>${row.money}</p></div></td>
-          <td style="display: none;">${row.type}</td>
+          <td><div class="td1"><p>${row.row1}</p></div></td>
+          <td><div class="td2"><p>${row.row2}</p></div></td>
+          <td><div class="td3"><p>${row.row3}</p></div></td>
         </tr>`
     });
     document.querySelector("#top_tbody").innerHTML = toptbody;
@@ -168,45 +198,79 @@ fetchSheet
     });
 
     // feedback
-    //
-
-
-
-
-    // tempo
-    let tempo = "";
-    content.progress.forEach((row) => {
-      tempo += ` <div class="tempo-contribute">
-      <h1>Tổng tiến độ gọi vốn</h1>
-      <h4>"Nắm bắt cơ hội đầu tư ngay hôm nay."</h4>
-      <div class="p">
-          <p>${row.name} đ</p><span>Tiến độ: 40%</span>
+    var feedbackForm = '';
+    content.feedbackForm.forEach((row)=>{
+      feedbackForm +=`
+      <div class="container row mx-auto feedback-wrap">
+      <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+          <div class="testimonial_content" style="margin: 10px 0 20px 10px;">
+              <h1 class="testimonial_title">${row.row1}</h1>
+              <p style="text-align: justify;margin: 10px 0;color: #030304;">Email và số điện thoại sẽ không được
+                  công khai<br>${row.row2}</p>
+          </div>
+          <div class="acc">
+              <input id="ip1" class="acc-input" type="text" placeholder=" " class="px-2 pt-1 pb-1" />
+              <label id="la1" class="acc-label 1" for="name">Tên*</label>
+          </div>
+          <div class="acc">
+              <input id="ip2" class="acc-input" type="text" placeholder=" " class="px-2 pt-1 pb-1" />
+              <label id="la2" class="acc-label 2" for="name">Số điện thoại*</label>
+          </div>
+          <div class="acc">
+              <input id="ip2" class="acc-input" type="email" placeholder=" " class="px-2 pt-1 pb-1" />
+              <label id="la2" class="acc-label 2" for="name">Email*</label>
+          </div>
+          <div class="acc">
+              <textarea id="ip2" class="acc-input" type="text" placeholder=" "
+                  class="px-2 pt-1 pb-1"></textarea>
+              <label id="la2" class="acc-label 2" for="name">Nhận xét*</label>
+          </div>
+          <div class="button"><button>Gửi nhận xét</button></div>
       </div>
-      <div class="tempo-progress_wrap">
-          <div class="tempo-progress" style="width: 40%;"></div>
+      <div class="col-lg-6 feedback-img wow fadeInRight" data-wow-delay="0.2s">
+          <img src="./assets/images/feedback-message-5351721-4471252.png">
+          <div class="feedback-before"></div>
       </div>
-      <div class="tempo-button">
-          <a>Đóng góp ngay</a>
-      </div>
-    </div>`
+  </div>`
     })
-    document.querySelector('#tempo-2-wrap').innerHTML = tempo
-
+    document.querySelector("#feedback").innerHTML = feedbackForm
 
     // footer
+    let footertop = "";
+    content.footerTop.forEach((row) => {
+      footertop += `
+      <h1 class="footer-top_title">${row.row1}</h1>
+      <div class="footer-top_link button-onlclick">
+        <a href="pay.html">${row.row2}</a>
+      </div>
+      `
+    })
+    document.querySelector('#footer-top').innerHTML = footertop
+    var footermid = ""
+    footermid += `
+    <div class="row footer-mid">
+      <div class="col-lg-12 content">
+        <h2 class="title-h4" style="font-size: 36px;text-align: center;">`
+    footermid += content.footerIntro[content.footerIntro.length - 1].row1
+    footermid += `
+        </h2>
+      </div>
+    </div>`
+    document.querySelector("#footer-mid").innerHTML = footermid;
+
     let footerList1 = `<ul class="footer-list">`;
     let footerList2 = `<ul class="footer-list">`;
     let footerList3 = `<ul class="footer-list">`;
     let footerList4 = `<ul class="footer-list">`;
     content.liContent.forEach((row) => {
-      footerList1 += `<li><a class="links1" href="">${row.html}</a></li>`
-      footerList2 += `<li><a class="links2" href="">${row.title}</a></li>`
-      footerList3 += `<li><a class="links3" href="">${row.description}</a></li>`
-      if (row.resourceUrl == "") {
+      footerList1 += `<li><a class="links1" href="">${row.row1}</a></li>`
+      footerList2 += `<li><a class="links2" href="">${row.row2}</a></li>`
+      footerList3 += `<li><a class="links3" href="">${row.row3}</a></li>`
+      if (row.row4 == "") {
         footerList4 += ``
       }
       else {
-        footerList4 += `<li><a class="links4" href="">${row.resourceUrl}</a></li>`
+        footerList4 += `<li><a class="links4" href="">${row.row4}</a></li>`
       }
     });
     footerList1 += ` </ul>`
@@ -217,41 +281,32 @@ fetchSheet
     document.querySelector("#footer-list-3").innerHTML = footerList3;
     content.liLink.forEach((row, index) => {
       var indexlink1 = document.querySelectorAll('.links1')
-      var hrefLink1 = `${row.html}`
+      var hrefLink1 = `${row.row1}`
       indexlink1[index].setAttribute('href', hrefLink1)
       var indexlink2 = document.querySelectorAll('.links2')
-      var hrefLink2 = `${row.title}`
+      var hrefLink2 = `${row.row2}`
       indexlink2[index].setAttribute('href', hrefLink2)
       var indexlink3 = document.querySelectorAll('.links3')
-      var hrefLink3 = `${row.description}`
+      var hrefLink3 = `${row.row3}`
       indexlink3[index].setAttribute('href', hrefLink3)
     });
     footerList4 += `<div>`
     content.contact.forEach((row) => {
-      footerList4 += `<a href="${row.postTitle}"><i class="bi bi-${row.resourceUrl}"></i></a>`
+      footerList4 += `<a href="${row.row5}"><i class="bi bi-${row.row4}"></i></a>`
     });
     footerList4 += ` </div></ul>`
     document.querySelector("#footer-list-4").innerHTML = footerList4;
   });
-var Img = document.querySelector('.footer-top')
-function Mathdd() {
-  var Mathdd = (Img.getBoundingClientRect().top) * 0.4
-  return Mathdd;
-}
 
-const IG = window.addEventListener('scroll', () => {
-  document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
-})
-
+/* mục tiêu */
 fetchSheet
   .fetch({
-    gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
-    wSheetName: "progress",
-    range: "B5:D6",
+    gSheetId: "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc",
+    wSheetName: "tempo",
+    range: "B4:D5",
   })
   .then(rows => {
     let tempoTitle = "";
-
     rows.forEach(row => {
       tempoTitle += `
             <div class="col-lg-3 ">
@@ -273,12 +328,29 @@ fetchSheet
                 </div>
             </div>`
     });
-
-
     document.querySelector("#tempo-title").innerHTML = tempoTitle;
-
-   
   });
+  var cd = document.querySelector('#tempo-2')
+function Mathc() {
+  var Mathc = (cd.getBoundingClientRect().top) * 0.4
+  return Mathc;
+}
+
+const IG2 = window.addEventListener('scroll', () => {
+  document.querySelector('.tempo-2-bg').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathc()}px`)
+})
+
+var Img = document.querySelector('.footer-top')
+function Mathdd() {
+  var Mathdd = (Img.getBoundingClientRect().top) * 0.4
+  return Mathdd;
+}
+
+const IG = window.addEventListener('scroll', () => {
+  document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
+})
+
+
 fetchCell({
   gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
   wSheetName: "footer",
@@ -296,62 +368,61 @@ fetchCell({
   });
 
 fetchCell({
-  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  gSheetId: "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc",
   wSheetName: "footer",
-  range: "B5",
+  range: "B7",
 })
   .then((value) => {
     var footerTitle1 = "";
     footerTitle1 += `
-      <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
+    <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
     document.querySelector("#footer-title-1").innerHTML = footerTitle1;
   });
 
 fetchCell({
-  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  gSheetId: "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc",
   wSheetName: "footer",
-  range: "C5",
+  range: "C7",
 })
   .then((value) => {
     var footerTitle2 = "";
     footerTitle2 += `
-      <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
+    <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
     document.querySelector("#footer-title-2").innerHTML = footerTitle2;
   });
 
 fetchCell({
-  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  gSheetId: "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc",
   wSheetName: "footer",
-  range: "D5",
+  range: "D7",
 })
   .then((value) => {
     var footerTitle3 = "";
     footerTitle3 += `
-        <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
+      <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
     document.querySelector("#footer-title-3").innerHTML = footerTitle3;
   });
 
 fetchCell({
-  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  gSheetId: "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc",
   wSheetName: "footer",
-  range: "E5",
+  range: "E7",
 })
   .then((value) => {
     var footerTitle4 = "";
     footerTitle4 += `
-        <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
+      <h2 class="title-h2">${value.slice(1, value.length - 1)}</h2>`
     document.querySelector("#footer-title-4").innerHTML = footerTitle4;
   });
 
 fetchCell({
-  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
+  gSheetId: "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc",
   wSheetName: "footer",
-  range: "B17",
+  range: "B19",
 })
   .then((value) => {
     var c = "";
     c += `
-          <div class="c"><p>${value.slice(1, value.length - 1)}</p></div>`
+        <div class="c"><p>${value.slice(1, value.length - 1)}</p></div>`
     document.querySelector(".c-wrap").innerHTML = c;
   });
-

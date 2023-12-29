@@ -1457,10 +1457,9 @@ p {
   margin-top: 30px;
 }
 
-.benefit-card .button>button {
+.benefit-card .button>a {
   outline: none;
   border: none;
-  height: 42px;
   color: white;
   background-color: var(--color-bg-mx);
   border-radius: 8px;
@@ -1471,9 +1470,10 @@ p {
   cursor: pointer;
   letter-spacing: 1px;
   width: 60%;
+  padding: 8px 15px;
 }
 
-.benefit-card .button>a {
+.benefit-card .button>p {
   cursor: pointer;
   color: var(--color-text);
   font-size: 18px;
@@ -1482,7 +1482,7 @@ p {
 }
 
 
-.benefit-card button:hover {
+.benefit-card a:hover {
   color: var(--color-bg-mx);
   background-color: white;
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.077);
@@ -2629,9 +2629,11 @@ p {
 .footer-list {
   margin: 20px 0;
 }
+
 .footer-list>li {
   text-align: center;
 }
+
 .footer-list>li>a {
   color: unset;
   font-size: 18px;
@@ -2640,6 +2642,7 @@ p {
   line-height: 1.8;
   transition: all 0.3s ease-in-out;
 }
+
 .footer-list>li>a:hover {
   color: var(--color-text);
   transform: translateY(-2px);
@@ -3004,6 +3007,7 @@ p {
   background-color: white;
   color: #228582;
   transform: scale(1.04);
+  cursor: pointer;
 }
 
 .footer-top_wrap>div {
@@ -3024,4 +3028,285 @@ p {
   .footer-top_title {
     font-size: 24px;
   }
+}
+
+.background-onclick {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99999999;
+}
+
+.element-hidden {
+  position: fixed;
+  top: 20px;
+  background-color: white;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999999;
+  bottom: 20px;
+}
+
+.background-onclick-detail {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 99999999;
+}
+
+.boxdetail{
+  position: fixed;
+  top: 50%;
+  background-color: white;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 999999999;
+  padding: 0;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.wrapper .table {
+  background: #fff;
+  width: 100%;
+  padding: 30px 30px;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.table .price-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table .price-area {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.table .prite-title{
+  margin-left:20px;
+}
+
+.table .prite-title>h1{
+  font-size: 50px;
+  font-family: 'Roboto';
+  color: var(--color-text);
+}
+
+.price-area .inner-area {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  line-height: 117px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-area .inner-area .text {
+  font-size: 25px;
+  font-weight: 400;
+  position: absolute;
+  top: -10px;
+  left: 17px;
+}
+
+.price-area .inner-area .price {
+  font-size: 45px;
+  font-weight: 500;
+  margin-left: 16px;
+}
+
+.table .package-name {
+  width: 100%;
+  height: 2px;
+  margin: 35px 0;
+  position: relative;
+}
+
+.table .package-name::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 25px;
+  font-weight: 500;
+  background: #fff;
+  padding: 0 15px;
+  transform: translate(-50%, -50%);
+}
+.table .features{
+  width: 100%;
+}
+
+.table .features td,.table .features th  {
+  border: none;
+  font-size: 18px;
+  text-align: center;
+}
+.table .features td:nth-child(1),.table .features th:nth-child(1){
+  text-align: left;
+}
+.table .features td{
+  color: var(--color-text);
+}
+.table .features th{
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.table .btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.table .btn button {
+  width: 30%;
+  height: 50px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.table .btn button:hover {
+  background-color: white;
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  transform: scale(1.04);
+  cursor: pointer;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.077)
+}
+
+.table .btn>div>h2 {
+  font-size: 28px;
+  font-family: 'Roboto';
+  text-align: start;
+}
+.table .btn>div>h4 {
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'Roboto';
+  font-style: italic;
+  text-align: start;
+}
+
+.premium ::selection,
+.premium .price-area,
+.premium .inner-area,
+.premium .btn button {
+  background: var(--color-text);
+  color: white;
+}
+
+.ultimate ::selection,
+.ultimate .price-area,
+.ultimate .inner-area {
+  background: var(--color-text);
+}
+
+.ultimate .btn button {
+  border: 2px solid #43ef8b;
+  color: #43ef8b;
+  background: #fff;
+}
+
+.ultimate .btn button:hover {
+  background: #43ef8b;
+  color: #fff;
+}
+
+.premium .package-name {
+  background: var(--color-text);
+}
+
+.premium .package-name::before {
+  content: "Chi tiết giá trị gói";
+  font-size: 24px;
+  color: var(--color-text);
+}
+
+.ultimate .package-name::before {
+  content: "Ultimate";
+  font-size: 24px;
+}
+
+::selection {
+  color: #fff;
+}
+
+.table .ribbon {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  overflow: hidden;
+}
+
+.table .ribbon::before,
+.table .ribbon::after {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  display: block;
+  border: 7px solid var(--color-bg-mx);
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+
+.table .ribbon::before {
+  top: 0px;
+  right: 15px;
+}
+
+.table .ribbon::after {
+  bottom: 15px;
+  left: 0px;
+}
+
+.table .ribbon span {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  transform: rotate(-45deg);
+  width: 200px;
+  background: var(--color-text);
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
 }
