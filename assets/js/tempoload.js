@@ -55,6 +55,8 @@ fetchSheet
     });
     document.querySelector("#nav").innerHTML = navHtml;
 
+
+
     $(function () {
       $('a.page-scroll[href*="#"]:not([href="#"])').on("click", function () {
         if (location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") && location.hostname == this.hostname) {
@@ -68,8 +70,7 @@ fetchSheet
         }
       });
     });
-
-    /* tổng tiến độ */
+    /* tiến độ */
     var srcTempo = content.TempoSum[content.TempoSum.length - 1].row3
 
     document.querySelector('.tempo-video>a').setAttribute('href', srcTempo)
@@ -174,7 +175,7 @@ fetchSheet
       document.querySelector('.background-onclick-detail').setAttribute('style', 'display:none')
     })
     // top-table 
-    //
+  
 
     let toptbody = "";
     console.log(content.topTable)

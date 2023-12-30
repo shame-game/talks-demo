@@ -395,6 +395,30 @@ Author: lineicons.com
   left: unset;
 }
 
+@media (max-width: 992px) {
+  #story-bottom .lni-arrow-left::before {
+    bottom: 0;
+  }
+
+  #story-bottom .lni-arrow-right::before {
+    bottom: 0;
+    right: unset;
+    left: 70px;
+  }
+}
+
+@media (max-width: 600px) {
+  #story-bottom .lni-arrow-left::before {
+    bottom: 20px;
+    right: unset;
+    left: 40px;
+  }
+  #story-bottom .lni-arrow-right::before {
+    bottom: 20px;
+    right: unset;
+    left: 100px;
+  }
+}
 
 .benefit_area .bi-chevron-left::before {
   color: white;

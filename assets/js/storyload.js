@@ -71,7 +71,7 @@ fetchSheet
     let storyintro = "";
     content.intro.forEach(row => {
       storyintro += `
-      <div class="row justify-content-center">
+      <div class="row justify-content-center align-items-center">
       <div class="col-lg-6 story-intro_img">
           <img src="${row.row1}">
       </div>
@@ -91,11 +91,6 @@ fetchSheet
     document.querySelector('#storyIntro').innerHTML = storyintro
 
 
-
-    // lịch sử hình thành 
-
-
-
     // progress
 
     $("#progressSlick").slick({
@@ -111,7 +106,22 @@ fetchSheet
     });
 
     /* lịch sử hình thành */
-
+    let storyhis = '';
+    content.storyHis.forEach((row)=>{
+      storyhis += `
+      <div class="items">
+        <div class="imgs" style="background-image: url(${row.row4});">
+        <p>${row.row5}</p>
+        </div>
+        <div class="blue"></div>
+        <div class="story-intro_contents container">
+          <h3>__ ${row.row1} __</h3>
+          <h1>${row.row2}</h1>
+          <p>${row.row3}</p>
+        </div>
+      </div>`
+    })
+    document.querySelector('.slide').innerHTML = storyhis
 
 
     // header
@@ -122,9 +132,10 @@ fetchSheet
         <div>
           <img src="${row.row1}">
           <div class="newspapers-content">
-            <h1>${row.row2}</h1>
+            <a href="${row.row3}">${row.row2}</a>
             <div>
               <p>Ngày: ${row.row4}</p>
+              <a href="${row.row3}" target="_blank">Xem thêm</a>
             </div>
           </div>
         </div>
@@ -155,22 +166,20 @@ fetchSheet
     });
 
     var storyBtd = '';
-    content.storyBottom.forEach((row)=>{
-      storyBtd +=`
+    content.storyBottom.forEach((row) => {
+      storyBtd += `
       <div class="col-lg-12">
         <div class="story-bottom_main">
-          <div>
+          <div class="story-bottom-start">
             <img src="${row.row1}">
             <h1>${row.row2}</h1>
-            </div><p>${row.row3}</p><div>
+            </div><p>${row.row3}</p><div  class="story-bottom-end" >
             <p>${row.row4}</p>
             <i class="lni lni-quotation"></i>
           </div>
         </div>
       </div>`
     });
-    console.log(content.storyBottom);
-    console.log(storyBtd);
     document.querySelector('#story-bottom_slick').innerHTML = storyBtd
 
     $("#story-bottom_slick").slick({
@@ -183,6 +192,15 @@ fetchSheet
       pauseOnHover: false,
       prevArrow: '<span class="prev"><i class="lni lni-arrow-left"></i></span>',
       nextArrow: '<span class="next"><i class="lni lni-arrow-right"></i></span>',
+      responsive: [
+        {
+          breakpoint: 600,
+          settings: {
+            dots: true,
+            arrows: false
+          },
+        },
+      ],
     });
 
     // footer
@@ -249,6 +267,15 @@ fetchSheet
 
 
   });
+var storybottom = document.querySelector('#story-bottom')
+function Mathst() {
+  var Mathst = (storybottom.getBoundingClientRect().top) * 0.5
+  return Mathst;
+}
+
+const storyBT = window.addEventListener('scroll', () => {
+  document.querySelector('.story-bottom').setAttribute('style', `background-position: center ${Mathst()}px`)
+})
 
 var Img = document.querySelector('.footer-top')
 function Mathdd() {

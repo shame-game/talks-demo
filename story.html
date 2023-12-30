@@ -50,81 +50,6 @@
         rel="stylesheet">
     <script src="./assets/js/all.js"></script>
 
-    <!-- Nox -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-MF2NPPK');
-    </script>
-    <!-- End Google Tag Manager -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66438856-15"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-66438856-15');
-    </script>
-    <script charset='UTF-8' src="https://res11.bignox.com/scripts/v1.19.2/sensorsdata.min.js"></script>
-    <script type="text/javascript">
-        var sensors = window['sensorsDataAnalytic201505'];
-        sensors.init({
-            server_url: 'https://bi.noxgroup.com/sa',
-            use_client_time: true,
-            show_log: false,
-            send_type: 'beacon',
-            heatmap: {
-                clickmap: 'not_collect',
-                scroll_notice_map: 'not_collect'
-            }
-        });
-
-        function getUrlParam(name) {
-            const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`);
-            const r = window.location.search.substr(1).match(reg);
-            if (r != null) return unescape(r[2]);
-            return null;
-        };
-        sensors.registerPage({
-            product: 'www-yeshen',
-            type: 'web',
-            lang: 'vn',
-            host: window.location.host,
-            title: document.title,
-            url: window.location.href,
-            refer: document.referrer,
-            ua: navigator.userAgent.toLowerCase(),
-            source_host: (function fn() {
-                const pattern = /^(?:(\w+):\/\/)?(?:(\w+):?(\w+)?@)?([^:/?#]+)(?::(\d+))?(\/[^\?#]+)?(?:\?([^#]+))?(?:#(\w+))?/;
-                const result = pattern.exec(document.referrer);
-                return (result && result[4]) || '';
-            }()),
-            utm_campaign: getUrlParam('utm_campaign'),
-            utm_source: getUrlParam('utm_source'),
-            utm_medium: getUrlParam('utm_medium'),
-            utm_term: getUrlParam('utm_term'),
-            utm_content: getUrlParam('utm_content'),
-            source_url: document.referrer,
-            is_exception: 0,
-            exception_id: -1,
-            exception_detail: '',
-            is_gray: typeof window._isGray === 'boolean' ? window._isGray : 0,
-        });
-        sensors.track('page_visit', {});
-    </script>
 </head>
 
 <body>
@@ -199,14 +124,36 @@
             <!-- container -->
         </div>
         <!-- header navbar -->
+        <div id="history">
+                <div class="tab-content">
+                    <div class="story-intro-wrap" id="xemhome">
+                        <div class="slide" style="background-color: #0048ab;">
+                        </div>
+                        <div class="button flex">
+                            <i id="back" class="bi bi-arrow-left-circle-fill"></i>
+                            <i id="nextr" class="bi bi-arrow-right-circle-fill"></i>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <script>
+            document.querySelector('#nextr').addEventListener('click', () => {
+                let lists = document.querySelectorAll('.items');
+                document.querySelector('.slide').appendChild(lists[0])
+            })
+            document.querySelector('#back').addEventListener('click', () => {
+                let lists = document.querySelectorAll('.items');
+                document.querySelector('.slide').prepend(lists[lists.length - 1])
+            })
+        </script>
 
     </section>
 
     <!--- HEADER PART ENDS --->
-    <section id="story-intro" class="prize_area pt-200 pb-80">
+    <section id="story-intro" class="prize_area pt-80 pb-80">
         <div class="container mx-auto" id="storyIntro"></div>
     </section>
-
+    <!--
     <section id="video-section" class="video-section">
         <div class="section-container">
             <h2 class="title-h4">Lịch sử hình thành</h2>
@@ -320,7 +267,7 @@
             </div>
         </div>
     </section>
-
+-->
 
     <!-- Storys -->
 
@@ -400,9 +347,11 @@
         </div>
     </section>
      Slider Container -->
-    <section id="story-bottom" class=" pt-75 pb-80">
-        <div class="container mx-auto">
-            <div id="story-bottom_slick" class="row justify-content-center benefit-card">
+    <section id="story-bottom" class=" pt-30 pb-80">
+        <div class="story-bottom" style="background-position: center;">
+            <div class="container mx-auto ">
+                <div id="story-bottom_slick" class="row justify-content-center benefit-card">
+                </div>
             </div>
         </div>
     </section>
@@ -467,12 +416,6 @@
             </linearGradient>
         </defs>
     </svg>
-
-    <!-- nox -->
-    <script src="https://res02.noxgroup.com/noxplayer/2023/12/static/js/runtime.5eadc6943.js"></script>
-    <script src="https://res02.noxgroup.com/noxplayer/2023/12/static/js/chunk.vendor.cf92598a.js"></script>
-    <script src="https://res02.noxgroup.com/noxplayer/2023/12/static/js/chunk.common.2229fd14.js"></script>
-    <script src="https://res02.noxgroup.com/noxplayer/2023/12/static/js/chunk.home.e7f356c5.js"></script>
 
     <!--- Jquery js --->
     <script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
