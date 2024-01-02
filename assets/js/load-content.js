@@ -380,7 +380,6 @@ fetchSheet
           document.querySelector('.background-onclick-detail').setAttribute('style', 'display:none')
         })
       })
-      
     });
     
 

@@ -2612,7 +2612,7 @@ p {
   font-size: calc(1rem + 0.3vw);
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  text-align: center;
+  text-align: left;
 }
 
 .footer-mid {
@@ -2629,10 +2629,6 @@ p {
 
 .footer-list {
   margin: 20px 0;
-}
-
-.footer-list>li {
-  text-align: center;
 }
 
 .footer-list>li>a {
@@ -2653,7 +2649,7 @@ p {
 .footer-list>div {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .footer-list>div>a {
@@ -2710,6 +2706,10 @@ p {
   object-position: center;
   margin: 1%;
 }
+.footer-list>li {
+  text-align: left;
+}
+
 
 @media (max-width: 1000px) {
   .title-h4 {
@@ -2738,6 +2738,10 @@ p {
     text-align: center;
     font-size: 14px;
   }
+  .footer-list>li {
+    text-align: center;
+  }
+  
 
   .footer-bottom>div>ul>div {
     justify-content: center;
@@ -3401,30 +3405,35 @@ p {
 
   .bt span {
     font-size: 18px;
-    margin: 5px ;
+    margin: 5px;
   }
-  .btn{
+
+  .btn {
     flex-direction: column;
   }
 }
+
 @media (max-width:429px) {
   .table .prite-title>h1 {
     font-size: 24px;
   }
+
   .table .price-area {
     height: 40px;
     width: 40px;
   }
+
   .premium .package-name::before {
     font-size: 14px;
-}
-.table>.features tr>th {
-  font-size: 14px;
-  padding: 3px 0;
-}
+  }
 
-.table>.features tr>td {
-  font-size: 12px;
-  padding: 5px 3px;
-}
+  .table>.features tr>th {
+    font-size: 14px;
+    padding: 3px 0;
+  }
+
+  .table>.features tr>td {
+    font-size: 12px;
+    padding: 5px 3px;
+  }
 }

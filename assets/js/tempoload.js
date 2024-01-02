@@ -165,15 +165,17 @@ fetchSheet
     });
     var chitiet = document.querySelectorAll('.button-onclick-detail')
     chitiet.forEach((card) => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (event) => {
+        let index = event.target.getAttribute("index");
         document.querySelector('.background-onclick-detail').setAttribute('style', 'display:block')
-        document.querySelector('.element-hidden-detail').setAttribute('style', 'display:block')
+        document.querySelector(`.element-hidden-detail[index='${index}']`).setAttribute('style', 'display:block')
+
+        document.querySelector('.background-onclick-detail').addEventListener('click', () => {
+          document.querySelector(`.element-hidden-detail[index='${index}']`).setAttribute('style', 'display:none')
+          document.querySelector('.background-onclick-detail').setAttribute('style', 'display:none')
+        })
       })
     });
-    document.querySelector('.background-onclick-detail').addEventListener('click', () => {
-      document.querySelector('.element-hidden-detail').setAttribute('style', 'display:none')
-      document.querySelector('.background-onclick-detail').setAttribute('style', 'display:none')
-    })
     // top-table 
   
 
