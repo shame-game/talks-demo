@@ -3240,44 +3240,44 @@ p {
 
 
 .bt span {
-    color: var(--color-text);
-    font-family: 'Roboto', sans-serif;
-    font-size: 22px;
-    position: relative;
-    opacity: 1;
+  color: var(--color-text);
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  position: relative;
+  opacity: 1;
 }
 
-.bt{
-    border-radius: 23px;
-    background: white;
-    border: 1px solid var(--color-text);
-    position: relative;
-    padding: 5px 15px;
-    overflow: hidden;
-    margin-top: 18px;
-    transition: all 0.3s ease-in-out;
+.bt {
+  border-radius: 23px;
+  background: white;
+  border: 1px solid var(--color-text);
+  position: relative;
+  padding: 5px 15px;
+  overflow: hidden;
+  margin-top: 18px;
+  transition: all 0.3s ease-in-out;
 }
 
-.bt::before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0px;
-    height: 0px;
-    transform: translate(-50%, -50%);
-    background-color: var(--color-text);
-    transition: all 0.5s ease-out;
-    border-radius: 50%;
+.bt::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0px;
+  height: 0px;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-text);
+  transition: all 0.5s ease-out;
+  border-radius: 50%;
 }
 
 .bt:hover::before {
-    width: 300px;
-    height: 300px;
+  width: 300px;
+  height: 300px;
 }
 
 .bt:hover span {
-    color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
 }
 
 
@@ -3342,4 +3342,89 @@ p {
   text-align: center;
   font-size: 17px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+@media (max-width:782px) {
+  .table>.features tr>th {
+    font-size: 18px;
+    padding: 0;
+  }
+
+  .table>.features tr>td {
+    font-size: 18px;
+    padding: 3px 5px 0 0;
+  }
+}
+
+@media (max-width:565px) {
+  .boxdetail {
+    width: 94%;
+  }
+
+  .table .prite-title>h1 {
+    font-size: 28px;
+  }
+
+  .table .price-area {
+    height: 50px;
+    width: 50px;
+  }
+
+  .premium .package-name::before {
+    font-size: 18px;
+  }
+
+  .table>.features tr>th {
+    font-size: 16px;
+    padding: 3px 0;
+  }
+
+  .table>.features tr>td {
+    font-size: 14px;
+    padding: 5px 3px;
+  }
+
+  .table .package-name {
+    margin: 25px 0;
+  }
+
+  .table .btn>div>h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .table .btn>div>h4 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .bt span {
+    font-size: 18px;
+    margin: 5px ;
+  }
+  .btn{
+    flex-direction: column;
+  }
+}
+@media (max-width:429px) {
+  .table .prite-title>h1 {
+    font-size: 24px;
+  }
+  .table .price-area {
+    height: 40px;
+    width: 40px;
+  }
+  .premium .package-name::before {
+    font-size: 14px;
+}
+.table>.features tr>th {
+  font-size: 14px;
+  padding: 3px 0;
+}
+
+.table>.features tr>td {
+  font-size: 12px;
+  padding: 5px 3px;
+}
 }
