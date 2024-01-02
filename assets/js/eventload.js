@@ -72,49 +72,7 @@ fetchSheet
     });
 
     // header
-    let eventd = "";
 
-    content.eventd.forEach((row) => {
-        eventd += `
-      <div class="col-lg-4 col-md-8 event-content">
-        <div class="single_blog blog_1 mt-30 wow fadeUp" data-wow-duration="1s" data-wow-delay="0.2s">
-          <div class="blog_image">
-            <img src="${row.row2}" alt="blog" />
-          </div>
-          <div class="blog_content">
-            <div class="blog_meta d-flex justify-content-between">
-              <div class="meta_date">
-                <span>${row.row4}</span>
-              </div>
-              <div class="meta_like"></div>
-            </div>
-            <h4 class="blog_title">
-              <a target="_blank" href="${row.row3}">${row.row1}</a>
-            </h4>
-            <a target="_blank" href="${row.row3}" class="main-btn">Xem Thêm</a>
-          </div>
-        </div>
-      </div>
-    `;
-    });
-
-    document.querySelector("#blog-items").innerHTML = eventd;
-
-    const loadmore = document.querySelector('#loadMore');
-    let currentItems = 6;
-    loadmore.addEventListener('click', (e) => {
-        const elementList = [...document.querySelectorAll('.event-content')];
-        for (let i = currentItems; i < currentItems + 6; i++) {
-            if (elementList[i]) {
-                elementList[i].style.display = 'block';
-            }
-        }
-        currentItems += 6;
-
-        if (currentItems >= elementList.length) {
-            e.target.style.display = 'none';
-        }
-    })
 
     // footer
     let footertop = "";
@@ -250,4 +208,55 @@ fetchSheet
     document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
   })
   
+  getWPPost();
+
+  function getWPPost() {
+    // Fetch data from jsonplaceholder.typicode.com/posts using jQuery
+    $.getJSON('https://bietthusach.com/wp-json/wp/v2/posts?_embed', function(posts) {
+      // Generate HTML for each post
+      const postsContainer = $('#blog-items');
+      $.each(posts, function(index, post) {
+        const postHtml = `
+    <div class="col-lg-4 col-md-8 event-content">
+      <div class="single_blog blog_1 mt-30 wow fadeUp" data-wow-duration="1s" data-wow-delay="0.2s">
+        <div class="blog_image">
+          <img src="${post._embedded['wp:featuredmedia'][0].source_url}" />
+        </div>
+        <div class="blog_content">
+          <div class="blog_meta d-flex justify-content-between">
+            <div class="meta_date">
+              <span>${post.date}</span>
+            </div>
+            <div class="meta_like"></div>
+          </div>
+          <h4 class="blog_title">
+            <a target="_blank" href="${post.link}">${post.title.rendered}</a>
+          </h4>
+          <a target="_blank" href="${post.link}" class="main-btn">Xem Thêm</a>
+        </div>
+      </div>
+    </div>
+        `;
+        postsContainer.append(postHtml);
+      });
+    })
+    .fail(function(error) {
+      console.error('Error fetching posts:', error);
+    });
+  }
   
+  const loadmore = document.querySelector('#loadMore');
+  let currentItems = 6;
+  loadmore.addEventListener('click', (e) => {
+      const elementList = [...document.querySelectorAll('.event-content')];
+      for (let i = currentItems; i < currentItems + 6; i++) {
+          if (elementList[i]) {
+              elementList[i].style.display = 'block';
+          }
+      }
+      currentItems += 6;
+
+      if (currentItems >= elementList.length) {
+          e.target.style.display = 'none';
+      }
+  })

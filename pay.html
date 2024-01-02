@@ -70,8 +70,10 @@
   <!--- PRELOADER PART ENDS --->
 
   <section id="form" class="form_area pt-30 pb-80">
-    <div style="border-bottom: 2px solid #0048ab;width: 100%; padding: 10px ;">
+    <div style="border-bottom: 2px solid #0048ab;width: 100%; padding: 10px ;display: flex; justify-content: space-between; align-items: center;">
+      <span style="cursor: pointer;" id="back">Quay lại</span>
       <h1 class="title-h1">Thanh toán</h1>
+      <p></p>
     </div>
     <div class="container pt-50">
       <div class="row">
@@ -102,6 +104,11 @@
       </div>
     </div>
   </section>
+  <script>
+    document.querySelector('#back').addEventListener('click',()=>{
+      history.back();
+    })
+  </script>
   
 
   <!--- Jquery js --->
@@ -126,9 +133,7 @@
 
   <!--- Main js --->
   <script src="assets/js/fetch-sheet.js"></script>
-  <script src="assets/js/load-content.js"></script>
   <script src="assets/js/main.js"></script>
-  <script src="assets/js/v-stats.js"></script>
 </body>
 
 </html>
