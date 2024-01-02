@@ -3062,13 +3062,13 @@ p {
   z-index: 99999999;
 }
 
-.boxdetail{
+.boxdetail {
   position: fixed;
   top: 50%;
   background-color: white;
   width: 90%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   z-index: 999999999;
   padding: 0;
 }
@@ -3106,11 +3106,11 @@ p {
   padding: 2px;
 }
 
-.table .prite-title{
-  margin-left:20px;
+.table .prite-title {
+  margin-left: 20px;
 }
 
-.table .prite-title>h1{
+.table .prite-title>h1 {
   font-size: 50px;
   font-family: 'Roboto';
   color: var(--color-text);
@@ -3161,22 +3161,28 @@ p {
   padding: 0 15px;
   transform: translate(-50%, -50%);
 }
-.table .features{
+
+.table .features {
   width: 100%;
 }
 
-.table .features td,.table .features th  {
+.table .features td,
+.table .features th {
   border: none;
   font-size: 18px;
   text-align: center;
 }
-.table .features td:nth-child(1),.table .features th:nth-child(1){
+
+.table .features td:nth-child(1),
+.table .features th:nth-child(1) {
   text-align: left;
 }
-.table .features td{
+
+.table .features td {
   color: var(--color-text);
 }
-.table .features th{
+
+.table .features th {
   font-weight: 600;
   font-size: 22px;
 }
@@ -3216,6 +3222,7 @@ p {
   font-family: 'Roboto';
   text-align: start;
 }
+
 .table .btn>div>h4 {
   font-size: 24px;
   font-weight: 500;
@@ -3224,13 +3231,6 @@ p {
   text-align: start;
 }
 
-.premium ::selection,
-.premium .price-area,
-.premium .inner-area,
-.premium .btn button {
-  background: var(--color-text);
-  color: white;
-}
 
 .ultimate ::selection,
 .ultimate .price-area,
@@ -3238,16 +3238,48 @@ p {
   background: var(--color-text);
 }
 
-.ultimate .btn button {
-  border: 2px solid #43ef8b;
-  color: #43ef8b;
-  background: #fff;
+
+.bt span {
+    color: var(--color-text);
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    position: relative;
+    opacity: 1;
 }
 
-.ultimate .btn button:hover {
-  background: #43ef8b;
-  color: #fff;
+.bt{
+    border-radius: 23px;
+    background: white;
+    border: 1px solid var(--color-text);
+    position: relative;
+    padding: 5px 15px;
+    overflow: hidden;
+    margin-top: 18px;
+    transition: all 0.3s ease-in-out;
 }
+
+.bt::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-text);
+    transition: all 0.5s ease-out;
+    border-radius: 50%;
+}
+
+.bt:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.bt:hover span {
+    color: rgb(255, 255, 255);
+}
+
 
 .premium .package-name {
   background: var(--color-text);

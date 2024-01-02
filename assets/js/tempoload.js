@@ -204,37 +204,139 @@ fetchSheet
       feedbackForm +=`
       <div class="container row mx-auto feedback-wrap">
       <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
-          <div class="testimonial_content" style="margin: 10px 0 20px 10px;">
-              <h1 class="testimonial_title">${row.row1}</h1>
-              <p style="text-align: justify;margin: 10px 0;color: #030304;">Email và số điện thoại sẽ không được
-                  công khai<br>${row.row2}</p>
-          </div>
-          <div class="acc">
-              <input id="ip1" class="acc-input" type="text" placeholder=" " class="px-2 pt-1 pb-1" />
-              <label id="la1" class="acc-label 1" for="name">Tên*</label>
-          </div>
-          <div class="acc">
-              <input id="ip2" class="acc-input" type="text" placeholder=" " class="px-2 pt-1 pb-1" />
-              <label id="la2" class="acc-label 2" for="name">Số điện thoại*</label>
-          </div>
-          <div class="acc">
-              <input id="ip2" class="acc-input" type="email" placeholder=" " class="px-2 pt-1 pb-1" />
-              <label id="la2" class="acc-label 2" for="name">Email*</label>
-          </div>
-          <div class="acc">
-              <textarea id="ip2" class="acc-input" type="text" placeholder=" "
-                  class="px-2 pt-1 pb-1"></textarea>
-              <label id="la2" class="acc-label 2" for="name">Nhận xét*</label>
-          </div>
-          <div class="button"><button>Gửi nhận xét</button></div>
+        <div class="testimonial_content" style="margin: 10px 0 20px 10px">
+          <h1 class="testimonial_title">${row.row1}</h1>
+          <p style="text-align: justify; margin: 10px 0; color: #030304">
+            Email và số điện thoại sẽ không được công khai<br />${row.row2}
+          </p>
+        </div>
+        <form id="formfeedback">
+        <div class="acc">
+          <input
+            id="ip1"
+            name="name"
+            class="acc-input d1"
+            type="text"
+            placeholder=" "
+            class="px-2 pt-1 pb-1"
+          />
+          <label id="la1" class="acc-label 1" for="name">Tên*</label>
+        </div>
+        <div class="acc">
+          <input
+            id="ip2"
+            name="phone"
+            class="acc-input d2"
+            type="text"
+            placeholder=" "
+            class="px-2 pt-1 pb-1"
+          />
+          <label id="la2" class="acc-label 2" for="name">Số điện thoại*</label>
+        </div>
+        <div class="acc">
+          <input
+            id="ip2"
+            name="email"
+            class="acc-input d3"
+            type="email"
+            placeholder=" "
+            class="px-2 pt-1 pb-1"
+          />
+          <label id="la2" class="acc-label 2" for="name">Email*</label>
+        </div>
+        <div class="acc">
+          <textarea
+            id="ip2"
+            name="comment"
+            class="acc-input d4"
+            type="text"
+            placeholder=" "
+            class="px-2 pt-1 pb-1"
+          ></textarea>
+          <label id="la2" class="acc-label 2" for="name">Nhận xét*</label>
+        </div>
+        </form>
+        <div class="button">
+          <button id="feedback-cmt">Gửi nhận xét</button>
+        </div>
       </div>
       <div class="col-lg-6 feedback-img wow fadeInRight" data-wow-delay="0.2s">
-          <img src="./assets/images/feedback-message-5351721-4471252.png">
-          <div class="feedback-before"></div>
+        <img src="./assets/images/feedback-message-5351721-4471252.png" />
+        <div class="feedback-before"></div>
       </div>
-  </div>`
+    </div>
+    <div class='sucs' style=" transform: translateX(370px);">
+    <div class="toast-content">
+    <i style="color:#22fe0e;font-size: 34px;" class="bi bi-check-circle-fill"></i>
+    <div class="message">
+        <span class="text text-1">Gửi thành công</span>
+        <span class="text text-2">Cảm ơn bạn đã đóng góp ý kiến</span>
+    </div>
+    </div>
+    </div>
+    <div class='error' style=" transform: translateX(370px);">
+    <div class="toast-content">
+    <i style="color:#fc3333;font-size: 34px;" class="bi bi-x-circle-fill"></i>
+    <div class="message">
+        <span class="text text-1">Gửi thất bại</span>
+        <span class="text text-2">Vui lòng điền đủ thông tin</span>
+    </div>
+    </div>
+    </div>
+    <div class="feedback-load" style="display: none">
+      <div class="spinner-border text-primary"></div>
+    </div>`
     })
     document.querySelector("#feedback").innerHTML = feedbackForm
+
+    const URL =
+        "https://script.google.com/macros/s/AKfycbxHL_qZd4coEWEbacMAblfc5iYw0qOsfjEYprEK9y7_oBueQ5ovJnT5zZ4eaf09qH58/exec";
+
+      $(document).ready(function () {
+        $("#feedback-cmt").click(function () {
+          // Select tất cả
+          var inputValues = $("input, textarea")
+            .map(function () {
+              var input = $(this);
+              return input.attr("name") + "=" + encodeURIComponent(input.val());
+            })
+            .get();
+
+          // tạo 
+          var queryString = inputValues.join("&");
+
+          // Log the result or use it as needed
+          document.querySelector('.feedback-load').setAttribute("style","display:flex")
+          var fullName = document.querySelector(".d1").value;
+          var email = document.querySelector(".d2").value;
+          var phone = document.querySelector(".d3").value;
+          var message = document.querySelector(".d4").value;
+
+        if (fullName === "" || email === "" || phone === "" || message === "") {
+            document.querySelector('.feedback-load').setAttribute("style","display:none")
+            document.querySelector('.feedback-load').setAttribute("style","display:none")
+              document.querySelector(".error").setAttribute("style","transform: translateX(20px);")
+              setTimeout(()=>{document.querySelector(".error").setAttribute("style","transform: translateX(340px);");
+            },5000)
+        } else {
+          // hiển thị 
+          $.ajax({
+            type: "GET",
+            url: URL + "?" + queryString,
+            success: function (response) {
+              document.querySelector('.feedback-load').setAttribute("style","display:none")
+              document.getElementById("formfeedback").reset();
+              document.querySelector(".sucs").setAttribute("style","transform: translateX(20px);")
+              setTimeout(()=>{document.querySelector(".sucs").setAttribute("style","transform: translateX(340px);");
+            },5000)
+            },
+            error: function (error) {
+              $("#feedback-msg").html("Có sự cố gì đó");
+            },
+          });
+        }
+        });
+      });
 
     // footer
     let footertop = "";
@@ -304,7 +406,7 @@ fetchSheet
   .fetch({
     gSheetId: "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc",
     wSheetName: "tempo",
-    range: "B4:D5",
+    range: "B8:D9",
   })
   .then(rows => {
     let tempoTitle = "";

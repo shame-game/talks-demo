@@ -232,9 +232,9 @@ fetchSheet
     footerList4 += ` </div></ul>`
     document.querySelector("#footer-list-4").innerHTML = footerList4;
     var boxHiden = '';
-    content.Boxdetail.forEach((row) => {
+    content.Boxdetail.forEach((row, i) => {
       boxHiden += `
-      <div class="element-hidden-detail container boxdetail" style="display: none;">
+      <div class="element-hidden-detail container boxdetail" style="display: none;" index="${i}">
     <div class="wrapper">
       <div class="table premium">
         <div class="ribbon"><span>150% giá trị</span></div>
@@ -284,7 +284,7 @@ fetchSheet
             <h2>Giá bán 10.000.000 đ</h2>
             <h4>Giá trị mà bạn nhân được: 15.000.000vnd</h4>
           </div>
-          <button>Tham gia ngay</button>
+          <a class="bt" href="pay.html"><span>Tham gia ngay</span></a>
         </div>
       </div>
     </div>     
@@ -307,7 +307,7 @@ fetchSheet
   })
   .then(rows => {
     let timelineHtml = '';
-    rows.forEach(row => {
+    rows.forEach((row, i) => {
 
       timelineHtml += `
               <div class="card-wrap col-lg-4 col-xl-6 col-12 wow fadeInUp" data-wow-delay="0.2s">
@@ -327,7 +327,7 @@ fetchSheet
       });
       timelineHtml += ` <div class="button">
               <a href="pay.html" class="button-onlclick">Tham gia ngay</a>
-              <p class="button-onclick-detail">Chi tiết</p>
+              <p class="button-onclick-detail" index="${i}">Chi tiết</p>
               </div>
             </div>
          </div>
@@ -370,15 +370,19 @@ fetchSheet
 
     var chitiet = document.querySelectorAll('.button-onclick-detail')
     chitiet.forEach((card) => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (event) => {
+        let index = event.target.getAttribute("index");
         document.querySelector('.background-onclick-detail').setAttribute('style', 'display:block')
-        document.querySelector('.element-hidden-detail').setAttribute('style', 'display:block')
+        document.querySelector(`.element-hidden-detail[index='${index}']`).setAttribute('style', 'display:block')
+
+        document.querySelector('.background-onclick-detail').addEventListener('click', () => {
+          document.querySelector(`.element-hidden-detail[index='${index}']`).setAttribute('style', 'display:none')
+          document.querySelector('.background-onclick-detail').setAttribute('style', 'display:none')
+        })
       })
+      
     });
-    document.querySelector('.background-onclick-detail').addEventListener('click', () => {
-      document.querySelector('.element-hidden-detail').setAttribute('style', 'display:none')
-      document.querySelector('.background-onclick-detail').setAttribute('style', 'display:none')
-    })
+    
 
   });
 

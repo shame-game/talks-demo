@@ -775,11 +775,13 @@
     animation: showcontent 1s 0.2s ease forwards;
     font-family: 'Roboto', serif;
     color: white;
-    font-size: calc(12px + 0.5vw);
+    font-size: calc(16px + 0.5vw);
     text-shadow: 0 2px 2px rgb(0, 0, 0);
     width: 50%;
     text-align: justify;
     margin-top: 30px;
+    font-weight: 300;
+    line-height: 1.2;
 }
 
 

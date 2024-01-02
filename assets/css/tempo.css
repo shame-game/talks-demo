@@ -820,3 +820,184 @@ table.dataTable.no-footer {
     height: 100%;
 }
 
+.sucs{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 320px;
+    height: 100px;
+    background-color: white;
+    z-index: 9999999;
+    transition: all 0.4s linear ;
+    border-left: 6px solid #22fe0e;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    padding: 5px 10px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+}
+
+
+.sucs .toast-content{
+    display: flex;
+    align-items: center;
+}
+.sucs .toast-content .check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    background-color: #4070f4;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+.sucs .toast-content .message{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+.sucs .message .text{
+    font-size: 16px;
+    font-weight: 400;;
+    color: #666666;
+}
+.sucs .message .text.text-1{
+    font-weight: 600;
+    color: #333;
+    font-size: 20px;
+}
+.sucs .close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.sucs .close:hover{
+    opacity: 1;
+}
+.sucs .progress{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+}
+.sucs .progress:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #4070f4;
+}
+
+.feedback-load{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999999999999999999
+    ;
+}
+
+.error{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 320px;
+    height: 100px;
+    background-color: white;
+    z-index: 9999999;
+    transition: all 0.4s linear ;
+    border-left: 6px solid #fc3333;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    padding: 5px 10px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+}
+
+
+.error .toast-content{
+    display: flex;
+    align-items: center;
+}
+.error .toast-content .check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    background-color: #4070f4;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+.error .toast-content .message{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+.error .message .text{
+    font-size: 16px;
+    font-weight: 400;;
+    color: #666666;
+}
+.error .message .text.text-1{
+    font-weight: 600;
+    color: #333;
+    font-size: 20px;
+}
+.error .close{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+.error .close:hover{
+    opacity: 1;
+}
+.error .progress{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+}
+.error .progress:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #4070f4;
+}
+
+.feedback-load{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999999999999999999
+    ;
+}
