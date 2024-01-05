@@ -70,7 +70,7 @@ fetchSheet
                 <div class="wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.6s">
                   <p class="htitle-p">${row.row3}</p>
                 </div>
-                <div><a class="htitle-link button-onlclick">${row.row4}</a></div>
+                <div><a class="htitle-link" href="#benefit">${row.row4}</a></div>
               </div>
             </div>
           </div>
@@ -176,8 +176,8 @@ fetchSheet
     content.footerTop.forEach((row) => {
       footertop += `
       <h1 class="footer-top_title">${row.row1}</h1>
-      <div class="footer-top_link button-onlclick">
-        <a href="pay.html">${row.row2}</a>
+      <div class="footer-top_link">
+        <a href="#benefit">${row.row2}</a>
       </div>
       `
     })

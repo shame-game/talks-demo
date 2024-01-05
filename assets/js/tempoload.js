@@ -86,7 +86,7 @@ fetchSheet
           <div class="tempo-progress" style="width: ${row.row5}%;"></div>
       </div>
       <div class="tempo-button">
-          <a href="pay.html">Tham gia ngay</a>
+          <a href="#tempo">Tham gia ngay</a>
       </div>
     </div>`
     })
