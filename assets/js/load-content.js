@@ -1,5 +1,6 @@
 const GS_ID = "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc";
-
+const vam = document.querySelector.bind(document);
+const vams = document.querySelectorAll.bind(document);
 // load colors
 fetchSheet
   .fetch({
@@ -69,7 +70,7 @@ fetchSheet
                 <div class="wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.6s">
                   <p class="htitle-p">${row.row3}</p>
                 </div>
-                <div><a class="htitle-link button-onlclick" href="pay.html">${row.row4}</a></div>
+                <div><a class="htitle-link button-onlclick">${row.row4}</a></div>
               </div>
             </div>
           </div>
@@ -91,7 +92,7 @@ fetchSheet
                 <div class="wow fadeInLeftBig" data-wow-duration="1.3s" data-wow-delay="0.6s">
                   <p class="htitle-p">${row.row3}</p>
                 </div>
-                <div><a class="htitle-link button-onlclick" href="pay.html">${row.row4}</a></div>
+                <div><a class="htitle-link button-onlclick">${row.row4}</a></div>
               </div>
             </div>
           </div>
@@ -326,7 +327,7 @@ fetchSheet
         timelineHtml += `<div class="one"><span>${key}</span> ${row[key] == "TRUE" ? `<i class="fas fa-check"></i>` : `<i class="fas fa-times"></i>`}</div>`;
       });
       timelineHtml += ` <div class="button">
-              <a href="pay.html" class="button-onlclick">Tham gia ngay</a>
+              <a class="button-onlclick">Tham gia ngay</a>
               <p class="button-onclick-detail" index="${i}">Chi tiết</p>
               </div>
             </div>
@@ -367,24 +368,89 @@ fetchSheet
         },
       ],
     });
-
-    var chitiet = document.querySelectorAll('.button-onclick-detail')
+    vams('.button-onlclick').forEach((box) => {
+      box.addEventListener('click', () => {
+        vam('#Box_1412c>.background').setAttribute('style', 'display:block')
+        vam('#Box_1412c>.box').setAttribute('style', 'display:flex')
+        vam('#Box_1412c>.background').addEventListener('click', () => {
+          vam('#Box_1412c>.background').setAttribute('style', 'display:none')
+          vam('#Box_1412c>.box').setAttribute('style', 'display:none')
+          vam("#Box_1412c .content.acc").classList.remove('acc')
+          vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
+          vam('#Box_1412c .title').setAttribute('style', 'display: block')
+          vams('#Box_1412c .dot.acc').forEach((tab)=>{
+            tab.classList.remove('acc')
+          })
+          vams('#Box_1412c .line>p').forEach((line)=>{
+            line.setAttribute('style', 'display: none')
+          })
+        })
+        vam('#Box_1412c .out').addEventListener('click', () => {
+          vam('#Box_1412c>.background').setAttribute('style', 'display:none')
+          vam('#Box_1412c>.box').setAttribute('style', 'display:none')       
+        })
+      })
+    })
+    var chitiet = vams('.button-onclick-detail')
     chitiet.forEach((card) => {
       card.addEventListener('click', (event) => {
         let index = event.target.getAttribute("index");
-        document.querySelector('.background-onclick-detail').setAttribute('style', 'display:block')
-        document.querySelector(`.element-hidden-detail[index='${index}']`).setAttribute('style', 'display:block')
+        vam('.background-onclick-detail').setAttribute('style', 'display:block')
+        vam(`.element-hidden-detail[index='${index}']`).setAttribute('style', 'display:block')
 
-        document.querySelector('.background-onclick-detail').addEventListener('click', () => {
-          document.querySelector(`.element-hidden-detail[index='${index}']`).setAttribute('style', 'display:none')
-          document.querySelector('.background-onclick-detail').setAttribute('style', 'display:none')
+        vam('.background-onclick-detail').addEventListener('click', () => {
+          vam(`.element-hidden-detail[index='${index}']`).setAttribute('style', 'display:none')
+          vam('.background-onclick-detail').setAttribute('style', 'display:none')
         })
       })
     });
-    
+
+    vams('#Box_1412c .next').forEach((tab, index) => {
+      var contentlist = vams('#Box_1412c .content')[index];
+      var dotlist = vams('#Box_1412c .dot')[index];
+      var line = vams('#Box_1412c .line>p')[index - 1];
+      tab.addEventListener('click', () => {
+        var contentacc = vams("#Box_1412c .content.acc")
+        if (contentacc.length > 0) {
+          vam("#Box_1412c .content.acc").classList.remove('acc')
+        } else { }
+        vam('.contenttitle').setAttribute('style', 'display: none')
+        contentlist.classList.add('acc')
+        dotlist.classList.add('acc')
+        line.setAttribute('style', 'display: block')
+      })
+    })
+
+    vams('#Box_1412c .back').forEach((tab, index) => {
+      var contentlist = vams('#Box_1412c .content')[index - 1];
+      var dotlist = vams('#Box_1412c .dot')[index];
+      var line = vams('#Box_1412c .line>p')[index - 1]
+      console.log(line);
+      const backtitle = vams('#Box_1412c .back');
+      tab.addEventListener('click', () => {
+        var contentacc = vams("#Box_1412c .content.acc")
+        if (contentacc.length > 0) { vam("#Box_1412c .content.acc").classList.remove('acc') } else { }
+        vam('.contenttitle').setAttribute('style', 'display: none')
+        if (tab == backtitle[0]) {
+          vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
+          dotlist.classList.remove('acc')
+          vam('#Box_1412c .title').setAttribute('style', 'display:block')
+        }
+        else {
+          contentlist.classList.add('acc')
+          dotlist.classList.remove('acc')
+          line.setAttribute('style', 'display: none')
+        }
+      })
+    })
+
 
   });
 
+// mở box
+vam('#Box_1412c .start').addEventListener('click', () => {
+  vam('#Box_1412c .title').setAttribute('style', 'display: none')
+})
 /* kết thúc phần các gói */
 
 fetchCell({
