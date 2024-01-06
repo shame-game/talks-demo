@@ -4144,9 +4144,24 @@ p {
 .form-group>h1{
   font-size: 18px;
   font-family: 'Roboto';
-  color: var(--color-bg-mx);
+  color: var(--color-text);
   font-weight: 500;
+}
+.form-group>h1>span{
+  color: rgb(181, 54, 54);
 }
 .form-group>input{
   width: 70%;
+  border-radius: 16px;
+}
+
+.form-control{
+  border: 1px solid var(--color-bg-mx);
+}
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: var(--color-bg-mx);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(164, 212, 188, 0.25);
 }
