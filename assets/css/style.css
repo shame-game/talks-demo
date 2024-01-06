@@ -4163,56 +4163,69 @@ p {
 #checkboxbutton:disabled:hover {
   transform: unset !important;
 }
+
 @media (max-width: 1280px) {
   #Box_1412c .content .back {
     padding: 8px 15px;
     font-size: calc(8px + 1vw);
+  }
+
+  #Box_1412c .content .next {
+    padding: 8px 15px;
+    font-size: calc(8px + 1vw);
+  }
+
+  #Box_1412c .paysus .left>.alert>h1 {
+    font-size: 24px;
+  }
+
+  #Box_1412c .paysus .left>.alert>h1 {
+    font-size: 18px;
+  }
+
+  #Box_1412c .infor>.right>div>.main>h1 {
+    font-size: 18px;
+  }
+
+  #Box_1412c .infor>.right>div>.main>ul>li {
+    line-height: 1.5;
+    font-size: 14px;
+  }
+
+  #Box_1412c .infor>.right>div>.position>h1 {
+    font-size: 24px;
+    margin-left: 5px;
+    font-family: 'Roboto';
+  }
+
+  #Box_1412c .infor>.right>div>.position {
+    align-items: center;
+  }
+
+  #Box_1412c .infor>.right>div>.position>img {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+  }
+
+  #Box_1412c .contenttitle .next {
+    padding: 8px 15px;
+    font-size: calc(12px + 1vw);
+  }
+
+  #Box_1412c .contenttitle .right>h1 {
+    font-size: 28px;
+    font-family: 'Roboto';
+    width: 80%;
+    margin: 0 auto;
+  }
 }
-#Box_1412c .content .next {
-  padding: 8px 15px;
-  font-size: calc(8px + 1vw);
-}
-#Box_1412c .paysus .left>.alert>h1 {
-  font-size: 24px;
-}
-#Box_1412c .paysus .left>.alert>h1 {
-  font-size: 18px;
-}
-#Box_1412c .infor>.right>div>.main>h1 {
-  font-size: 18px;
-}
-#Box_1412c .infor>.right>div>.main>ul>li {
-  line-height: 1.5;
-  font-size: 14px;
-}
-#Box_1412c .infor>.right>div>.position>h1 {
-  font-size: 24px;
-  margin-left: 5px;
-  font-family: 'Roboto';
-}
-#Box_1412c .infor>.right>div>.position {
-  align-items: center;
-}
-#Box_1412c .infor>.right>div>.position>img {
-  width: 40px;
-  height: 40px;
-  margin-right: 5px;
-}
-#Box_1412c .contenttitle .next {
-  padding: 8px 15px;
-  font-size: calc(12px + 1vw);
-}
-#Box_1412c .contenttitle .right>h1 {
-  font-size: 28px;
-  font-family: 'Roboto';
-  width: 80%;
-  margin: 0 auto;
-}
-}
+
 @media (max-width: 980px) {
-  .pay .left>div{
+  .pay .left>div {
     width: 100%;
   }
+
   #Box_1412c>.box {
     height: unset;
     top: 0;
@@ -4335,95 +4348,123 @@ p {
 @media (max-width: 550px) {
   #Box_1412c>.box>.title {
     font-size: calc(22px + 1vw);
-}
-#Box_1412c>.box {
-  justify-content: start;
-}
-#Box_1412c .dot>p::before {
-  font-size: calc(8px + 1vw);
-}
-#Box_1412c .contenttitle .left {
-   width: 100%;
-}
-#Box_1412c .contenttitle .right>h1 {
-  font-size: calc(16px + 3vw);
-}
-#Box_1412c .contenttitle .left>div>.detailmon>h1 {
-  font-size: calc(8px + 2vw);
-}
-#Box_1412c .contenttitle .left>div>.detailmon>p {
-  font-size: calc(8px + 1.75vw);
-}
-#Box_1412c .contenttitle .next {
-  font-size: calc(6px + 1.75vw);
-  padding: 8px 15px;
-}
-#Box_1412c .contenttitle .out {
-  font-size: calc(6px + 1.75vw);
-}
-#requiform {
-  width: 100%;
-  font-size: calc(8px + 2vw);
-}
-.form-group>input{
-  border-radius: 6px;
-}
-#Box_1412c .infor>.left>h1 {
-  color: var(--color-text);
-  font-size: calc(16px + 2vw);
-  text-align: center;
-  margin-bottom: 20px;
-}
-#Box_1412c .infor>.right>div>.main {
-  display: none;
-}
-#Box_1412c .infor>.right>div>.position {
-  display: none;
-}
-#Box_1412c .content .back {
-  font-size: calc(6px + 1.75vw);
-  padding: 8px 15px;
-}
-#Box_1412c .content .next {
-  font-size: calc(6px + 1.75vw);
-  padding: 8px 15px;
-}
-#Box_1412c .pay>.row>.left>div>h1 {
-  font-size: calc(8px + 2vw);
-}
-#Box_1412c .pay ul>li {
-  font-size: calc(8px + 1.5vw);
-}
-#Box_1412c .pay>.row>.left>div>.table>.acc>h1 {
-  font-size: calc(8px + 1.5vw);
-}
-#Box_1412c .pay>.row>.left>div>.table>div>h1 {
-  font-size: calc(8px + 1.5vw);
-}
-#Box_1412c .pay>.row>.right>div>h1 {
-  font-size: calc(8px + 2vw);
-}
-#Box_1412c .content .button {
-  display: flex;
-  width: 90%;
-  margin: 20px auto;
-}
-#Box_1412c .paysus .suc {
-  font-size: calc(6px + 1.75vw);
-  padding: 8px 15px;
-}
-#Box_1412c .paysus .back {
-  font-size: calc(6px + 1.75vw);
-  padding: 8px 15px;
-}
-#Box_1412c .paysus .left>.alert>h1 {
-  font-size: calc(8px + 2vw);
-  color: var(--color-bg-mx);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-#Box_1412c .paysus .left>.alert>p {
-  font-size: calc(6px + 1.5vw);
-}
+  }
+
+  #Box_1412c>.box {
+    justify-content: start;
+    min-height: 100%;
+    height: max-content;
+    overflow-y: scroll;
+  }
+
+  #Box_1412c .dot>p::before {
+    font-size: calc(8px + 1vw);
+  }
+
+  #Box_1412c .contenttitle .left {
+    width: 100%;
+  }
+
+  #Box_1412c .contenttitle .right>h1 {
+    font-size: calc(16px + 3vw);
+  }
+
+  #Box_1412c .contenttitle .left>div>.detailmon>h1 {
+    font-size: calc(8px + 2vw);
+  }
+
+  #Box_1412c .contenttitle .left>div>.detailmon>p {
+    font-size: calc(8px + 1.75vw);
+  }
+
+  #Box_1412c .contenttitle .next {
+    font-size: calc(6px + 1.75vw);
+    padding: 8px 15px;
+  }
+
+  #Box_1412c .contenttitle .out {
+    font-size: calc(6px + 1.75vw);
+  }
+
+  #requiform {
+    width: 100%;
+    font-size: calc(8px + 2vw);
+  }
+
+  .form-group>input {
+    border-radius: 6px;
+  }
+
+  #Box_1412c .infor>.left>h1 {
+    color: var(--color-text);
+    font-size: calc(16px + 2vw);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  #Box_1412c .infor>.right>div>.main {
+    display: none;
+  }
+
+  #Box_1412c .infor>.right>div>.position {
+    display: none;
+  }
+
+  #Box_1412c .content .back {
+    font-size: calc(6px + 1.75vw);
+    padding: 8px 15px;
+  }
+
+  #Box_1412c .content .next {
+    font-size: calc(6px + 1.75vw);
+    padding: 8px 15px;
+  }
+
+  #Box_1412c .pay>.row>.left>div>h1 {
+    font-size: calc(8px + 2vw);
+  }
+
+  #Box_1412c .pay ul>li {
+    font-size: calc(8px + 1.5vw);
+  }
+
+  #Box_1412c .pay>.row>.left>div>.table>.acc>h1 {
+    font-size: calc(8px + 1.5vw);
+  }
+
+  #Box_1412c .pay>.row>.left>div>.table>div>h1 {
+    font-size: calc(8px + 1.5vw);
+  }
+
+  #Box_1412c .pay>.row>.right>div>h1 {
+    font-size: calc(8px + 2vw);
+  }
+
+  #Box_1412c .content .button {
+    display: flex;
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  #Box_1412c .paysus .suc {
+    font-size: calc(6px + 1.75vw);
+    padding: 8px 15px;
+  }
+
+  #Box_1412c .paysus .back {
+    font-size: calc(6px + 1.75vw);
+    padding: 8px 15px;
+  }
+
+  #Box_1412c .paysus .left>.alert>h1 {
+    font-size: calc(8px + 2vw);
+    color: var(--color-bg-mx);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #Box_1412c .paysus .left>.alert>p {
+    font-size: calc(6px + 1.5vw);
+  }
 }
