@@ -306,7 +306,7 @@
                 </div>
                 <div class="button">
                   <button class="back">Quay lại</button>
-                  <input class="next" style="margin-left: 20px;" type="submit" value="Tiếp theo">
+                  <input class="requiform" style="margin-left: 20px;" type="submit" value="Tiếp theo">
                 </div>
               </div>
             </div>
@@ -318,8 +318,17 @@
         </div>
         <script>
           document.getElementById('formpay').addEventListener('submit', function (event) {
-                // Ngăn chặn hành động mặc định của form
-          event.preventDefault();})
+            event.preventDefault();
+            var hoTenValue = document.getElementById('entry.1748345937').value;
+            var soDienThoaiValue = document.getElementById('entry.1175513184').value;
+            var emailValue = document.getElementById('entry.326629868').value;
+            var diaChiValue = document.getElementById('entry.182130669').value;
+            if (hoTenValue == '' | soDienThoaiValue == '' | emailValue == '' | diaChiValue == '') {
+              alert('Xin vui lòng điền đủ thông tin')
+            }
+            else { document.querySelector('.requiform').classList.add('next') }
+          })
+
         </script>
         <div class="col-lg-6 right">
           <div>
