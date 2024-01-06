@@ -289,24 +289,27 @@
             <div class="formwrap" id="section-0">
               <div class="formmain">
                 <div class="form-group">
-                  <h1>Họ và tên: <span>*</span></h1>
-                  <input class="form-control" id="entry.1748345937" name="entry.1748345937" type="text" required>
+                  <label for="entry.1748345937">Họ và tên</label>
+                  <input class="form-control" id="entry.1748345937" name="entry.1748345937"
+                  type="text" required>
                 </div>
                 <div class="form-group">
-                  <h1>Số điện thoại: <span>*</span></h1>
-                  <input class="form-control" id="entry.1175513184" name="entry.1175513184" type="text" required>
+                  <label for="entry.1175513184">Điện thoại</label>
+                  <input class="form-control" id="entry.1175513184" name="entry.1175513184"
+                  type="text" required>
                 </div>
                 <div class="form-group">
-                  <h1>Email: <span>*</span></h1>
-                  <input class="form-control" id="entry.326629868" name="entry.326629868" type="email" required>
+                  <label for="entry.326629868">Email</label>
+                  <input class="form-control" id="entry.326629868" name="entry.326629868"
+                  type="text" required>
                 </div>
                 <div class="form-group">
-                  <h1>Địa chỉ: <span>*</span></h1>
-                  <input class="form-control" id="entry.182130669" name="entry.182130669" type="text" required>
+                  <label for="entry.182130669">Địa chỉ</label>
+                  <input class="form-control" id="entry.182130669" name="entry.182130669"
+                  type="text" required>
                 </div>
-                <div class="button">
-                  <button class="back">Quay lại</button>
-                  <input class="next" style="margin-left: 20px;" type="submit" value="Tiếp theo">
+                <div id="requiform-wrap">
+                  <input id="requiform" type="submit" value="Gửi thông tin">
                 </div>
               </div>
             </div>
@@ -334,6 +337,23 @@
                 <li><i class="bi bi-check"></i>Được ưu tiên đầu tư cho Hệ thống Biệt thự sách</li>
               </ul>
             </div>
+            <div class="button">
+              <button class="back">Quay lại</button>
+              <button class="next" disabled="disabled">Tiếp theo</button>
+            </div>
+            <script>
+              document.getElementById('formpay').addEventListener('submit', function (event) {
+                var hoTenValue = document.getElementById('entry.1748345937').value;
+                var soDienThoaiValue = document.getElementById('entry.1175513184').value;
+                var emailValue = document.getElementById('entry.326629868').value;
+                var diaChiValue = document.getElementById('entry.182130669').value;
+                if (hoTenValue == '' | soDienThoaiValue == '' | emailValue == '' | diaChiValue == '') {console.log('Lỗi'); }
+                else {
+                  event.preventDefault();
+                  document.querySelector('#Box_1412c .infor .button>.next').removeAttribute('disabled')
+                }
+              })
+            </script>
           </div>
         </div>
       </div>
@@ -379,16 +399,21 @@
 
               1.5. Chính sách này được áp dụng cho cả Người bán (Đại lý) và Người mua đang sử dụng dịch vụ trừ khi có
               tuyên bố rõ ràng ngược lại.</p>
-            <div><input type="checkbox">
+            <div><input type="checkbox" id="checkboxpay">
               <p>Xác nhận bạn có đồng ý với chính sách của chúng tôi</p>
             </div>
           </div>
         </div>
         <div class="button">
           <button class="back">Quay lại</button>
-          <button class="next">Tiếp theo</button>
+          <button id="checkboxbutton" class="next" onclick="submitForm()" disabled="disabled">Tiếp theo</button>
         </div>
       </div>
+      <script>
+        document.querySelector('#checkboxpay').addEventListener('change', function () {
+          document.querySelector('#checkboxbutton').disabled = !document.querySelector('#checkboxpay').checked;
+        });
+      </script>
       <div class="content pay">
         <div class="row">
           <div class="col-lg-8 left">

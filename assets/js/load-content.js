@@ -428,17 +428,7 @@ fetchSheet
         })
       })
     });
-    document.getElementById('formpay').addEventListener('submit', function (event) {
-      event.preventDefault();
-      /*var hoTenValue = document.getElementById('entry.1748345937').value;
-      var soDienThoaiValue = document.getElementById('entry.1175513184').value;
-      var emailValue = document.getElementById('entry.326629868').value;
-      var diaChiValue = document.getElementById('entry.182130669').value;
-      if (hoTenValue == '' | soDienThoaiValue == '' | emailValue == '' | diaChiValue == '') {
-        alert('Xin vui lòng điền đủ thông tin')
-      }
-      else { document.querySelector('.requiform').classList.add('next') }*/
-    })
+    
     vams('#Box_1412c .next').forEach((tab, index) => {
       var contentlist = vams('#Box_1412c .content')[index];
       var dotlist = vams('#Box_1412c .dot')[index];
