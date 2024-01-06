@@ -4336,6 +4336,9 @@ p {
   #Box_1412c>.box>.title {
     font-size: calc(22px + 1vw);
 }
+#Box_1412c>.box {
+  justify-content: start;
+}
 #Box_1412c .dot>p::before {
   font-size: calc(8px + 1vw);
 }
