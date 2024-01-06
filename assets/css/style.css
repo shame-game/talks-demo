@@ -3302,10 +3302,6 @@ p {
   font-size: 24px;
 }
 
-::selection {
-  color: #fff;
-}
-
 .table .ribbon {
   width: 150px;
   height: 150px;
@@ -3439,6 +3435,7 @@ p {
     padding: 5px 3px;
   }
 }
+
 /*          */
 /* Vamnaone */
 /*          */
@@ -3773,11 +3770,11 @@ p {
 
 #Box_1412c .infor>.right>div>.position {
   position: absolute;
-  top: -3%;
+  top: 10%;
   display: flex;
   align-items: end;
   width: max-content;
-  left: 60%;
+  left: 65%;
   transform: translate(-50%, 0);
   background-color: white;
   padding: 10px 45px;
@@ -3798,11 +3795,12 @@ p {
 
 #Box_1412c .infor>.right>div>.main {
   background-color: var(--color-bg-mn);
-  width: 90%;
+  width: 80%;
   border-radius: 12px;
   padding: 50px 10px 20px 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  margin-top: 30px;
+  margin: 0 auto;
+  margin-top: 80px;
 }
 
 #Box_1412c .infor>.right>div>.main>h1 {
@@ -4118,4 +4116,37 @@ p {
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
   margin-left: 20px;
+}
+
+.formmain {
+  padding: 0;
+}
+
+.formwrap {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #ffffff00;
+  background-clip: border-box;
+}
+
+.form-group{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.form-group>h1{
+  font-size: 18px;
+  font-family: 'Roboto';
+  color: var(--color-bg-mx);
+  font-weight: 500;
+}
+.form-group>input{
+  width: 70%;
 }

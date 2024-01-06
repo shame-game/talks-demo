@@ -15,6 +15,8 @@ fetchSheet
     document.querySelector("#decorator-bg > stop:nth-child(2)").setAttribute("stop-color", rows.find(row => row.id == "gradient-2").color);
   });
 
+var packages = [];
+
 // load content
 fetchSheet
   .fetch({
@@ -28,6 +30,8 @@ fetchSheet
       Object(content).hasOwnProperty(key) || Object.assign(content, { [key]: [] });
       content[key].push(row);
     });
+
+    packages = rows.filter(row => row.section == 'packages');
     // header 
 
     // logo
@@ -292,238 +296,14 @@ fetchSheet
     document.querySelector('#hiddendetail').innerHTML = boxHiden;
     var box1412c1 = ''
 
-    box1412c1 += `
-    <section id="Box_1412c">
-  <div class="background" style="display: none;"></div>
-  <div class="box container" style="display: none;">
-    <h1 class="title" style="display: block">Tham gia chương trình</h1>
-    <div class="dots">
-      <div class="dot d1">
-        <p>1</p>
-      </div>
-      <span class="line" style="background-color: rgb(169, 169, 169);">
-        <p></p>
-      </span>
-      <div class="dot d2">
-        <p>2</p>
-      </div>
-      <span class="line" style="background-color: rgb(169, 169, 169);">
-        <p></p>
-      </span>
-      <div class="dot d3">
-        <p>3</p>
-      </div>
-      <span class="line" style="background-color: rgb(169, 169, 169);">
-        <p></p>
-      </span>
-      <div class="dot d4">
-        <p>4</p>
-      </div>
-    </div>
-    <div class="contenttitle" style="display: flex">
-      <div class="row" style="height: 100%;">
-        <div class="col-lg-6 left">
-          <div>
-            <div class="detailname">
-              <img src="./assets/images/b2.png">
-              <h1>Gói lan tỏa</h1>
-            </div>
-            <div class="detailmon">
-              <h1>Giá gói: 1.000.000 vnđ</h1>
-              <p>Giá trị nhận được: 2.000.000 vnđ</p>
-            </div>
-            <div class="position">
-              <div class="tempotitle">
-                <h4>Tổng: 1200000 vnđ</h4>
-                <p>40%</p>
-              </div>
-              <div class="tempodiv">
-                <div style="width: 40%;"></div>
-              </div>
-              <div class="tempotime"><i class="bi bi-alarm-fill"></i>
-                <p>Còn lại 365 ngày</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 right">
-          <h1>Đồng hành<br><span>Nâng cao tư duy Việt<br> cùng Biệt Thự Sách</span></h1>
-          <p>Vui lòng thực hiện đủ các bước*</p>
-          <div class="button">
-            <button class="out">Thoát</button>
-            <button class="next start" style="margin-left: 20px;">Bắt đầu ngay</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="content infor">
-      <div class="col-lg-6 left">
-        <h1>Thông tin cá nhân</h1>
-        <div class="acc">
-          <input id="ip1" name="name" class="acc-input d1" type="text" placeholder=" " class="px-2 pt-1 pb-1" />
-          <label id="la1" class="acc-label 1" for="name">Tên*</label>
-        </div>
-        <div class="acc">
-          <input id="ip2" name="phone" class="acc-input d2" type="text" placeholder=" " class="px-2 pt-1 pb-1" />
-          <label id="la2" class="acc-label 2" for="name">Số điện thoại*</label>
-        </div>
-        <div class="acc">
-          <input id="ip2" name="email" class="acc-input d3" type="email" placeholder=" " class="px-2 pt-1 pb-1" />
-          <label id="la2" class="acc-label 2" for="name">Email*</label>
-        </div>
-        <div class="button">
-          <button class="back">Quay lại</button>
-          <button class="next" style="margin-left: 20px;">Tiếp theo</button>
-        </div>
-      </div>
-      <div class="col-lg-6 right">
-        <div>
-          <div class="position">
-            <img src="./assets/images/b2.png">
-            <h1>Gói tri kỉ</h1>
-          </div>
-          <div class="main">
-            <h1>Những đặc quyền của bạn</h1>
-            <ul>
-              <li><i class="bi bi-check"></i>Voucher sử dụng các sản phẩm tại Biệt thự sách</li>
-              <li><i class="bi bi-check"></i> margin-top: 10px;</li>
-              <li><i class="bi bi-check"></i>Voucher sử dụng các sản phẩm tại Biệt thự sách</li>
-              <li><i class="bi bi-check"></i>Voucher học tiếng anh tại Talks English</li>
-              <li><i class="bi bi-check"></i>5000 cổ phiếu trị giá 10.000vnd / cổ phiếu khi Công ty được niêm yến trên
-                sàn chứng khoán</li>
-              <li><i class="bi bi-check"></i>Được ưu tiên đầu tư cho Hệ thống Biệt thự sách</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="content policy">
-      <div class="row">
-        <div class="col-lg-12 main">
-          <h1>Chính sách của chúng tôi</h1>
-          <p>Chào mừng Quý khách đến với nền tảng TENTEN.VN (bao gồm website và ứng dụng di động TENTEN.VN) được vận
-            hành bởi Công ty cổ phần GMO-Z.com RUNSYSTEM và các công ty liên kết (gọi riêng và gọi chung là,
-            "TENTEN.VN", "chúng tôi", hay "của chúng tôi"). TENTEN.VN nghiêm túc thực hiện trách nhiệm của mình liên
-            quan đến bảo mật thông tin theo các quy định về bảo vệ bí mật thông tin cá nhân của pháp luật Việt Nam
-            (“Nghị định 13/2023/NĐ-CP của Chính Phủ”) và cam kết tôn trọng quyền riêng tư và sự quan tâm của tất cả
-            người dùng đối với website và ứng dụng di động của chúng tôi (“Nền tảng”) (chúng tôi gọi chung các nền
-            tảng và các dịch vụ chúng tôi cung cấp như được mô tả trong nền tảng của chúng tôi là "các dịch vụ").
-            Người dùng có nghĩa là người đăng ký tài khoản với chúng tôi để sử dụng các dịch vụ, bao gồm cả người mua
-            và người bán (Đại lý) (gọi chung và gọi riêng là “Các Người Dùng”, “Quý khách” hoặc “của Quý khách”).
-            Chúng tôi nhận biết tầm quan trọng của dữ liệu cá nhân mà Quý khách đã tin tưởng giao cho chúng tôi và tin
-            rằng chúng tôi có trách nhiệm quản lý, bảo vệ và xử lý dữ liệu cá nhân của Quý khách một cách thích hợp.
-            Chính sách bảo mật này ("Chính sách bảo mật" hay "Chính sách") được thiết kế để giúp Quý khách hiểu được
-            cách thức chúng tôi thu thập, sử dụng, tiết lộ và/hoặc xử lý dữ liệu cá nhân mà Quý khách đã cung cấp cho
-            chúng tôi và/hoặc lưu giữ về Quý khách, cho dù là hiện nay hoặc trong tương lai, cũng như để giúp Quý
-            khách đưa ra quyết định sáng suốt trước khi cung cấp cho chúng tôi bất kỳ dữ liệu cá nhân nào của Quý
-            khách.
-
-            1.2. "Dữ Liệu Cá Nhân" hay "dữ liệu cá nhân" có nghĩa là dữ liệu, dù đúng hay không, về một cá nhân mà
-            thông qua đó có thể được xác định được danh tính, hoặc từ dữ liệu đó và thông tin khác mà một tổ chức có
-            hoặc có khả năng tiếp cận. Các ví dụ thường gặp về dữ liệu cá nhân có thể gồm có tên, số chứng minh nhân
-            dân và thông tin liên hệ.
-
-            1.3. Bằng việc sử dụng các dịch vụ, đăng ký một tài khoản với chúng tôi hoặc truy cập nền tảng, Quý khách
-            xác nhận và đồng ý rằng Quý khách chấp nhận các phương pháp, yêu cầu, và/hoặc chính sách được mô tả trong
-            Chính sách bảo mật này, và theo đây Quý khách xác nhận Quý khách đã biết rõ và đồng ý toàn bộ cho phép
-            chúng tôi thu thập, sử dụng, tiết lộ và/hoặc xử lý dữ liệu cá nhân của Quý khách như mô tả trong đây. Nếu
-            chúng tôi thay đổi Chính sách bảo mật của mình, bao gồm cả thông qua việc đăng tải những thay đổi đó hoặc
-            Chính sách bảo mật sửa đổi trên nền tảng của chúng tôi; Trong phạm vi pháp luật cho phép, việc tiếp tục sử
-            dụng các dịch vụ hoặc nền tảng, bao gồm giao dịch của Quý khách, được xem là Quý khách đã công nhận và
-            đồng ý với các thay đổi trong Chính Sách Bảo Mật này.
-
-            1.4. Chính sách này áp dụng cùng với các thông báo, điều khoản hợp đồng, điều khoản chấp thuận khác áp
-            dụng liên quan đến việc chúng tôi thu thập, lưu trữ, sử dụng, tiết lộ và/hoặc xử lý dữ liệu cá nhân của
-            Quý khách và không nhằm ghi đè những thông báo hoặc các điều khoản đó trừ khi chúng tôi có tuyên bố ràng
-            khác.
-
-            1.5. Chính sách này được áp dụng cho cả Người bán (Đại lý) và Người mua đang sử dụng dịch vụ trừ khi có
-            tuyên bố rõ ràng ngược lại.</p>
-          <div><input type="checkbox">
-            <p>Xác nhận bạn có đồng ý với chính sách của chúng tôi</p>
-          </div>
-        </div>
-      </div>
-      <div class="button">
-        <button class="back">Quay lại</button>
-        <button class="next">Tiếp theo</button>
-      </div>
-    </div>
-    <div class="content pay">
-      <div class="row">
-        <div class="col-lg-8 left">
-          <div>
-            <h1>Thông tin gói</h1>
-            <div class="table">
-              <div class="acc">
-                <h1>Tên gói</h1>
-                <h1>Số tiền phải trả</h1>
-              </div>
-              <div>
-                <h1>Gói tri kỉ<br><span>(gói gọi vốn từ Biệt Thự Sách)</span></h1>
-                <h1>2.000.000 vnđ</h1>
-              </div>
-            </div>
-            <h1>Thông tin người nhận</h1>
-            <ul class="form-list">
-              <li>Chuyển khoản ngân hàng MB Bank ( Không mất phí
-                thanh toán )<br>
-                Thông tin người nhận:<br>
-                *Name: DINH MINH QUYEN<br>
-                *STK: 0903 020 123</li>
-              <li>Thanh toán Onecom: Thanh toán bằng thẻ Visa
-                hoặc Master Card ( Phí thanh toán 0.29$ )</li>
-              <li>Thanh toán Paypal ( Phí thanh toán $ 0.29 )</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-4 right">
-          <div>
-            <h1>Mã Qr</h1>
-            <div class="img">
-              <img src="https://i.pinimg.com/736x/dc/e1/32/dce1321615bf9267e5a73ed6555c4297.jpg">
-            </div>
-            <div class="button">
-              <button class="back">Quay lại</button>
-              <button class="next">Tiếp theo</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="content paysus">
-      <div class="row">
-        <div class="col-lg-6 left">
-          <div class="alert">
-            <h1><i class="bi bi-check-circle-fill"></i>Đóng góp thành công !</h1>
-            <p>Cảm ơn bạn đã đóng góp cho chúng tôi</p>
-          </div>
-          <div class="button">
-            <button class="back">Quay lại</button>
-            <button class="suc">Hoàn thành</button>
-          </div>
-        </div>
-        <div class="col-lg-6 right">
-          <img id="box1412c2" src="./assets/images/414953521_793318252837099_8762419459066853807_n.jpg" alt="">
-          <img id="box1412c1" src="assets/images/415915580_793344296167828_4445337624631445347_n.jpg" alt="">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>`
-
-    document.querySelector('#hidenBox1412c1').innerHTML = box1412c1
-
-    vam('#Box_1412c .start').addEventListener('click',()=>{
-      vam('#Box_1412c .title').setAttribute('style','display: none')
-    })
-  
+   
   });
 
 
 
 
 /* load nội dung các gói đóng góp */
+var funding = [];
 
 fetchSheet
   .fetch({
@@ -532,9 +312,11 @@ fetchSheet
     range: "B11:K15",
   })
   .then(rows => {
-    let timelineHtml = '';
-    rows.forEach((row, i) => {
+    funding = rows; // lưu vào biến toàn cục để dùng lại
 
+    let timelineHtml = '';
+    
+    rows.forEach((row, i) => {
       timelineHtml += `
               <div class="card-wrap col-lg-4 col-xl-6 col-12 wow fadeInUp" data-wow-delay="0.2s">
               <div class="card">
@@ -552,7 +334,7 @@ fetchSheet
         timelineHtml += `<div class="one"><span>${key}</span> ${row[key] == "TRUE" ? `<i class="fas fa-check"></i>` : `<i class="fas fa-times"></i>`}</div>`;
       });
       timelineHtml += ` <div class="button">
-              <a class="button-onlclick">Tham gia ngay</a>
+              <a class="button-onlclick" index="${i}">Tham gia ngay</a>
               <p class="button-onclick-detail" index="${i}">Chi tiết</p>
               </div>
             </div>
@@ -594,7 +376,24 @@ fetchSheet
       ],
     });
     vams('.button-onlclick').forEach((box) => {
-      box.addEventListener('click', () => {
+      box.addEventListener('click', (e) => {
+        // showing selected features
+        let index = e.target.getAttribute("index");
+        let package = funding[index];
+        vams('.participant-name').forEach(element => element.innerText = package.Feature);
+        vams('.participant-moneyin').forEach(element => element.innerText = 'Giá gói: ' + package.moneyin + ' đ');
+        vams('.participant-moneyout').forEach(element => element.innerText = 'Giá trị nhận được: ' + package.moneyout + ' đ');
+        vam('.participant-total').innerText = parseFloat(packages[index].row4).toLocaleString("vi-VN", {style: 'currency',currency: 'VND'});
+        vam('.participant-percent').innerText = packages[index].row5 + "%";
+        vam('.participant-days').innerText = packages[index].row6;
+
+        let featuresHTML = '';
+        Object.keys(package).forEach(key => {
+          if(package[key] == "TRUE")
+            featuresHTML += `<li><i class="bi bi-check"></i>${key}</li>`;
+        });
+        vam('.participant-features').innerHTML = featuresHTML;
+
         vam('#Box_1412c>.background').setAttribute('style', 'display:block')
         vam('#Box_1412c>.box').setAttribute('style', 'display:flex')
         vam('#Box_1412c>.background').addEventListener('click', () => {
@@ -672,7 +471,9 @@ fetchSheet
   });
 
 // mở box
-
+vam('#Box_1412c .start').addEventListener('click',()=>{
+  vam('#Box_1412c .title').setAttribute('style','display: none')
+})
 /* kết thúc phần các gói */
 
 fetchCell({
