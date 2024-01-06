@@ -415,6 +415,21 @@ fetchSheet
         })
       })
     })
+
+    vam('#Box_1412c .suc').addEventListener('click',()=>{
+      vam('#Box_1412c>.background').setAttribute('style', 'display:none')
+      vam('#Box_1412c>.box').setAttribute('style', 'display:none')
+      vam("#Box_1412c .content.acc").classList.remove('acc')
+      vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
+      vam('#Box_1412c .title').setAttribute('style', 'display: block')
+      vams('#Box_1412c .dot.acc').forEach((tab) => {
+        tab.classList.remove('acc')
+      })
+      vams('#Box_1412c .line>p').forEach((line) => {
+        line.setAttribute('style', 'display: none')
+      })
+    })
+
     var chitiet = vams('.button-onclick-detail')
     chitiet.forEach((card) => {
       card.addEventListener('click', (event) => {
@@ -474,6 +489,8 @@ fetchSheet
 vam('#Box_1412c .start').addEventListener('click',()=>{
   vam('#Box_1412c .title').setAttribute('style','display: none')
 })
+
+
 /* kết thúc phần các gói */
 
 fetchCell({
