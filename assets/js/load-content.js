@@ -392,8 +392,8 @@ fetchSheet
           if(package[key] == "TRUE")
             featuresHTML += `<li><i class="bi bi-check"></i>${key}</li>`;
         });
+        vam('body').setAttribute('style','overflow-y: hidden;')
         vam('.participant-features').innerHTML = featuresHTML;
-
         vam('#Box_1412c>.background').setAttribute('style', 'display:block')
         vam('#Box_1412c>.box').setAttribute('style', 'display:flex')
         vam('#Box_1412c>.background').addEventListener('click', () => {

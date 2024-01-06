@@ -3480,7 +3480,7 @@ p {
   background-image: url(https://printify.com/wp-content/themes/printify/assets/main-page-new/background.svg)
 }
 
-#Box_1412c>.box>.title {
+#Box_1412c>.box>div>.title {
   font-size: 42px;
   text-align: center;
   margin: 15px 0;
@@ -3488,7 +3488,7 @@ p {
   color: var(--color-text);
 }
 
-#Box_1412c>.box>.dots {
+#Box_1412c>.box>div>.dots {
   display: flex;
   width: 60%;
   justify-content: space-between;
@@ -3497,11 +3497,11 @@ p {
   transition: all 0.3s ease-in-out;
 }
 
-#Box_1412c>.box>.dots>.dot {
+#Box_1412c>.box>div>.dots>.dot {
   position: relative;
 }
 
-#Box_1412c>.box>.dots>.dot>p {
+#Box_1412c>.box>div>.dots>.dot>p {
   font-size: 18px;
   border-radius: 50%;
   background-color: rgb(169, 169, 169);
@@ -3516,18 +3516,18 @@ p {
   align-items: center;
 }
 
-#Box_1412c>.box>.dots>.dot.acc>p {
+#Box_1412c>.box>div>.dots>.dot.acc>p {
   background-color: var(--color-bg-mx);
   ;
   color: white;
 }
 
-#Box_1412c>.box>.dots>.line {
+#Box_1412c>.box>div>.dots>.line {
   flex: 1;
   height: 3px;
 }
 
-#Box_1412c>.box>.dots>.line>p {
+#Box_1412c>.box>div>.dots>.line>p {
   height: 3px;
   background-color: var(--color-bg-mx);
   animation: box1412cLine 0.5s linear forwards;
@@ -3544,11 +3544,11 @@ p {
   }
 }
 
-#Box_1412c>.box>.content {
+#Box_1412c>.box>div>.content {
   display: none;
 }
 
-#Box_1412c>.box>.content.acc {
+#Box_1412c>.box>div>.content.acc {
   display: flex;
 }
 
@@ -3596,7 +3596,7 @@ p {
 #Box_1412c .contenttitle .left {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
 }
 
 #Box_1412c .contenttitle .out {
@@ -3684,7 +3684,7 @@ p {
   border-radius: 16px;
   position: relative;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-  margin-bottom: 80px;
+  margin-top: 80px;
 }
 
 #Box_1412c .contenttitle .left>h1 {
@@ -4164,6 +4164,11 @@ p {
   transform: unset !important;
 }
 
+#Box_1412c>.box>div {
+  min-height: 100%;
+  height: 100%;
+}
+
 @media (max-width: 1280px) {
   #Box_1412c .content .back {
     padding: 8px 15px;
@@ -4235,6 +4240,12 @@ p {
     bottom: 0;
     width: 100%;
     max-width: unset;
+    border-radius: 0;
+  }
+
+  #Box_1412c>.box>div {
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 
   #Box_1412c .contenttitle .left {
@@ -4346,15 +4357,19 @@ p {
 }
 
 @media (max-width: 550px) {
-  #Box_1412c>.box>.title {
+  #Box_1412c>.box>div>.title {
     font-size: calc(22px + 1vw);
+  }
+
+  #Box_1412c>.box>div>.dots {
+    width: 80%;
   }
 
   #Box_1412c>.box {
     justify-content: start;
     min-height: 100%;
-    height: max-content;
-    overflow-y: scroll;
+    max-height: 100%;
+    padding: 0;
   }
 
   #Box_1412c .dot>p::before {
@@ -4363,6 +4378,24 @@ p {
 
   #Box_1412c .contenttitle .left {
     width: 100%;
+    height: max-content;
+  }
+
+  #Box_1412c .contenttitle>.row {
+    height: max-content;
+  }
+
+  #Box_1412c .contenttitle .left>div {
+    margin-bottom: 80px;
+    margin-top: 20px;
+  }
+
+  #Box_1412c .contenttitle {
+    height: max-content;
+  }
+
+  #Box_1412c .contenttitle .right {
+    margin: 20px 0;
   }
 
   #Box_1412c .contenttitle .right>h1 {
@@ -4442,7 +4475,7 @@ p {
 
   #Box_1412c .content .button {
     display: flex;
-    width: 90%;
+    width: 80%;
     margin: 20px auto;
   }
 
@@ -4466,5 +4499,14 @@ p {
 
   #Box_1412c .paysus .left>.alert>p {
     font-size: calc(6px + 1.5vw);
+  }
+
+  .pay .left>div {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #Box_1412c .contenttitle .left>div>.position {
+    left: 55%;
   }
 }
