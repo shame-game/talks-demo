@@ -124,20 +124,71 @@
 
     <!--- VIDEO PART START --->
 
-    <section id="tempo-1" class=" pb-80" style="padding-top: 250px;">
-        <div class="container row mx-auto tempo-title" id="tempo-title"></div>
-    </section>
-    <section id="tempo-2">
-        <div class="tempo-2-bg" style="background-image: url(assets/images/footer-top.png);">
-            <div class="container row mx-auto tempo-body">
-                <div class="col-lg-6" id="tempo-2-wrap"></div>
-                <div class="col-lg-6 tempo-video"><a target="_blank" href="">
-                        <i style="color: white;font-size: 66px;cursor: pointer;" class="bi bi-play-circle-fill"></i></a>
+    <section id="c661412b1" class="pt-200">
+        <div class="c661412b1 container">
+            <div class="row c661412b1-wrap">
+                <div class="col-lg-12 c661412b1-title">
+                    <h1>Mục tiêu gọi vốn của chúng tôi</h1>
+                    <p>Mục tiêu gọi vốn của Biệt Thự Sách để mở rộng quy mô hoạt động, nâng cao chất lượng dịch vụ với
+                        mong muốn tất cả người Việt nói được tiếng Anh. Đầu tư với các gói có thể mang lại giá trị nhiều
+                        hơn cho bạn.</p>
+                </div>
+                <div class="col-lg-6 c661412b1-left">
+                    <div class="c661412b1-contents">
+                        <div class="c661412b1-items-wrap">
+                            <div class="c661412b1-items">
+                                <h1>Mục tiêu</h1>
+                                <p>1.000.000.000 vnđ</p>
+                            </div>
+                            <div class="c661412b1-items">
+                                <h1>Còn lại</h1>
+                                <p>365 ngày</p>
+                            </div>
+                        </div>
+                        <div class="c661412b1-items">
+                            <h1>Target Goal</h1>
+                            <p>Phương pháp kết thúc chuyến dịch</p>
+                        </div>
+                    </div>
+                    <div class="c661412b1-posi-ab">
+                        <div class="c661412b1-posi-ab_bg"></div>
+                        <img class="c661412b1-posi-ab_img"
+                            src="./assets/images/373652449_719479380220987_2832088644911577218_n.jpg">
+                    </div>
+                </div>
+                <div class="col-lg-6 c661412b1-right">
+                    <div class="c661412b1-posi-ab">
+                        <img src="./assets/images/373652449_719479380220987_2832088644911577218_n.jpg">
+                        <div class="c661412b1-posi-ab_bg"></div>
+                    </div>
+                    <div class="c661412b1-video">
+                        <i id="c661412b1-iframe_click" class="bi bi-play-circle-fill"></i>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="c661412b1-background_click" style="display: none;"></div>
+        <div class="c661412b1-iframe_click" style="display: none;">
+
+        </div>
     </section>
-    <section id="tempo">
+    <script>
+        const vam = document.querySelector.bind(document);
+        const vams = document.querySelectorAll.bind(document);
+        vam('#c661412b1-iframe_click').addEventListener('click', () => {
+            vam('.c661412b1-background_click').setAttribute('style', 'display:flex')
+            vam('.c661412b1-iframe_click').setAttribute('style', 'display:flex')
+            var c661412b1Iframe = `<iframe  class="c661412b1-iframe" src="https://www.youtube.com/embed/-BTOYVIdgr0?si=H5GXRph-jhJ6i7dM" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+            vam('.c661412b1-iframe_click').innerHTML = c661412b1Iframe
+            vam('.c661412b1-background_click').addEventListener('click', () => {
+                vam('.c661412b1-background_click').setAttribute('style', 'display:none')
+                vam('.c661412b1-iframe_click').setAttribute('style', 'display:none')
+                vam('.c661412b1-iframe').remove()
+            })
+        })
+    </script>
+    <section id="tempo" class="pb-80">
         <div class="container row mx-auto pt-20">
             <div class="tempo-slick col-lg-12">
                 <div class="tempo-slick-wrap row" id="tempo-slick-wrap"></div>
@@ -148,11 +199,15 @@
 
     <!--- benefit start --->
 
-    <section id="top" class=" pt-75 pb-80">
+    <section id="top" class=" pt-75 pb-80" style="background-color: var(--color-text);">
         <div class="container mx-auto">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
-                    <h1 class="title-h1">Danh sách đầu tư</h1>
+                    <div class="top-title">
+                        <h1>500.000.000 vnđ</h1>
+                        <p>Tổng tiến độ</p>
+                    </div>
+                    <h1 class="title-h1" style="color: white">Danh sách đầu tư</h1>
                 </div>
             </div>
             <div id="top-table" class="mt-30">
@@ -353,7 +408,6 @@
     <script src="assets/js/tempoload.js"></script>
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/v-stats.js"></script>
 </body>
 
 </html>

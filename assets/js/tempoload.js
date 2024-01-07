@@ -71,26 +71,7 @@ fetchSheet
       });
     });
     /* tiến độ */
-    var srcTempo = content.TempoSum[content.TempoSum.length - 1].row3
 
-    document.querySelector('.tempo-video>a').setAttribute('href', srcTempo)
-    let tempo = "";
-    content.TempoSum.forEach((row) => {
-      tempo += ` <div class="tempo-contribute">
-      <h1>${row.row1}</h1>
-      <h4>${row.row2}</h4>
-      <div class="p">
-          <p>${row.row4} đ</p><span>Tiến độ: ${row.row5}%</span>
-      </div>
-      <div class="tempo-progress_wrap">
-          <div class="tempo-progress" style="width: ${row.row5}%;"></div>
-      </div>
-      <div class="tempo-button">
-          <a href="#tempo">Tham gia ngay</a>
-      </div>
-    </div>`
-    })
-    document.querySelector('#tempo-2-wrap').innerHTML = tempo
     // header
     let temposlick = "";
     content.packages.forEach((row) => {
@@ -180,7 +161,6 @@ fetchSheet
   
 
     let toptbody = "";
-    console.log(content.topTable)
     content.topTable.forEach(row => {
       toptbody += `
         <tr>
@@ -404,46 +384,6 @@ fetchSheet
   });
 
 /* mục tiêu */
-fetchSheet
-  .fetch({
-    gSheetId: "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc",
-    wSheetName: "tempo",
-    range: "B8:D9",
-  })
-  .then(rows => {
-    let tempoTitle = "";
-    rows.forEach(row => {
-      tempoTitle += `
-            <div class="col-lg-3 ">
-                <div class="tempo-target">
-                    <h1>Mục tiêu</h1>
-                    <p>${row.target} <span>vnđ</span></p>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="tempo-time">
-                    <h1>Còn lại</h1>
-                    <p>${row.time} ngày</p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="tempo-goal">
-                    <h1>Target Goal</h1>
-                    <p>${row.TargetGoal}</p>
-                </div>
-            </div>`
-    });
-    document.querySelector("#tempo-title").innerHTML = tempoTitle;
-  });
-  var cd = document.querySelector('#tempo-2')
-function Mathc() {
-  var Mathc = (cd.getBoundingClientRect().top) * 0.4
-  return Mathc;
-}
-
-const IG2 = window.addEventListener('scroll', () => {
-  document.querySelector('.tempo-2-bg').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathc()}px`)
-})
 
 var Img = document.querySelector('.footer-top')
 function Mathdd() {
