@@ -1355,3 +1355,68 @@ table.dataTable.no-footer {
     }
 
 }
+
+
+/* CUSTOMIZE DATATABLE */
+#example {
+  width: 100% !important;
+}
+
+#example thead th {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+#example thead th:last-child {
+  text-align: right;
+}
+
+#example tbody 
+
+#example th,
+#example td {
+  border: none;
+  text-align: left;
+  background-color: white;
+  border-bottom: 5px solid #ebf5f5;
+}
+
+#example td:first-child {
+  border-right: 0.25rem solid #ebf5f5;
+}
+
+
+@media (max-width: 600px) {
+  #example thead {
+    display: none;
+  }
+
+  #example tr {
+    border-bottom: 0.25rem solid #f2f2f2;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, auto);
+    overflow: hidden;
+  }
+
+  #example th,
+  #example td {
+    grid-column-start: 2;
+    grid-column-end: 7;
+    border: none;
+    padding: 0.25rem;
+    text-align: left;
+  }
+
+  #example td:first-child {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  #example p {
+    padding: 0;
+    text-align: left;
+  }
+}
