@@ -134,7 +134,19 @@ fetchSheet
     });
 
     // video
+    let tieudecs= '';
+    let chinhsach= '';
 
+    content.titlecs.forEach((row)=>{
+      tieudecs = `${row.row1}`
+    })
+    document.querySelector('#titlecs').innerHTML = tieudecs
+    
+    content.chinhsach.forEach((row)=>{
+      chinhsach = `${row.row1}`
+    })
+    document.querySelector('#chinhsach').innerHTML = chinhsach
+    document.querySelector('#qrpay').src = content.Qr[content.Qr.length - 1].row1;
     document.querySelector("#video iframe").src = content.srcVideo[content.srcVideo.length - 1].row1;
     let videoHtml = "";
     content.homeStory.forEach((row) => {
