@@ -306,9 +306,6 @@ fetchSheet
     </div> `
     });
     document.querySelector('#hiddendetail').innerHTML = boxHiden;
-    var box1412c1 = ''
-
-   
   });
 
 
@@ -409,6 +406,7 @@ fetchSheet
         vam('#Box_1412c>.background').setAttribute('style', 'display:block')
         vam('#Box_1412c>.box').setAttribute('style', 'display:flex')
         vam('#Box_1412c>.background').addEventListener('click', () => {
+          vam('body').setAttribute('style','overflow-y: auto;')
           vam('#Box_1412c>.background').setAttribute('style', 'display:none')
           vam('#Box_1412c>.box').setAttribute('style', 'display:none')
           vam("#Box_1412c .content.acc").classList.remove('acc')
@@ -424,6 +422,7 @@ fetchSheet
         vam('#Box_1412c .out').addEventListener('click', () => {
           vam('#Box_1412c>.background').setAttribute('style', 'display:none')
           vam('#Box_1412c>.box').setAttribute('style', 'display:none')
+          vam('body').setAttribute('style','overflow-y: auto;')
         })
       })
     })

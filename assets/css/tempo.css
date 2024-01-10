@@ -1259,7 +1259,7 @@ table.dataTable.no-footer {
     bottom: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: 999;
+    z-index:9999;
 }
 
 .c661412b1-iframe_click {

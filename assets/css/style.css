@@ -3589,7 +3589,7 @@ p {
 
 #Box_1412c .contenttitle .right>.button {
   display: flex;
-  margin: 10px auto 30px auto;
+  margin: 10px auto 180px auto;
 }
 
 #Box_1412c .contenttitle .left {
@@ -4077,6 +4077,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 80px;
 }
 
 #Box_1412c .paysus .left>.alert>h1 {
@@ -4489,7 +4490,7 @@ p {
   }
 
   #Box_1412c .paysus .left>.alert>h1 {
-    font-size: calc(8px + 2vw);
+    font-size: calc(18px + 2vw);
     color: var(--color-bg-mx);
     display: flex;
     align-items: center;
@@ -4497,7 +4498,7 @@ p {
   }
 
   #Box_1412c .paysus .left>.alert>p {
-    font-size: calc(6px + 1.5vw);
+    font-size: calc(16px + 1.5vw);
   }
 
   .pay .left>div {
