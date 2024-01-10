@@ -172,7 +172,10 @@ fetchSheet
     document.querySelector("#top_tbody").innerHTML = toptbody;
     $(document).ready(function () {
       var table = $('#example').DataTable({
-        "ordering": false
+        "ordering": false,
+        "language": {
+          "search": "",
+        },
       });
       $('.filter-button').on('click', function () {
         var selectedCountry = $(this).data('country');
