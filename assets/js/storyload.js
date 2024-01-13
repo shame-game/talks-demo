@@ -209,7 +209,7 @@ fetchSheet
       footertop += `
       <h1 class="footer-top_title">${row.row1}</h1>
       <div class="footer-top_link button-onlclick">
-        <a href="pay.html">${row.row2}</a>
+        <a href="index.html#benefit">${row.row2}</a>
       </div>
       `
     })

@@ -22,7 +22,6 @@ fetchSheet
     wSheetName: "sum",
   })
   .then((rows) => {
-    console.log(rows);
 
     let content = {};
     rows.forEach(row => {
@@ -75,7 +74,22 @@ fetchSheet
         }
       });
     });
+
+
     /* tiến độ */
+    // phần tiến độ
+
+    document.querySelector('.c661412b1-title>h1').innerText = content.textmt[content.textmt.length - 1].row1
+    document.querySelector('.c661412b1-title>p').innerText = content.textmt[content.textmt.length - 1].row2
+    document.querySelector('.c661412b1-items1>h1').innerText = content.tieudemt[content.tieudemt.length - 1].row1
+    document.querySelector('.c661412b1-items2>h1').innerText = content.tieudemt[content.tieudemt.length - 1].row2
+    document.querySelector('.c661412b1-items3>h1').innerText = content.tieudemt[content.tieudemt.length - 1].row3
+    document.querySelector('.c661412b1-items1>p').innerText = parseFloat(content.muctieu[content.muctieu.length - 1].row1).toLocaleString("vi-VN") + ' vnđ'
+    document.querySelector('.c661412b1-items2>p').innerText = content.muctieu[content.muctieu.length - 1].row2 + ' ngày'
+    document.querySelector('.c661412b1-items3>p').innerText = content.muctieu[content.muctieu.length - 1].row3
+
+    // phần chi tiết 
+
     var boxHiden = '';
     content.Boxdetail.forEach((row, i) => {
       boxHiden += `
@@ -129,14 +143,79 @@ fetchSheet
             <h2>Giá bán 10.000.000 đ</h2>
             <h4>Giá trị mà bạn nhân được: 15.000.000vnd</h4>
           </div>
-          <a class="bt" href="pay.html"><span>Tham gia ngay</span></a>
+          <a class="bt buttonde-onlclick" index=${i}><span>Tham gia ngay</span></a>
         </div>
       </div>
     </div>     
     </div> `
     });
     document.querySelector('#hiddendetail').innerHTML = boxHiden;
-    // header
+    const vam = document.querySelector.bind(document);
+    const vams = document.querySelectorAll.bind(document);
+    vams('.buttonde-onlclick').forEach((box) => {
+      box.addEventListener('click', () => {
+        let index = box.getAttribute("index");
+        let package = content.pay[index];
+        console.log(package);
+        vams('.participant-name').forEach(element => element.innerText = package.row1);
+        vam('.qrpay').src = package.row6;
+        vams('.participant-moneyin').forEach(element => element.innerText = 'Giá gói: ' + parseFloat(package.row2).toLocaleString("vi-VN") + ' đ');
+        vams('.participant-moneyout').forEach(element => element.innerText = 'Giá trị nhận được: ' + parseFloat(package.row3).toLocaleString("vi-VN") + ' đ');
+        vam('.participant-total').innerText = parseFloat(packages[index].row4).toLocaleString("vi-VN", {style: 'currency',currency: 'VND'});
+        vam('.participant-percent').innerText = packages[index].row5 + "%";
+        vam('.participant-days').innerText = packages[index].row6;
+        let featuresHTML = '';
+        package.row5.split("\n").forEach((con)=>{
+          featuresHTML += `<li><i class="bi bi-check"></i>${con}</li>`;
+        })
+        vam('body').setAttribute('style','overflow-y: hidden;')
+        vam('.participant-features').innerHTML = featuresHTML;
+        vam('body').setAttribute('style','overflow-y: hidden;')
+        vam('.background-onclick-detail').setAttribute('style', 'display:none')
+        vam(`.element-hidden-detail[style='display:block']`).setAttribute('style', 'display:none')
+        vam('#Box_1412c>.background').setAttribute('style', 'display:block')
+        vam('#Box_1412c>.box').setAttribute('style', 'display:flex')
+        vam('#Box_1412c>.background').addEventListener('click', () => {
+          vam('body').setAttribute('style','overflow-y: auto;')
+          vam('#Box_1412c>.background').setAttribute('style', 'display:none')
+          vam('#Box_1412c>.box').setAttribute('style', 'display:none')
+          if(vam("#Box_1412c .content").classList.contains(".acc")){
+            vam("#Box_1412c .content.acc").classList.remove('acc')
+          }
+          vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
+          vam('#Box_1412c .title').setAttribute('style', 'display: block')
+          vams('#Box_1412c .dot.acc').forEach((tab) => {
+            tab.classList.remove('acc')
+          })
+          vams('#Box_1412c .line>p').forEach((line) => {
+            line.setAttribute('style', 'display: none')
+          })
+        })
+        vam('#Box_1412c .out').addEventListener('click', () => {
+          vam('#Box_1412c>.background').setAttribute('style', 'display:none')
+          vam('#Box_1412c>.box').setAttribute('style', 'display:none')
+          vam('body').setAttribute('style','overflow-y: auto;')
+        })
+      })
+    })
+    vam('#Box_1412c .suc').addEventListener('click',()=>{
+      vam('#Box_1412c>.background').setAttribute('style', 'display:none')
+      vam('#Box_1412c>.box').setAttribute('style', 'display:none')
+      if(vam("#Box_1412c .content").classList.contains(".acc")){
+        vam("#Box_1412c .content.acc").classList.remove('acc')
+      }
+      vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
+      vam('#Box_1412c .title').setAttribute('style', 'display: block')
+      vams('#Box_1412c .dot.acc').forEach((tab) => {
+        tab.classList.remove('acc')
+      })
+      vams('#Box_1412c .line>p').forEach((line) => {
+        line.setAttribute('style', 'display: none')
+      })
+      vam('body').setAttribute('style','overflow-y: auto;')
+    })
+
+    // phần chính sách thanh toán
     let tieudecs= '';
     let chinhsach= '';
 
@@ -149,12 +228,13 @@ fetchSheet
       chinhsach = `${row.row1}`
     })
     document.querySelector('#chinhsach').innerHTML = chinhsach
-    document.querySelector('#qrpay').src = content.Qr[content.Qr.length - 1].row1;
+
+
+    // phần slick các gói
     var d = 0
     let temposlick = "";
     content.packages.forEach((row, d) => {
-
-      temposlick += `
+       temposlick += `
       <div class="col-lg-4">
                         <div class="tempo-slick-card">
                             <div class="tempo-slick-top">
@@ -163,8 +243,8 @@ fetchSheet
                             </div>
                             <div class="tempo-slick-absolute">
                                 <div class="title">
-                                    <h4>${row.row4} đ</h4>
-                                    <p>${row.row5}</p>
+                                    <h4>${parseFloat(row.row4).toLocaleString("vi-VN") + ' vnđ'}</h4>
+                                    <p>${row.row5 + '%  '}</p>
                                 </div>
                                 <div class="tempo">
                                     <div style="width: ${row.row5}%;"></div>
@@ -222,24 +302,22 @@ fetchSheet
         },
       ],
     });
-    const vam = document.querySelector.bind(document);
-    const vams = document.querySelectorAll.bind(document);
     vams('.button-onlclick').forEach((box) => {
       box.addEventListener('click', (e) => {
         // showing selected features
         let index = e.target.getAttribute("index");
         let package = funding[index];
         vams('.participant-name').forEach(element => element.innerText = package.row1);
-        vams('.participant-moneyin').forEach(element => element.innerText = 'Giá gói: ' + package.row2 + ' đ');
-        vams('.participant-moneyout').forEach(element => element.innerText = 'Giá trị nhận được: ' + package.row3 + ' đ');
+        vams('.participant-moneyin').forEach(element => element.innerText = 'Giá gói: ' + parseFloat(package.row2).toLocaleString("vi-VN") + ' đ');
+        vams('.participant-moneyout').forEach(element => element.innerText = 'Giá trị nhận được: ' + parseFloat(package.row3).toLocaleString("vi-VN") + ' đ');
         vam('.participant-total').innerText = parseFloat(packages[index].row4).toLocaleString("vi-VN", { style: 'currency', currency: 'VND' });
         vam('.participant-percent').innerText = packages[index].row5 + "%";
         vam('.participant-days').innerText = packages[index].row6;
         let featuresHTML = '';
-        console.log(package.row5.split('\n'));
         package.row5.split("\n").forEach((con)=>{
           featuresHTML += `<li><i class="bi bi-check"></i>${con}</li>`;
         })
+        vam('.qrpay').src = package.row6
         vam('body').setAttribute('style', 'overflow-y: hidden;')
         vam('.participant-features').innerHTML = featuresHTML;
         vam('#Box_1412c>.background').setAttribute('style', 'display:block')
@@ -278,6 +356,7 @@ fetchSheet
       vams('#Box_1412c .line>p').forEach((line) => {
         line.setAttribute('style', 'display: none')
       })
+      vam('body').setAttribute('style','overflow-y: auto;')
     })
 
     var chitiet = vams('.button-onclick-detail')
@@ -306,7 +385,9 @@ fetchSheet
         vam('.contenttitle').setAttribute('style', 'display: none')
         contentlist.classList.add('acc')
         dotlist.classList.add('acc')
-        line.setAttribute('style', 'display: block')
+        if(line !== undefined){
+          line.setAttribute('style','display:block')
+        }
       })
     })
 
@@ -341,7 +422,7 @@ fetchSheet
         <tr>
           <td><div class="td1"><p>${row.row1}</p></div></td>
           <td><div class="td2"><p>${row.row2}</p></div></td>
-          <td><div class="td3"><p>${row.row3}</p></div></td>
+          <td><div class="td3"><p>${parseFloat(row.row3).toLocaleString("vi-VN") + ' vnđ'}</p></div></td>
         </tr>`
     });
     document.querySelector("#top_tbody").innerHTML = toptbody;
@@ -507,7 +588,7 @@ fetchSheet
       footertop += `
       <h1 class="footer-top_title">${row.row1}</h1>
       <div class="footer-top_link button-onlclick">
-        <a href="pay.html">${row.row2}</a>
+        <a href="index.html#benefit">${row.row2}</a>
       </div>
       `
     })

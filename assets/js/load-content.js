@@ -10,13 +10,10 @@ fetchSheet
   .then((rows) => {
     rows.forEach(row => document.documentElement.style.setProperty("--color-" + row.id, row.color));
 
-    // also update svg colors
-    document.querySelector("#decorator-bg > stop:nth-child(1)").setAttribute("stop-color", rows.find(row => row.id == "gradient-1").color);
-    document.querySelector("#decorator-bg > stop:nth-child(2)").setAttribute("stop-color", rows.find(row => row.id == "gradient-2").color);
   });
 
 var packages = [];
-
+var qr = []
 // load content
 fetchSheet
   .fetch({
@@ -30,7 +27,7 @@ fetchSheet
       Object(content).hasOwnProperty(key) || Object.assign(content, { [key]: [] });
       content[key].push(row);
     });
-
+    qr = rows.filter(row => row.section == 'pay')
     packages = rows.filter(row => row.section == 'packages');
     // header 
 
@@ -146,7 +143,6 @@ fetchSheet
       chinhsach = `${row.row1}`
     })
     document.querySelector('#chinhsach').innerHTML = chinhsach
-    document.querySelector('#qrpay').src = content.Qr[content.Qr.length - 1].row1;
     document.querySelector("#video iframe").src = content.srcVideo[content.srcVideo.length - 1].row1;
     let videoHtml = "";
     content.homeStory.forEach((row) => {
@@ -299,13 +295,75 @@ fetchSheet
             <h2>Giá bán 10.000.000 đ</h2>
             <h4>Giá trị mà bạn nhân được: 15.000.000vnd</h4>
           </div>
-          <a class="bt" href="pay.html"><span>Tham gia ngay</span></a>
+          <a class="bt buttonde-onlclick" index=${i}><span>Tham gia ngay</span></a>
         </div>
       </div>
     </div>     
     </div> `
     });
     document.querySelector('#hiddendetail').innerHTML = boxHiden;
+    
+    vams('.buttonde-onlclick').forEach((box) => {
+      box.addEventListener('click', () => {
+        let index = box.getAttribute("index");
+        let package = content.pay[index];
+        vams('.participant-name').forEach(element => element.innerText = package.row1);
+        vam('.qrpay').src = qr[index].row6;
+        vams('.participant-moneyin').forEach(element => element.innerText = 'Giá gói: ' + parseFloat(package.row2).toLocaleString("vi-VN") + ' đ');
+        vams('.participant-moneyout').forEach(element => element.innerText = 'Giá trị nhận được: ' + parseFloat(package.row3).toLocaleString("vi-VN") + ' đ');
+        vam('.participant-total').innerText = parseFloat(packages[index].row4).toLocaleString("vi-VN", {style: 'currency',currency: 'VND'});
+        vam('.participant-percent').innerText = packages[index].row5 + "%";
+        vam('.participant-days').innerText = packages[index].row6;
+        let featuresHTML = '';
+        package.row5.split("\n").forEach((con)=>{
+          featuresHTML += `<li><i class="bi bi-check"></i>${con}</li>`;
+        })
+        vam('body').setAttribute('style','overflow-y: hidden;')
+        vam('.participant-features').innerHTML = featuresHTML;
+        vam('body').setAttribute('style','overflow-y: hidden;')
+        vam('.background-onclick-detail').setAttribute('style', 'display:none')
+        vam(`.element-hidden-detail[style='display:block']`).setAttribute('style', 'display:none')
+        vam('#Box_1412c>.background').setAttribute('style', 'display:block')
+        vam('#Box_1412c>.box').setAttribute('style', 'display:flex')
+        vam('#Box_1412c>.background').addEventListener('click', () => {
+          vam('body').setAttribute('style','overflow-y: auto;')
+          vam('#Box_1412c>.background').setAttribute('style', 'display:none')
+          vam('#Box_1412c>.box').setAttribute('style', 'display:none')
+          if(vam("#Box_1412c .content").classList.contains(".acc")){
+            vam("#Box_1412c .content.acc").classList.remove('acc')
+          }
+          vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
+          vam('#Box_1412c .title').setAttribute('style', 'display: block')
+          vams('#Box_1412c .dot.acc').forEach((tab) => {
+            tab.classList.remove('acc')
+          })
+          vams('#Box_1412c .line>p').forEach((line) => {
+            line.setAttribute('style', 'display: none')
+          })
+        })
+        vam('#Box_1412c .out').addEventListener('click', () => {
+          vam('#Box_1412c>.background').setAttribute('style', 'display:none')
+          vam('#Box_1412c>.box').setAttribute('style', 'display:none')
+          vam('body').setAttribute('style','overflow-y: auto;')
+        })
+      })
+    })
+    vam('#Box_1412c .suc').addEventListener('click',()=>{
+      vam('#Box_1412c>.background').setAttribute('style', 'display:none')
+      vam('#Box_1412c>.box').setAttribute('style', 'display:none')
+      if(vam("#Box_1412c .content").classList.contains(".acc")){
+        vam("#Box_1412c .content.acc").classList.remove('acc')
+      }
+      vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
+      vam('#Box_1412c .title').setAttribute('style', 'display: block')
+      vams('#Box_1412c .dot.acc').forEach((tab) => {
+        tab.classList.remove('acc')
+      })
+      vams('#Box_1412c .line>p').forEach((line) => {
+        line.setAttribute('style', 'display: none')
+      })
+      vam('body').setAttribute('style','overflow-y: auto;')
+    })
   });
 
 
@@ -390,12 +448,12 @@ fetchSheet
         let index = e.target.getAttribute("index");
         let package = funding[index];
         vams('.participant-name').forEach(element => element.innerText = package.Feature);
+        vam('.qrpay').src = qr[index].row6;
         vams('.participant-moneyin').forEach(element => element.innerText = 'Giá gói: ' + package.moneyin + ' đ');
         vams('.participant-moneyout').forEach(element => element.innerText = 'Giá trị nhận được: ' + package.moneyout + ' đ');
         vam('.participant-total').innerText = parseFloat(packages[index].row4).toLocaleString("vi-VN", {style: 'currency',currency: 'VND'});
         vam('.participant-percent').innerText = packages[index].row5 + "%";
         vam('.participant-days').innerText = packages[index].row6;
-
         let featuresHTML = '';
         Object.keys(package).forEach(key => {
           if(package[key] == "TRUE")
@@ -409,7 +467,9 @@ fetchSheet
           vam('body').setAttribute('style','overflow-y: auto;')
           vam('#Box_1412c>.background').setAttribute('style', 'display:none')
           vam('#Box_1412c>.box').setAttribute('style', 'display:none')
-          vam("#Box_1412c .content.acc").classList.remove('acc')
+          if(vam("#Box_1412c .content").classList.contains(".acc")){
+            vam("#Box_1412c .content.acc").classList.remove('acc')
+          }
           vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
           vam('#Box_1412c .title').setAttribute('style', 'display: block')
           vams('#Box_1412c .dot.acc').forEach((tab) => {
@@ -439,6 +499,7 @@ fetchSheet
       vams('#Box_1412c .line>p').forEach((line) => {
         line.setAttribute('style', 'display: none')
       })
+      vam('body').setAttribute('style','overflow-y: auto;')
     })
 
     var chitiet = vams('.button-onclick-detail')
@@ -467,7 +528,9 @@ fetchSheet
         vam('.contenttitle').setAttribute('style', 'display: none')
         contentlist.classList.add('acc')
         dotlist.classList.add('acc')
-        line.setAttribute('style', 'display: block')
+        if(line !== undefined){
+          line.setAttribute('style','display:block')
+        }
       })
     })
 

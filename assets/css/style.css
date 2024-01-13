@@ -2137,7 +2137,7 @@ p {
 
 .form-list {
   list-style: unset;
-  margin: 10px 0 10px 20px;
+  margin: 10px 0;
   line-height: 1.6;
 }
 
@@ -3825,7 +3825,7 @@ p {
 
 #Box_1412c .infor>.right>div>.main {
   background-color: var(--color-bg-mn);
-  width: 80%;
+  width: 100%;
   border-radius: 12px;
   padding: 50px 10px 20px 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
@@ -3975,9 +3975,11 @@ p {
 
 #Box_1412c .pay>.row>.right img {
   width: 60%;
-  aspect-ratio: 1/1;
   object-fit: cover;
   margin: 10px 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 10px ;
 }
 
 #Box_1412c .pay>.row>.left>div>.table>div {
@@ -4024,10 +4026,12 @@ p {
 #Box_1412c .pay .left {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #Box_1412c .pay .button {
   justify-content: space-between;
+  margin: 30px 0;
 }
 
 
