@@ -259,38 +259,20 @@ fetchSheet
           <div class="prite-title"><h1>${row.row2}</h1></div>
         </div>
         <div class="package-name"></div>
-        <table class="features">
+        <table class="features" style="height: 320px">
           <tr>
             <th class="list-name">Lợi ích của nhà đầu tư</th>
             <th class="icon check">Trị giá</th>
             <th class="icon check">Hạn sử dụng</th>
-          </tr>
-          <tr>
-            <td class="list-name">Voucher sử dụng các sản phẩm tại Biệt thự sách</td>
-            <td class="icon check">5.000.000vnd</td>
-            <td class="icon check">12 tháng</td>
-          </tr>
-          <tr>
-            <td class="list-name">Voucher học tiếng anh tại Talks English</td>
-            <td class="icon check">5.000.000vnd</td>
-            <td class="icon check">12 tháng</td>
-          </tr>
-          <tr>
-            <td class="list-name">5000 cổ phiếu trị giá 10.000vnd / cổ phiếu</td>
-            <td class="icon check">5.000.000vnd</td>
-            <td class="icon check">12 tháng</td>
-          </tr>
-          <tr>
-            <td class="list-name">khi Công ty được niêm yến trên sàn chứng khoán</td>
-            <td class="icon check">5.000.000vnd</td>
-            <td class="icon check">12 tháng</td>
-          </tr>
-          <tr>
-            <td class="list-name">Được ưu tiên đầu tư cho Hệ thống Biệt thự sách</td>
-            <td class="icon check">5.000.000vnd</td>
-            <td class="icon check">12 tháng</td>
-          </tr>
-        </table>
+          </tr>`
+          row.row3.split("\n").forEach((tab,i) => {
+            boxHiden += `<tr>
+            <td class="list-name">${row.row3.split('\n')[i]}</td>
+            <td class="icon check">${row.row4.split('\n')[i]}</td>
+            <td class="icon check">${row.row5.split('\n')[i]}</td>
+            </tr>`
+          });
+        boxHiden += `</table>
         <div class="btn">
           <div>
             <h2>Giá bán 10.000.000 đ</h2>
@@ -303,7 +285,6 @@ fetchSheet
     </div> `
     });
     document.querySelector('#hiddendetail').innerHTML = boxHiden;
-    
     vams('.buttonde-onlclick').forEach((box) => {
       box.addEventListener('click', () => {
         let index = box.getAttribute("index");
