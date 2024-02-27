@@ -122,17 +122,17 @@
 
   <!--- VIDEO PART START --->
 
-  <section id="video" class="video_area pt-160 pb-80">
+  <section id="video" class="video_area pt-80 pb-80">
     <div class="container mx-auto">
       <div class="col-lg-12 mx-auto">
         <div class="video-content">
-          <h1 class="title-h1 wow fadeInUp" data-wow-delay="0.2s">Câu Chuyện Của Talks</h1>
+          <h1 class="title-h1 wow fadeInUp" data-wow-delay="0.2s">Câu chuyện của Biệt Thự Sách</h1>
           <div class="bottom_title"></div>
           <div class="text wow fadeInUp" data-wow-delay="0.4s" id="video-story"></div>
           <div class="author wow fadeInLeft" data-wow-delay="0.5s">
             <div></div>
             <img src="./assets/images/Layer 9.png" style="border-radius: 50%">
-            <img src="./assets/images/Layer 8.png">
+            <h1 style="font-size: 1.3rem; margin-left: 10px;color: #0048ab;">CEO Đinh Minh Quyền</h1>
           </div>
         </div>
         <div class="video">
@@ -156,7 +156,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-12">
           <div class="benefit-content">
-            <h1 class="title-h1" style="color: white;">Lợi Ích Cho Nhà Đầu Tư</h1>
+            <h1 class="title-h1" style="color: white;">Lợi ích cho Người đồng hành</h1>
             <div class="bottom_title"></div>
           </div>
         </div>
@@ -173,7 +173,7 @@
         <div class="col-lg-12">
           <div class="prize-content">
             <h1 class="title-h1">Phần Quà Tri Ân</h1>
-            <p>Dành cho tất cả khách hàng tham gia đóng góp dự án.</p>
+            <p>Được chúng tôi chọn ngẫu nhiên trong danh sách những người đã tham gia đồng hành.</p>
             <div id="noteHtml"></div>
             <div class="row" style="margin: 0;" id="prizecontent">
             </div>
@@ -195,7 +195,6 @@
 
   <section id="footer" class="footer_area pt-75">
     <div class="container footer">
-      <div id="footer-mid"></div>
       <div class="row footer-bottom">
         <div class="col-lg-3 footer-link">
           <div id="footer-title-1"></div>
@@ -211,7 +210,17 @@
         </div>
         <div class="col-lg-3 footer-link">
           <div id="footer-title-4"></div>
-          <div id="footer-list-4"></div>
+          <div id="footer-list-4">
+            <ul class="footer-list">
+              <li><a href="tempo.html#feedback"><i class="bi bi-envelope-fill"></i> ceo@talksenglish.edu.vn</a></li>
+              <li><a href="tel:0934147901"><i class="bi bi-telephone-fill"></i> 0934147901</a></li>
+              <div>
+                <a href="https://www.facebook.com/bietthusachbienhoa/"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.youtube.com/channel/UCLExwvr9QhjB3xNEDaNw9oA"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/biet-thu-sach-bien-hoa/"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="c-wrap"></div>
@@ -276,11 +285,16 @@
               <p>Vui lòng thực hiện đủ các bước*</p>
               <div class="button">
                 <button class="out">Thoát</button>
-                <button class="next start" style="margin-left: 20px;">Bắt đầu ngay</button>
+                <button class="next start" style="margin-left: 20px;" onclick="tattieude()">Bắt đầu ngay</button>
               </div>
             </div>
           </div>
         </div>
+        <script>
+          function tattieude(){     
+            document.querySelector('.title').setAttribute('style','display:none')
+          }
+        </script>
         <div class="content infor row">
           <div class="col-lg-6 left">
             <h1>Thông tin cá nhân</h1>
@@ -433,7 +447,8 @@
             <div class="col-lg-6 left">
               <div class="alert">
                 <h1><i class="bi bi-check-circle-fill"></i>Đóng góp thành công !</h1>
-                <p>Cảm ơn bạn đã đóng góp cho chúng tôi</p>
+                <p>Cảm ơn bạn đã đồng hành cùng Biệt Thự Sách<br>
+                  Chúng tôi đã ghi nhận thao tác của bạn, chúng tôi sẽ liên hệ với bạn qua số điện thoại trong vòng 24h tới!</p>
               </div>
               <div class="button">
                 <button class="back">Quay lại</button>

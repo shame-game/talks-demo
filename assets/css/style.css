@@ -50,6 +50,37 @@ img {
   max-width: 100%;
 }
 
+html{
+  font-size: 16px;
+}
+
+/* title */ 
+.title-h1 {
+  color: #0048ab;
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@media (max-width: 982px) {
+  html{
+    font-size: 14px;
+  }
+}
+@media (max-width: 582px) {
+  html{
+    font-size: 16px;
+  }
+  .title-h1 {
+    color: #0048ab;
+    font-size: 1.5rem;
+  }
+}
+
+
+
 a:focus,
 input:focus,
 textarea:focus,
@@ -1334,10 +1365,12 @@ p {
        benefit css 
 ===========================*/
 .benefit_area {
+  /*
   background-image: url(https://i.pinimg.com/736x/a2/9f/be/a29fbe412f4ae410c134bff170a72444.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top;
+  background-position: top;*/
+  background-color: var(--color-text);
 }
 
 .benefit-card .card-wrap {
@@ -1345,7 +1378,7 @@ p {
 }
 
 .benefit-card .card-wrap>.card {
-  background: var(--color-bg-mn);
+  background: white;
   width: 100%;
   text-align: center;
   padding: 15px 30px 30px 30px;
@@ -1357,7 +1390,7 @@ p {
   color: white;
   padding: 12px 0 0 0;
   clip-path: polygon(0 0, 100% 0, 100% 53%, 49% 100%, 0 53%);
-  background-color: var(--color-bg-mx);
+  background-color: var(--color-text);
 }
 
 .benefit-card .card .top .title>p {
@@ -1394,7 +1427,7 @@ p {
   font-size: 16px;
   font-weight: 300;
   color: var(--color-text);
-  background-color: var(--color-bg-mn);
+  background-color: white;
   padding: 3px;
   width: max-content;
   font-family: 'Roboto';
@@ -1408,11 +1441,24 @@ p {
   font-weight: 600;
   width: 80%;
   padding: 10px 0;
-  border: 2px solid white;
+  border: 2px solid var(--color-text);
   color: var(--color-text);
   border-radius: 8px;
 }
-
+.details{
+  list-style: none;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.details>li{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 1rem;
+  text-align: justify;
+}
 .benefit-card .card .details .one {
   margin-top: 5px;
   font-size: 15px;
@@ -1453,14 +1499,15 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  margin-top: auto;
+  
 }
 
 .benefit-card .button>a {
   outline: none;
   border: none;
   color: white;
-  background-color: var(--color-bg-mx);
+  background-color: var(--color-text);
   border-radius: 8px;
   font-size: 18px;
   width: 100%;
@@ -1545,16 +1592,6 @@ p {
   font-weight: 700 !important;
 }
 
-
-.title-h1 {
-  color: #0048ab;
-  font-size: calc(2.5rem + 0.7vw);
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 700;
-}
-
-
 .link-blue {
   background-color: #0048ab;
   color: white;
@@ -1579,6 +1616,7 @@ p {
   --color-bg-mn: #cfe8e7;
   --color-text: #004aab;
   --color-bg-mx: #228582;
+  --color-yelow: #fc0;
 }
 
 
@@ -1808,6 +1846,10 @@ p {
   margin-left: 10px;
 }
 
+.bottom-2 {
+  flex: 1;
+}
+
 /* */
 .screenshot_area {
   position: relative;
@@ -1850,10 +1892,6 @@ p {
 @media (max-width: 567px) {
   .screenshot_area {
     height: auto;
-  }
-
-  .bottom-2 {
-    flex: 1;
   }
 }
 
@@ -2650,7 +2688,13 @@ p {
   align-items: center;
   justify-content: start;
 }
-
+@media (max-width:982px) {
+  .footer-list>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .footer-list>div>a {
   margin: 10px;
   font-size: 28px;
@@ -3174,7 +3218,7 @@ p {
 .table .features td,
 .table .features th {
   border: none;
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
 }
 

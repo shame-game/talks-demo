@@ -96,7 +96,7 @@ fetchSheet
       <div class="element-hidden-detail container boxdetail" style="display: none;" index="${i}">
     <div class="wrapper">
       <div class="table premium">
-        <div class="ribbon"><span>150% giá trị</span></div>
+        <div class="ribbon"><span>${row.row8}</span></div>
         <div class="price-section">
           <div class="price-area">
             <div class="inner-area">
@@ -113,19 +113,19 @@ fetchSheet
             <th class="icon check">Hạn sử dụng</th>
           </tr>
           `
-          row.row3.split("\n").forEach((tab,i) => {
-            boxHiden += `<tr>
+      row.row3.split("\n").forEach((tab, i) => {
+        boxHiden += `<tr>
             <td class="list-name">${row.row3.split('\n')[i]}</td>
             <td class="icon check">${row.row4.split('\n')[i]}</td>
             <td class="icon check">${row.row5.split('\n')[i]}</td>
             </tr>`
-          });
-        boxHiden += `
+      });
+      boxHiden += `
         </table>
         <div class="btn">
           <div>
-            <h2>Giá bán 10.000.000 đ</h2>
-            <h4>Giá trị mà bạn nhân được: 15.000.000vnd</h4>
+            <h2>Giá bán: ${row.row6}</h2>
+            <h4>Giá trị mà bạn nhận được: ${row.row7}</h4>
           </div>
           <a class="bt buttonde-onlclick" index=${i}><span>Tham gia ngay</span></a>
         </div>
@@ -145,25 +145,25 @@ fetchSheet
         vam('.qrpay').src = package.row6;
         vams('.participant-moneyin').forEach(element => element.innerText = 'Giá gói: ' + parseFloat(package.row2).toLocaleString("vi-VN") + ' đ');
         vams('.participant-moneyout').forEach(element => element.innerText = 'Giá trị nhận được: ' + parseFloat(package.row3).toLocaleString("vi-VN") + ' đ');
-        vam('.participant-total').innerText = parseFloat(packages[index].row4).toLocaleString("vi-VN", {style: 'currency',currency: 'VND'});
-        vam('.participant-percent').innerText = packages[index].row5 + "%";
-        vam('.participant-days').innerText = packages[index].row6;
+
+      
+        vam('.participant-days').innerText = 'Còn lại: ' + packages[index].row6 + ' Ngày'
         let featuresHTML = '';
-        package.row5.split("\n").forEach((con)=>{
+        package.row5.split("\n").forEach((con) => {
           featuresHTML += `<li><i class="bi bi-check"></i>${con}</li>`;
         })
-        vam('body').setAttribute('style','overflow-y: hidden;')
+        vam('body').setAttribute('style', 'overflow-y: hidden;')
         vam('.participant-features').innerHTML = featuresHTML;
-        vam('body').setAttribute('style','overflow-y: hidden;')
+        vam('body').setAttribute('style', 'overflow-y: hidden;')
         vam('.background-onclick-detail').setAttribute('style', 'display:none')
         vam(`.element-hidden-detail[style='display:block']`).setAttribute('style', 'display:none')
         vam('#Box_1412c>.background').setAttribute('style', 'display:block')
         vam('#Box_1412c>.box').setAttribute('style', 'display:flex')
         vam('#Box_1412c>.background').addEventListener('click', () => {
-          vam('body').setAttribute('style','overflow-y: auto;')
+          vam('body').setAttribute('style', 'overflow-y: auto;')
           vam('#Box_1412c>.background').setAttribute('style', 'display:none')
           vam('#Box_1412c>.box').setAttribute('style', 'display:none')
-          if(vam("#Box_1412c .content").classList.contains(".acc")){
+          if (vam("#Box_1412c .content").classList.contains(".acc")) {
             vam("#Box_1412c .content.acc").classList.remove('acc')
           }
           vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
@@ -178,14 +178,14 @@ fetchSheet
         vam('#Box_1412c .out').addEventListener('click', () => {
           vam('#Box_1412c>.background').setAttribute('style', 'display:none')
           vam('#Box_1412c>.box').setAttribute('style', 'display:none')
-          vam('body').setAttribute('style','overflow-y: auto;')
+          vam('body').setAttribute('style', 'overflow-y: auto;')
         })
       })
     })
-    vam('#Box_1412c .suc').addEventListener('click',()=>{
+    vam('#Box_1412c .suc').addEventListener('click', () => {
       vam('#Box_1412c>.background').setAttribute('style', 'display:none')
       vam('#Box_1412c>.box').setAttribute('style', 'display:none')
-      if(vam("#Box_1412c .content").classList.contains(".acc")){
+      if (vam("#Box_1412c .content").classList.contains(".acc")) {
         vam("#Box_1412c .content.acc").classList.remove('acc')
       }
       vam('#Box_1412c .contenttitle').setAttribute('style', 'display: flex')
@@ -196,19 +196,19 @@ fetchSheet
       vams('#Box_1412c .line>p').forEach((line) => {
         line.setAttribute('style', 'display: none')
       })
-      vam('body').setAttribute('style','overflow-y: auto;')
+      vam('body').setAttribute('style', 'overflow-y: auto;')
     })
 
     // phần chính sách thanh toán
-    let tieudecs= '';
-    let chinhsach= '';
+    let tieudecs = '';
+    let chinhsach = '';
 
-    content.titlecs.forEach((row)=>{
+    content.titlecs.forEach((row) => {
       tieudecs = `${row.row1}`
     })
     document.querySelector('#titlecs').innerHTML = tieudecs
-    
-    content.chinhsach.forEach((row)=>{
+
+    content.chinhsach.forEach((row) => {
       chinhsach = `${row.row1}`
     })
     document.querySelector('#chinhsach').innerHTML = chinhsach
@@ -217,8 +217,10 @@ fetchSheet
     // phần slick các gói
     var d = 0
     let temposlick = "";
+    let ind = 1
     content.packages.forEach((row, d) => {
-       temposlick += `
+      console.log(row);
+      temposlick += `
       <div class="col-lg-4">
                         <div class="tempo-slick-card">
                             <div class="tempo-slick-top">
@@ -227,14 +229,14 @@ fetchSheet
                             </div>
                             <div class="tempo-slick-absolute">
                                 <div class="title">
-                                    <h4>${parseFloat(row.row4).toLocaleString("vi-VN") + ' vnđ'}</h4>
-                                    <p>${row.row5 + '%  '}</p>
+                                    <h4 class="SoTienNhanDuoc${ind}">0</h4>
+                                    <p class="PhanTram${ind}">0</p>
                                 </div>
-                                <div class="tempo">
+                                <div class="tempo tempo${ind}">
                                     <div style="width: ${row.row5}%;"></div>
                                 </div>
                                 <div class="time"><i class="bi bi-alarm-fill"></i>
-                                    <p>${row.row6}</p>
+                                    <p>Còn lại: ${row.row6} Ngày</p>
                                 </div>
                             </div>
                             <div class="tempo-slick-bottom">
@@ -255,8 +257,10 @@ fetchSheet
                     </div>
       `
       d++;
+      ind++;
     })
     document.querySelector('#tempo-slick-wrap').innerHTML = temposlick;
+
     $("#tempo-slick-wrap").slick({
       dots: false,
       infinite: true,
@@ -294,11 +298,11 @@ fetchSheet
         vams('.participant-name').forEach(element => element.innerText = package.row1);
         vams('.participant-moneyin').forEach(element => element.innerText = 'Giá gói: ' + parseFloat(package.row2).toLocaleString("vi-VN") + ' đ');
         vams('.participant-moneyout').forEach(element => element.innerText = 'Giá trị nhận được: ' + parseFloat(package.row3).toLocaleString("vi-VN") + ' đ');
-        vam('.participant-total').innerText = parseFloat(packages[index].row4).toLocaleString("vi-VN", { style: 'currency', currency: 'VND' });
-        vam('.participant-percent').innerText = packages[index].row5 + "%";
-        vam('.participant-days').innerText = packages[index].row6;
+    
+     
+        vam('.participant-days').innerText = 'Còn lại: ' + packages[index].row6 + ' Ngày'
         let featuresHTML = '';
-        package.row5.split("\n").forEach((con)=>{
+        package.row5.split("\n").forEach((con) => {
           featuresHTML += `<li><i class="bi bi-check"></i>${con}</li>`;
         })
         vam('.qrpay').src = package.row6
@@ -307,7 +311,7 @@ fetchSheet
         vam('#Box_1412c>.background').setAttribute('style', 'display:block')
         vam('#Box_1412c>.box').setAttribute('style', 'display:flex')
         vam('#Box_1412c>.background').addEventListener('click', () => {
-          vam('body').setAttribute('style','overflow-y: auto;')
+          vam('body').setAttribute('style', 'overflow-y: auto;')
           vam('#Box_1412c>.background').setAttribute('style', 'display:none')
           vam('#Box_1412c>.box').setAttribute('style', 'display:none')
           vam("#Box_1412c .content.acc").classList.remove('acc')
@@ -321,7 +325,7 @@ fetchSheet
           })
         })
         vam('#Box_1412c .out').addEventListener('click', () => {
-          vam('body').setAttribute('style','overflow-y: auto;')
+          vam('body').setAttribute('style', 'overflow-y: auto;')
           vam('#Box_1412c>.background').setAttribute('style', 'display:none')
           vam('#Box_1412c>.box').setAttribute('style', 'display:none')
         })
@@ -340,7 +344,7 @@ fetchSheet
       vams('#Box_1412c .line>p').forEach((line) => {
         line.setAttribute('style', 'display: none')
       })
-      vam('body').setAttribute('style','overflow-y: auto;')
+      vam('body').setAttribute('style', 'overflow-y: auto;')
     })
 
     var chitiet = vams('.button-onclick-detail')
@@ -369,8 +373,8 @@ fetchSheet
         vam('.contenttitle').setAttribute('style', 'display: none')
         contentlist.classList.add('acc')
         dotlist.classList.add('acc')
-        if(line !== undefined){
-          line.setAttribute('style','display:block')
+        if (line !== undefined) {
+          line.setAttribute('style', 'display:block')
         }
       })
     })
@@ -398,30 +402,6 @@ fetchSheet
     })
 
     // top-table 
-
-
-    let toptbody = "";
-    content.topTable.forEach(row => {
-      toptbody += `
-        <tr>
-          <td><div class="td1"><p>${row.row1}</p></div></td>
-          <td><div class="td2"><p>${row.row2}</p></div></td>
-          <td><div class="td3"><p>${parseFloat(row.row3).toLocaleString("vi-VN") + ' vnđ'}</p></div></td>
-        </tr>`
-    });
-    document.querySelector("#top_tbody").innerHTML = toptbody;
-    $(document).ready(function () {
-      var table = $('#example').DataTable({
-        "ordering": false,
-        "language": {
-          "search": "",
-        },
-      });
-      $('.filter-button').on('click', function () {
-        var selectedCountry = $(this).data('country');
-        table.column(3).search(selectedCountry).draw();
-      });
-    });
 
     // feedback
     var feedbackForm = '';
@@ -482,7 +462,7 @@ fetchSheet
         </div>
         </form>
         <div class="button">
-          <button id="feedback-cmt">Gửi nhận xét</button>
+          <button id="feedback-cmt">Gửi phản hồi</button>
         </div>
       </div>
       <div class="col-lg-6 feedback-img wow fadeInRight" data-wow-delay="0.2s">
@@ -577,32 +557,14 @@ fetchSheet
       `
     })
     document.querySelector('#footer-top').innerHTML = footertop
-    var footermid = ""
-    footermid += `
-    <div class="row footer-mid">
-      <div class="col-lg-12 content">
-        <h2 class="title-h4" style="font-size: 36px;text-align: center;">`
-    footermid += content.footerIntro[content.footerIntro.length - 1].row1
-    footermid += `
-        </h2>
-      </div>
-    </div>`
-    document.querySelector("#footer-mid").innerHTML = footermid;
 
     let footerList1 = `<ul class="footer-list">`;
     let footerList2 = `<ul class="footer-list">`;
     let footerList3 = `<ul class="footer-list">`;
-    let footerList4 = `<ul class="footer-list">`;
     content.liContent.forEach((row) => {
       footerList1 += `<li><a class="links1" href="">${row.row1}</a></li>`
       footerList2 += `<li><a class="links2" href="">${row.row2}</a></li>`
       footerList3 += `<li><a class="links3" href="">${row.row3}</a></li>`
-      if (row.row4 == "") {
-        footerList4 += ``
-      }
-      else {
-        footerList4 += `<li><a class="links4" href="">${row.row4}</a></li>`
-      }
     });
     footerList1 += ` </ul>`
     footerList2 += ` </ul>`
@@ -621,12 +583,6 @@ fetchSheet
       var hrefLink3 = `${row.row3}`
       indexlink3[index].setAttribute('href', hrefLink3)
     });
-    footerList4 += `<div>`
-    content.contact.forEach((row) => {
-      footerList4 += `<a href="${row.row5}"><i class="bi bi-${row.row4}"></i></a>`
-    });
-    footerList4 += ` </div></ul>`
-    document.querySelector("#footer-list-4").innerHTML = footerList4;
   });
 
 /* mục tiêu */
@@ -643,22 +599,6 @@ const IG = window.addEventListener('scroll', () => {
   document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
 })
 
-
-fetchCell({
-  gSheetId: "1s3I2Lh6d5VrXwfe0NP2HYxmFRLy0PjdrhEQ9dysv7b0",
-  wSheetName: "footer",
-  range: "B4",
-})
-  .then((value) => {
-    var footermid = ""
-    footermid += `
-          <div class="row footer-mid">
-            <div class="col-lg-12 content">
-              <h2 class="title-h4" style="font-size: 36px;text-align: center;">${value.slice(1, value.length - 1)}</h2>
-            </div>
-          </div>`
-    document.querySelector("#footer-mid").innerHTML = footermid;
-  });
 
 fetchCell({
   gSheetId: "1bpxTy_rtJvFqsm3mutT6v8_FDPdCLqEDbuykxPOf_Bc",
@@ -719,3 +659,139 @@ fetchCell({
         <div class="c"><p>${value.slice(1, value.length - 1)}</p></div>`
     document.querySelector(".c-wrap").innerHTML = c;
   });
+
+var data = []
+var datagoi = []
+window.onload = function () {
+  fetchSheet
+    .fetch({
+      gSheetId: '1exINb84BdO5XHUcs_t56Rig2gpDHQPpsnkGUvViuULA',
+      wSheetName: 'Dữ Liệu Nhập - Tiền',
+    })
+    .then((rows) => {
+      let tong = 0;
+      let tong1 = 0;
+      let tong2 = 0;
+      let tong3 = 0;
+      let goi = 800;
+      let goi1 = 1500;
+      let goi2 = 600;
+      let goi3 = 100;
+      let goi4 = 1000;
+      let tongall = 0;
+      rows.forEach((tab) => {
+        if (tab['HỌ VÀ TÊN KHÁCH'] != '') {
+          data = data.concat(tab)
+          tongall = tongall + parseInt(tab['SỐ TIỀN'])
+        }
+        if (tab['SỐ TIỀN'] == '10.000.000 đ') {
+          tong = tong + parseInt(tab['SỐ TIỀN'])      
+        }
+        if (tab['SỐ TIỀN'] == '5.000.000 đ') {
+          tong1 = tong1 + parseInt(tab['SỐ TIỀN'])       
+        }
+        if (tab['SỐ TIỀN'] == '2.000.000 đ') {
+          tong2 = tong2 + parseInt(tab['SỐ TIỀN'])       
+        }
+        if (tab['SỐ TIỀN'] == '1.000.000 đ') {
+          tong3 = tong3 + parseInt(tab['SỐ TIỀN'])       
+        }
+      })
+      goi = Math.floor((tong / goi * 100) * 100)/100 + '%'
+      goi1 = Math.floor((tong1 / goi1 * 100) * 100)/100 + '%'
+      goi2 = Math.floor((tong2 / goi2 * 100) * 100)/100 + '%'
+      goi3 = Math.floor((tong3 / goi3 * 100) * 100)/100 + '%'
+      tong = tong + '.000.000 đ'
+      tong1 = tong1 + '.000.000 đ'
+      tong2 = tong2 + '.000.000 đ'
+      tong3 = tong3 + '.000.000 đ'
+      let phantram = Math.floor((tongall / goi4 * 100) * 100)/100 + '%'
+      tongall = tongall + '.000.000 đ'
+      data.sort((a, b) => {
+        var soTienA = parseInt(a['SỐ TIỀN']);
+        var soTienB = parseInt(b['SỐ TIỀN']);
+        // So sánh hai số tiền và trả về kết quả
+        return soTienB - soTienA;
+      });
+      updateTable(data);
+      // 
+      vams('.SoTienNhanDuoc4').forEach((tab)=>{
+        tab.innerText = tong3
+      })
+      vams('.SoTienNhanDuoc3').forEach((tab)=>{
+        tab.innerText = tong2
+      })
+      vams('.SoTienNhanDuoc2').forEach((tab)=>{
+        tab.innerText = tong1
+      })
+      vams('.SoTienNhanDuoc1').forEach((tab)=>{
+        tab.innerText = tong
+      })
+      //
+      vams('.PhanTram4').forEach((tab)=>{
+        tab.innerText = goi3
+      })
+      vams('.PhanTram3').forEach((tab)=>{
+        tab.innerText = goi2
+      })
+      vams('.PhanTram2').forEach((tab)=>{
+        tab.innerText = goi1
+      })
+      vams('.PhanTram1').forEach((tab)=>{
+        tab.innerText = goi
+      })
+      //
+      vams('.tempo4>div').forEach((tab)=>{
+        tab.setAttribute('style',`width:${goi3}`)
+      })
+      vams('.tempo3>div').forEach((tab)=>{
+        tab.setAttribute('style',`width:${goi2}`)
+      })
+      vams('.tempo2>div').forEach((tab)=>{
+        tab.setAttribute('style',`width:${goi1}`)
+      })
+      vams('.tempo1>div').forEach((tab)=>{
+        tab.setAttribute('style',`width:${goi}`)
+      })
+      vam('.top-title>h1').innerText = tongall
+
+      vams('.participant-total').forEach((t)=>{
+        t.innerText = tongall
+      })
+      vams('.participant-percent').forEach((t)=>{
+        t.innerText = phantram
+      })
+      vams('.tempodiv>div').forEach((t)=>{
+        t.setAttribute('style',`width:${phantram}`)
+      })
+    });
+};
+
+function updateTable(rows) {
+  let toptbody = "";
+  let i = 1;
+  rows.map(row => {
+    if (row['HỌ VÀ TÊN KHÁCH'] != '') {
+      toptbody += `
+    <tr>
+      <td><div class="td1"><p>${i}</p></div></td>
+      <td><div class="td2"><p>${row['HỌ VÀ TÊN KHÁCH']}</p></div></td>
+      <td><div class="td3"><p>${row['SỐ TIỀN']}</p></div></td>
+    </tr>`
+      i++
+    }
+  });
+  document.querySelector("#top_tbody").innerHTML = toptbody;
+  $(document).ready(function () {
+    var table = $('#example').DataTable({
+      "ordering": false,
+      "language": {
+        "search": "",
+      },
+    });
+    $('.filter-button').on('click', function () {
+      var selectedCountry = $(this).data('country');
+      table.column(3).search(selectedCountry).draw();
+    });
+  });
+}

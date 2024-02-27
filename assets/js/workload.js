@@ -93,32 +93,14 @@ fetchSheet
       `
     })
     document.querySelector('#footer-top').innerHTML = footertop
-    var footermid = ""
-    footermid += `
-    <div class="row footer-mid">
-      <div class="col-lg-12 content">
-        <h2 class="title-h4" style="font-size: 36px;text-align: center;">`
-    footermid += content.footerIntro[content.footerIntro.length - 1].row1
-    footermid += `
-        </h2>
-      </div>
-    </div>`
-    document.querySelector("#footer-mid").innerHTML = footermid;
 
     let footerList1 = `<ul class="footer-list">`;
     let footerList2 = `<ul class="footer-list">`;
     let footerList3 = `<ul class="footer-list">`;
-    let footerList4 = `<ul class="footer-list">`;
     content.liContent.forEach((row) => {
       footerList1 += `<li><a class="links1" href="">${row.row1}</a></li>`
       footerList2 += `<li><a class="links2" href="">${row.row2}</a></li>`
       footerList3 += `<li><a class="links3" href="">${row.row3}</a></li>`
-      if (row.row4 == "") {
-        footerList4 += ``
-      }
-      else {
-        footerList4 += `<li><a class="links4" href="">${row.row4}</a></li>`
-      }
     });
     footerList1 += ` </ul>`
     footerList2 += ` </ul>`
@@ -137,12 +119,6 @@ fetchSheet
       var hrefLink3 = `${row.row3}`
       indexlink3[index].setAttribute('href', hrefLink3)
     });
-    footerList4 += `<div>`
-    content.contact.forEach((row) => {
-      footerList4 += `<a href="${row.row5}"><i class="bi bi-${row.row4}"></i></a>`
-    });
-    footerList4 += ` </div></ul>`
-    document.querySelector("#footer-list-4").innerHTML = footerList4;
   });
 
 fetchCell({
@@ -273,7 +249,7 @@ function getWPPost() {
     $.each(posts, function (index, post) {
       postmainHtml += `
       <div class="post-main-wrap" index=${index} style="display:none">
-      <h4><span>ngày đăng</span><p>${post.date}</p></h4>
+      <h4><span>Ngày đăng</span><p>${post.date}</p></h4>
       <h1>${post.title.rendered}</h1>
       <p>${post.content.rendered}</p>
       </div>

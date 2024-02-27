@@ -297,7 +297,7 @@ Author: lineicons.com
 #testimonial .lni-arrow-left::before {
   content: "\ea1c";
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
   left: 330px;
   padding: 13px;
   color: white;
@@ -309,7 +309,7 @@ Author: lineicons.com
 #testimonial .lni-arrow-right::before {
   content: "\ea1e";
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
   left: 350px;
   padding: 13px;
   background: var(--color-text);
