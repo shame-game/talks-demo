@@ -815,6 +815,9 @@ table.dataTable.no-footer {
         bottom: 72px;
         left: 228px;
     }
+    .tempo-slick-bottom>ul>li{
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 992px) {
@@ -852,6 +855,9 @@ table.dataTable.no-footer {
 }
 
 @media (max-width: 560px) {
+    #tempo::before{
+        width: 200px;
+    }
 
     .lni-arrow-left::before {
         bottom: 0;

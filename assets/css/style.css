@@ -54,6 +54,10 @@ html{
   font-size: 16px;
 }
 
+.navbar-toggler.collapsed{
+  background-color: unset !important;
+}
+
 .penci-testi-s2 .penci-testimonail .penci-testi-bq-icon:before{
   display: none !important;
 }
@@ -898,6 +902,7 @@ p {
   .header_hero {
     height: 700px;
   }
+
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -3605,6 +3610,7 @@ p {
 
 #Box_1412c>.box>div>.content.acc {
   display: flex;
+  justify-content: center;
 }
 
 #Box_1412c .contenttitle {
