@@ -584,4 +584,62 @@ function Mathdd() {
 const IG = window.addEventListener('scroll', () => {
   document.querySelector('.footer-top_wrap').setAttribute('style', `background-image: url(./assets/images/footer-top.png); background-position: center ${Mathdd()}px`)
 })
+var data = []
+window.onload = function () {
+  fetchSheet
+    .fetch({
+      gSheetId: '1exINb84BdO5XHUcs_t56Rig2gpDHQPpsnkGUvViuULA',
+      wSheetName: 'Dữ Liệu Nhập - Tiền',
+    })
+    .then((rows) => {
+      let tong = 0;
+      let tong1 = 0;
+      let tong2 = 0;
+      let tong3 = 0;
+      let goi = 800;
+      let goi1 = 1500;
+      let goi2 = 600;
+      let goi3 = 100;
+      let goi4 = 1000;
+      let tongall = 0;
+      rows.forEach((tab) => {
+        if (tab['HỌ VÀ TÊN KHÁCH'] != '') {
+          data = data.concat(tab)
+          tongall = tongall + parseInt(tab['SỐ TIỀN'])
+        }
+        if (tab['SỐ TIỀN'] == '10.000.000 đ') {
+          tong = tong + parseInt(tab['SỐ TIỀN'])      
+        }
+        if (tab['SỐ TIỀN'] == '5.000.000 đ') {
+          tong1 = tong1 + parseInt(tab['SỐ TIỀN'])       
+        }
+        if (tab['SỐ TIỀN'] == '2.000.000 đ') {
+          tong2 = tong2 + parseInt(tab['SỐ TIỀN'])       
+        }
+        if (tab['SỐ TIỀN'] == '1.000.000 đ') {
+          tong3 = tong3 + parseInt(tab['SỐ TIỀN'])       
+        }
+      })
+      goi = Math.floor((tong / goi * 100) * 100)/100 + '%'
+      goi1 = Math.floor((tong1 / goi1 * 100) * 100)/100 + '%'
+      goi2 = Math.floor((tong2 / goi2 * 100) * 100)/100 + '%'
+      goi3 = Math.floor((tong3 / goi3 * 100) * 100)/100 + '%'
+      tong = tong + '.000.000 đ'
+      tong1 = tong1 + '.000.000 đ'
+      tong2 = tong2 + '.000.000 đ'
+      tong3 = tong3 + '.000.000 đ'
+      let phantram = Math.floor((tongall / goi4 * 100) * 100)/100 + '%'
+      tongall = tongall + '.000.000 đ'
 
+
+      vams('.participant-total').forEach((t)=>{
+        t.innerText = tongall
+      })
+      vams('.participant-percent').forEach((t)=>{
+        t.innerText = phantram
+      })
+      vams('.tempodiv>div').forEach((t)=>{
+        t.setAttribute('style',`width:${phantram}`)
+      })
+    });
+};

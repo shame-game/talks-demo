@@ -54,7 +54,19 @@ html{
   font-size: 16px;
 }
 
+.penci-testi-s2 .penci-testimonail .penci-testi-bq-icon:before{
+  display: none !important;
+}
+
 /* title */ 
+.title-h1 {
+  color: #0048ab;
+  font-size: 2.5rem;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 .title-h1 {
   color: #0048ab;
   font-size: 2.5rem;
