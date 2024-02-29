@@ -249,7 +249,7 @@ fetchSheet
                                     
                                 </div>
                                 <div class="button">
-                                    <a class="button-onlclick" index=${d} >Đóng góp ngay</a>
+                                    <a class="button-onlclick" index=${d} >Tham gia ngay</a>
                                     <p class="button-onclick-detail" index=${d}>chi tiết</p>
                                 </div>
                             </div>
