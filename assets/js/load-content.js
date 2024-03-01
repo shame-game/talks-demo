@@ -327,10 +327,37 @@ fetchSheet
       })
       vam('body').setAttribute('style', 'overflow-y: auto;')
     })
-
+    let g = 4
     let timelineHtml = '';
     content.Boxdetail.forEach((row, i) => {
-      timelineHtml += `
+      timelineHtml +=`<div class="col-lg-4 col-xl-6 col-12" style="padding-top: 80px">
+      <div class="GHF_wrap">
+            <div class="GHF_posi">
+                <p style="margin: 0;">0${g}</p>
+            </div>
+            <div class="GHF_title">
+                <h1>${row.row2}</h1>
+                <div class="GHF_In">
+                    <h4>${row.row6}</h4>
+                </div>
+                <div class="GHF_Out">
+                    <p>Giá trị nhận được</p>
+                    <h4>${row.row7}</h4>
+                </div>
+                <div class="details">`
+                row.row3.split("\n").forEach((con) => {
+                  timelineHtml += `<li>● ${con}</li>`;
+                })
+                timelineHtml +=  `</div>
+                <div class="button">
+                  <a class="button-onlclick" style="text-align:center" index="${i}">Tham gia ngay</a>
+                  <p class="button-onclick-detail" index="${i}">Chi tiết</p>
+                </div>
+            </div>
+        </div></div>`
+      g--
+      
+      /* `
               <div class="card-wrap col-lg-4 col-xl-6 col-12 wow fadeInUp" data-wow-delay="0.2s">
               <div class="card">
               <div class="top">
@@ -351,7 +378,7 @@ fetchSheet
               </div>
             </div>
          </div>
-            </div>`
+            </div>`*/
 
     });
     document.querySelector("#timeline").innerHTML = timelineHtml;
